@@ -1,0 +1,16 @@
+:Base ReportPlus.hlp
+:Title Report generator help
+1 Introduction=IDH_INTRO
+1 Main program window=IDH_CONTENTS
+1 Data types which report can handle
+2 Recipe data file=IDH_RECIPE_FILE
+2 Readback data file=IDH_READBACK_FILE
+2 Events data file=IDH_EVENTS_FILE
+2 Run data set file group=IDH_DATA_SET
+1 How to
+2 View/print recipe report=IDH_RECIPE_REPORT
+2 View/print recipe compare=IDH_RECIPE_COMPARE
+2 View/print readback report=IDH_READBACK_REPORT
+2 View/print readback compare=IDH_READBACK_COMPARE
+2 View/print events report=IDH_EVENTS_REPORT
+2 View/print data set report=IDH_DATASET_REPORT

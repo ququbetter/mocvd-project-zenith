@@ -1,0 +1,11 @@
+1 Contents=IDH_CONTENTS@RecipePlus.hlp
+1 Recipe editor hotkeys=IDH_HOTKEYS
+1 Main menu
+2 File menu=IDH_MNU_FILE
+2 Edit menu=IDH_MNU_EDIT
+2 View menu=IDH_MNU_VIEW
+2 Tools menu=IDH_MNU_TOOLS
+2 Options menu=IDH_MNU_OPTIONS
+1 Layers manipulation
+2 Delete layer(s)=IDH_LAYER_DELETE>MAIN
+2 Add layer(s)=IDH_LAYER_ADD>MAIN
