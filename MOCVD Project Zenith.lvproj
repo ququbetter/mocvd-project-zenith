@@ -443,8 +443,10 @@
 			<Item Name="String to Array.vi" Type="VI" URL="../Misc/String to Array.vi"/>
 		</Item>
 		<Item Name="Recipe" Type="Folder">
+			<Item Name="Recipe Controls" Type="Folder">
+				<Item Name="LayerHeader.ctl" Type="VI" URL="../Recipe/Controls/LayerHeader.ctl"/>
+			</Item>
 			<Item Name="Main Recipe.vi" Type="VI" URL="../Recipe/Main Recipe.vi"/>
-			<Item Name="Recipe.lvsc" Type="LVStatechart" URL="../Recipe/Statecharts/Recipe.lvsc"/>
 		</Item>
 		<Item Name="Add Index (Dnet CommandRegister Buffer).vi" Type="VI" URL="../Conversion/Add Index (Dnet CommandRegister Buffer).vi"/>
 		<Item Name="Close Vi Reference.vi" Type="VI" URL="../VI Control/Close Vi Reference.vi"/>
