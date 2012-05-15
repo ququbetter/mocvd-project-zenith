@@ -1,0 +1,3094 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rsnsd:ScannerDevice xmlns:rsnsd="urn:rsn-scannerdevice-v1-1">
+	<NetworkType>DeviceNet</NetworkType>
+	<TargetDevice>
+		<TargetAddress>1</TargetAddress>
+		<TargetName>Brooks Digital MFC01</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>64</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>88</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="64" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="88" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>64</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>64</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="64" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>64</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>2</TargetAddress>
+		<TargetName>Brooks Digital MFC44</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>128</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>152</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="128" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="152" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>128</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>128</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="128" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>128</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>3</TargetAddress>
+		<TargetName>Brooks Digital MFC45</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>192</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>216</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="192" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="216" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>192</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>192</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="192" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>192</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>4</TargetAddress>
+		<TargetName>Brooks Digital PC10</TargetName>
+		<CatalogName>Brooks DeviceNet PC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Pressure</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>256</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>280</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="256" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="280" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>256</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>256</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="256" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>256</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>5</TargetAddress>
+		<TargetName>Brooks Digital MFC02</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>320</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>344</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="320" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="344" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>320</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>320</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="320" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>320</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>6</TargetAddress>
+		<TargetName>Brooks Digital MFC46</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>384</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>408</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="384" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="408" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>384</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>384</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="384" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>384</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>7</TargetAddress>
+		<TargetName>Brooks Digital MFC47</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>448</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>472</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="448" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="472" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>448</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>448</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="448" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>448</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>8</TargetAddress>
+		<TargetName>Brooks Digital PC11</TargetName>
+		<CatalogName>Brooks DeviceNet PC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Pressure</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>512</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>536</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="512" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="536" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>512</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>512</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="512" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>512</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>9</TargetAddress>
+		<TargetName>Brooks Digital MFC03</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>576</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>600</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="576" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="600" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>576</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>576</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="576" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>576</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>10</TargetAddress>
+		<TargetName>Brooks Digital PC12</TargetName>
+		<CatalogName>Brooks DeviceNet PC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Pressure</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>640</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>664</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="640" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="664" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>640</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>640</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="640" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>640</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>11</TargetAddress>
+		<TargetName>MultiFlo II MFC04</TargetName>
+		<CatalogName/>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Input1</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>704</BitOffset>
+						<NumBits>64</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="704" NumBits="64"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>704</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Output1</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>704</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="704" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>704</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>12</TargetAddress>
+		<TargetName>Brooks Digital PC13</TargetName>
+		<CatalogName>Brooks DeviceNet PC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Pressure</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>768</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>792</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="768" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="792" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>768</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>768</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="768" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>768</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>13</TargetAddress>
+		<TargetName>Brooks Digital MFC05</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>832</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>856</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="832" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="856" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>832</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>832</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="832" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>832</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>14</TargetAddress>
+		<TargetName>Brooks Digital MFC48</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>896</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>920</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="896" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="920" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>896</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>896</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="896" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>896</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>15</TargetAddress>
+		<TargetName>Brooks Digital MFC49</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>960</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>984</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="960" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="984" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>960</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>960</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="960" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>960</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>16</TargetAddress>
+		<TargetName>Brooks Digital PC14</TargetName>
+		<CatalogName>Brooks DeviceNet PC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Pressure</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1024</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>1048</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1024" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="1048" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1024</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1024</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1024" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1024</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>17</TargetAddress>
+		<TargetName>Brooks Digital MFC06</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1088</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>1112</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1088" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="1112" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1088</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1088</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1088" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1088</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>19</TargetAddress>
+		<TargetName>Brooks Digital MFC51</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1216</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>1240</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1216" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="1240" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1216</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1216</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1216" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1216</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>20</TargetAddress>
+		<TargetName>Brooks Digital PC15</TargetName>
+		<CatalogName>Brooks DeviceNet PC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Pressure</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1280</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>1304</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1280" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="1304" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1280</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1280</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1280" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1280</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>21</TargetAddress>
+		<TargetName>Brooks Digital MFC07</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1344</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>1368</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1344" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="1368" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1344</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1344</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1344" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1344</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>23</TargetAddress>
+		<TargetName>Brooks Digital MFC53</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1472</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>1496</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1472" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="1496" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1472</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1472</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1472" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1472</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>24</TargetAddress>
+		<TargetName>Brooks Digital PC16</TargetName>
+		<CatalogName>Brooks DeviceNet PC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Pressure</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1536</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>1560</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1536" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="1560" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1536</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1536</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1536" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1536</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>25</TargetAddress>
+		<TargetName>Brooks Digital MFC08</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1600</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>1624</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1600" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="1624" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1600</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1600</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1600" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1600</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>27</TargetAddress>
+		<TargetName>Brooks Digital MFC55</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1728</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>1752</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1728" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="1752" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1728</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1728</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1728" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1728</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>28</TargetAddress>
+		<TargetName>Brooks Digital PC17</TargetName>
+		<CatalogName>Brooks DeviceNet PC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Pressure</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1792</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>1816</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1792" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="1816" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1792</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1792</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1792" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1792</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>29</TargetAddress>
+		<TargetName>Brooks Digital MFC09</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1856</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>1880</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1856" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="1880" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1856</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1856</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1856" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1856</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>31</TargetAddress>
+		<TargetName>Brooks Digital MFC37</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1984</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2008</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1984" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2008" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1984</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>1984</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="1984" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>1984</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>32</TargetAddress>
+		<TargetName>Brooks Digital MFC56</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2048</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2072</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2048" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2072" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2048</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2048</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2048" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2048</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>33</TargetAddress>
+		<TargetName>Brooks Digital MFC33</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2112</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2136</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2112" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2136" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2112</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2112</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2112" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2112</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>34</TargetAddress>
+		<TargetName>Brooks Digital MFC32</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2176</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2200</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2176" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2200" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2176</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2176</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2176" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2176</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>35</TargetAddress>
+		<TargetName>Brooks Digital MFC19</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2240</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2264</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2240" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2264" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2240</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2240</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2240" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2240</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>36</TargetAddress>
+		<TargetName>Brooks Digital MFC20</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2304</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2328</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2304" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2328" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2304</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2304</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2304" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2304</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>37</TargetAddress>
+		<TargetName>MultiFlo II MFC52</TargetName>
+		<CatalogName/>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Input1</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2368</BitOffset>
+						<NumBits>64</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2368" NumBits="64"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2368</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Output1</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2368</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2368" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2368</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>38</TargetAddress>
+		<TargetName>Brooks Digital PC21</TargetName>
+		<CatalogName>Brooks DeviceNet PC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Pressure</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2432</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2456</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2432" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2456" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2432</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2432</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2432" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2432</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>39</TargetAddress>
+		<TargetName>Brooks Digital MFC22</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2496</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2520</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2496" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2520" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2496</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2496</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2496" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2496</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>40</TargetAddress>
+		<TargetName>Brooks Digital MFC23</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2560</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2584</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2560" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2584" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2560</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2560</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2560" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2560</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>41</TargetAddress>
+		<TargetName>Brooks Digital PC24</TargetName>
+		<CatalogName>Brooks DeviceNet PC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Pressure</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2624</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2648</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2624" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2648" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2624</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2624</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2624" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2624</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>42</TargetAddress>
+		<TargetName>Brooks Digital MFC34</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2688</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2712</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2688" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2712" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2688</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2688</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2688" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2688</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>43</TargetAddress>
+		<TargetName>Brooks Digital MFC35</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2752</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2776</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2752" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2776" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2752</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2752</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2752" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2752</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>44</TargetAddress>
+		<TargetName>Brooks Digital MFC36</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2816</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2840</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2816" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2840" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2816</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2816</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2816" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2816</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>45</TargetAddress>
+		<TargetName>Brooks Digital MFC38</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2880</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2904</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2880" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2904" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2880</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2880</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2880" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2880</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>46</TargetAddress>
+		<TargetName>Brooks Digital MFC39</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2944</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>2968</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2944" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="2968" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2944</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>2944</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="2944" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>2944</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>47</TargetAddress>
+		<TargetName>Brooks Digital PC42</TargetName>
+		<CatalogName>Brooks DeviceNet PC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Pressure</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3008</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>3032</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3008" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="3032" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3008</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3008</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3008" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3008</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>48</TargetAddress>
+		<TargetName>BARATRON 90</TargetName>
+		<CatalogName/>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>3</NumBytes>
+				<Name>Input1</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3072</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3072" NumBits="24"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3072</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>0</NumBytes>
+				<Name>Output1</Name>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>49</TargetAddress>
+		<TargetName>Brooks Digital MFC-RT29</TargetName>
+		<CatalogName>Brooks DeviceNet MFC-RT</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3136</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>3160</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3136" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="3160" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3136</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>3</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3136</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>16</MsgBitOffset>
+					<NumBits>8</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>3152</BitOffset>
+						<NumBits>8</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3136" NumBits="16"/>
+				<UnknownMapElement MsgBitOffset="16" TableIndex="1" BitOffset="3152" NumBits="8"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3136</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>50</TargetAddress>
+		<TargetName>MultiFlo II MFC50</TargetName>
+		<CatalogName/>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Input1</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3200</BitOffset>
+						<NumBits>64</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3200" NumBits="64"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3200</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Output1</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3200</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3200" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3200</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>51</TargetAddress>
+		<TargetName>MultiFlo II MFC54</TargetName>
+		<CatalogName/>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Input1</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3264</BitOffset>
+						<NumBits>64</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3264" NumBits="64"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3264</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Output1</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3264</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3264" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3264</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>52</TargetAddress>
+		<TargetName>Brooks Digital MFC-RT30</TargetName>
+		<CatalogName>Brooks DeviceNet MFC-RT</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3328</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>3352</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3328" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="3352" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3328</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>3</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3328</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>16</MsgBitOffset>
+					<NumBits>8</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>3344</BitOffset>
+						<NumBits>8</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3328" NumBits="16"/>
+				<UnknownMapElement MsgBitOffset="16" TableIndex="1" BitOffset="3344" NumBits="8"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3328</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>53</TargetAddress>
+		<TargetName>Brooks Digital MFC-RT27</TargetName>
+		<CatalogName>Brooks DeviceNet MFC-RT</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3392</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>3416</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3392" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="3416" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3392</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>3</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3392</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>16</MsgBitOffset>
+					<NumBits>8</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>3408</BitOffset>
+						<NumBits>8</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3392" NumBits="16"/>
+				<UnknownMapElement MsgBitOffset="16" TableIndex="1" BitOffset="3408" NumBits="8"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3392</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>54</TargetAddress>
+		<TargetName>Brooks Digital MFC-RT28</TargetName>
+		<CatalogName>Brooks DeviceNet MFC-RT</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3456</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>3480</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3456" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="3480" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3456</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>3</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3456</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>16</MsgBitOffset>
+					<NumBits>8</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>3472</BitOffset>
+						<NumBits>8</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3456" NumBits="16"/>
+				<UnknownMapElement MsgBitOffset="16" TableIndex="1" BitOffset="3472" NumBits="8"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3456</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>55</TargetAddress>
+		<TargetName>Brooks Digital MFC57</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3520</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>3544</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3520" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="3544" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3520</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3520</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3520" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3520</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>56</TargetAddress>
+		<TargetName>Brooks Digital MFC41</TargetName>
+		<CatalogName>Brooks DeviceNet MFC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Flow</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3584</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>3608</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3584" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="3608" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3584</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3584</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3584" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3584</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>61</TargetAddress>
+		<TargetName>BARATRON 91</TargetName>
+		<CatalogName/>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>3</NumBytes>
+				<Name>Input1</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3904</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3904" NumBits="24"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3904</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>0</NumBytes>
+				<Name>Output1</Name>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<TargetDevice>
+		<TargetAddress>63</TargetAddress>
+		<TargetName>Brooks Digital PC43</TargetName>
+		<CatalogName>Brooks DeviceNet PC</CatalogName>
+		<Connection>
+			<Type>Polled</Type>
+			<InputData>
+				<NumBytes>8</NumBytes>
+				<Name>Status + Pressure</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>24</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3840</BitOffset>
+						<NumBits>24</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UnknownElement>
+					<MsgBitOffset>24</MsgBitOffset>
+					<NumBits>40</NumBits>
+					<DataMap>
+						<TableIndex>1</TableIndex>
+						<BitOffset>3864</BitOffset>
+						<NumBits>40</NumBits>
+					</DataMap>
+				</UnknownElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3840" NumBits="24"/>
+				<UnknownMapElement MsgBitOffset="24" TableIndex="1" BitOffset="3864" NumBits="40"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>64</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3840</TableBitOffset>
+				</AdvDataMap>
+			</InputData>
+			<OutputData>
+				<NumBytes>2</NumBytes>
+				<Name>Setpoint</Name>
+				<UndefinedElement>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<DataMap>
+						<TableIndex>0</TableIndex>
+						<BitOffset>3840</BitOffset>
+						<NumBits>16</NumBits>
+					</DataMap>
+				</UndefinedElement>
+				<UndefinedMapElement MsgBitOffset="0" TableIndex="0" BitOffset="3840" NumBits="16"/>
+				<AdvDataMap>
+					<MsgBitOffset>0</MsgBitOffset>
+					<NumBits>16</NumBits>
+					<TableIndex>0</TableIndex>
+					<TableBitOffset>3840</TableBitOffset>
+				</AdvDataMap>
+			</OutputData>
+		</Connection>
+	</TargetDevice>
+	<InputTable index="0">
+		<Name>Assembly Data</Name>
+		<NumBytes>491</NumBytes>
+		<BaseUnit>3</BaseUnit>
+	</InputTable>
+	<OutputTable index="0">
+		<Name>Assembly Data</Name>
+		<NumBytes>482</NumBytes>
+		<BaseUnit>3</BaseUnit>
+	</OutputTable>
+</rsnsd:ScannerDevice>

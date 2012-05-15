@@ -1,0 +1,52 @@
+:Base EPIVIEW.HLP
+1 Getting Started
+2 About EpiVIEW=About_EpiVIEW
+2 About On-Line Help=About_On_Line_Help
+2 Startup=Startup
+2 Password Screen=Password_Screen
+1 Analog Configuration
+2 Analog Configuration Screen=Analog_Configuration_Screen
+2 Editing Analogs=Editing_Analogs
+2 Sorting the Configured Analog List=Sorting_the_Configured_Analog_List
+1 Data Logging
+2 Data Logging Configuration Screen=Data_Logging_Configuration_Screen
+2 Adding or Selecting Additional Variables to Log=Adding_or_Selecting_Additional_Variables_to_Log
+2 Burst Interval=Burst_Interval
+2 Burst Time=Burst_Time
+2 Choosing a Data Output Option=Choosing_a_Data_Output_Option
+2 Editing Variables to Be Logged=Editing_Variables_to_Be_Logged
+2 Log Events with History=Log_Events_with_History
+2 Log Interval=Log_Interval
+2 Removing Variables to Be Logged=Removing_Variables_to_Be_Logged
+2 Starting Data Logging=Starting_Data_Logging
+1 Real-Time Data Monitoring
+2 Data Scope Screen=Data_Scope_Screen
+2 Data Readback Functions=Data_Readback_Functions
+2 Data Scope Legend=Data_Scope_Legend
+2 Pausing Real Time Logging of Variables=Pausing_Real_Time_Logging_of_Variables
+2 Viewing Options=Viewing_Options
+2 Viewing Valves Associated with Variables=Viewing_Valves_Associated_with_Variables
+1 Recipes
+2 Aborting a Recipe=Aborting_a_Recipe
+2 Adding a Control to a Recipe=Adding_a_Control_to_a_Recipe
+2 Adding a Layer to a Recipe=Adding_a_Layer_to_a_Recipe
+2 Adding a Loop to a Recipe=Adding_a_Loop_to_a_Recipe
+2 Creating a Recipe=Creating_a_Recipe
+2 Deleting a Control or Layer in a Recipe=Deleting_a_Control_or_Layer_in_a_Recipe
+2 Recipe Related Toggle Buttons=Recipe_Related_Toggle_Buttons
+2 Recipe Viewing Options=Recipe_Viewing_Options
+2 Running a Recipe=Running_a_Recipe
+2 Saving a Recipe=Saving_a_Recipe
+1 Data Viewing and Exporting
+2 Data View Screen=Data_View_Screen
+2 Exporting Data to Excel=Exporting_Data_to_Excel
+2 Finding Data Records=Finding_Data_Records
+2 Opening Data Files=Opening_Data_Files
+2 Searching Data Records by Layer Number or Time=Searching_Data_Records_by_Layer_Number_or_Time
+2 Selecting Variables to View=Selecting_Variables_to_View
+1 Reporting Functions
+2 Generating a Report=Generating_a_Report
+2 Comment Editor=Comment_Editor
+2 Comment Screen=Comment_Screen
+2 Generating a Report Immediately Following a Recipe Run=Generating_a_Report_Immediately_Following_a_Recipe_Run
+2 Report Button=Report_Button

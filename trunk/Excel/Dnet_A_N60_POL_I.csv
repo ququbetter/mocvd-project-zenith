@@ -1,0 +1,9 @@
+Tag Name,Address,Data Type,Respect Data Type,Client Access,Scan Rate,Scaling,Raw Low,Raw High,Scaled Low,Scaled High,Scaled Data Type,Clamp Low,Clamp High,Eng Units,Description,Negate Value
+"Data_x.Data_0","DNET_A_N60_POL_I.DATA[0]",Char,0,R/W,100,,,,,,,,,,"",
+"Data_x.Data_1","DNET_A_N60_POL_I.DATA[1]",Char,0,R/W,100,,,,,,,,,,"",
+"Data_x.Data_2","DNET_A_N60_POL_I.DATA[2]",Char,0,R/W,100,,,,,,,,,,"",
+"Data_x.Data_3","DNET_A_N60_POL_I.DATA[3]",Char,0,R/W,100,,,,,,,,,,"",
+"Data_x.Data_4","DNET_A_N60_POL_I.DATA[4]",Char,0,R/W,100,,,,,,,,,,"",
+"Data_x.Data_5","DNET_A_N60_POL_I.DATA[5]",Char,0,R/W,100,,,,,,,,,,"",
+"Data_x.Data_6","DNET_A_N60_POL_I.DATA[6]",Char,0,R/W,100,,,,,,,,,,"",
+"Data_x.Data_7","DNET_A_N60_POL_I.DATA[7]",Char,0,R/W,100,,,,,,,,,,"",
