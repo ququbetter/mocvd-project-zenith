@@ -442,7 +442,10 @@
 			<Item Name="change_decorations_colors.vi" Type="VI" URL="../change_decorations_colors.vi"/>
 			<Item Name="String to Array.vi" Type="VI" URL="../Misc/String to Array.vi"/>
 		</Item>
-		<Item Name="Recipe" Type="Folder"/>
+		<Item Name="Recipe" Type="Folder">
+			<Item Name="Main Recipe.vi" Type="VI" URL="../Recipe/Main Recipe.vi"/>
+			<Item Name="Recipe.lvsc" Type="LVStatechart" URL="../Recipe/Statecharts/Recipe.lvsc"/>
+		</Item>
 		<Item Name="Add Index (Dnet CommandRegister Buffer).vi" Type="VI" URL="../Conversion/Add Index (Dnet CommandRegister Buffer).vi"/>
 		<Item Name="Close Vi Reference.vi" Type="VI" URL="../VI Control/Close Vi Reference.vi"/>
 		<Item Name="CreateIndices (DNet CommandRegister Buffer).vi" Type="VI" URL="../Conversion/CreateIndices (DNet CommandRegister Buffer).vi"/>
