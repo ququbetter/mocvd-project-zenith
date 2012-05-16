@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<recipe name="Open valves">
+	<step name="Open valve 32" time="10" ramp="0" delay="0">
+		<valve index="32">
+			<value>1</value>
+		</valve>
+	</step>
+</recipe>
+
+<!ELEMENT recipe (step)>
+<!ATTLIST recipe name CDATA #REQUIRED>
+<!ELEMENT step (valve | MFC | PC | recipe)*>
