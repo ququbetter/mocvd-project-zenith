@@ -446,6 +446,9 @@
 			<Item Name="Recipe Controls" Type="Folder">
 				<Item Name="LayerHeader.ctl" Type="VI" URL="../Recipe/Controls/LayerHeader.ctl"/>
 			</Item>
+			<Item Name="XML" Type="Folder">
+				<Item Name="XML Add Valves.vi" Type="VI" URL="../Recipe/XML/XML Add Valves.vi"/>
+			</Item>
 			<Item Name="Main Recipe.vi" Type="VI" URL="../Recipe/Main Recipe.vi"/>
 		</Item>
 		<Item Name="Add Index (Dnet CommandRegister Buffer).vi" Type="VI" URL="../Conversion/Add Index (Dnet CommandRegister Buffer).vi"/>
@@ -505,6 +508,9 @@
 				<Item Name="Three Button Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Three Button Dialog.vi"/>
 				<Item Name="Trim Whitespace.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Trim Whitespace.vi"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
+			</Item>
+			<Item Name="System.Windows.Forms" Type="Document" URL="System.Windows.Forms">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
