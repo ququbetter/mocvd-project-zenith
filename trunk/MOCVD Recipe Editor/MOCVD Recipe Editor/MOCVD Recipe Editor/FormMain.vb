@@ -1,7 +1,7 @@
 ﻿Public Class FormMain
 	Dim sortColumn_ValveList As Integer = -1
 	Dim sortColumn_MFCsList As Integer = -1
-
+	Dim xmlRecipe As XDocument
 	'Visual Basic 
 	' Implements the manual sorting of items by columns.
 	Class ListViewItemComparer
@@ -62,6 +62,15 @@
 		ComboBox_TimeUnits.SelectedItem = "sec"
 		ComboBox_RampUnits.SelectedItem = "sec"
 		ComboBox_DelayUnits.SelectedItem = "sec"
+
+		If My.Settings.XML_File_Name <> "" Then
+			xmlRecipe =
+			 <?xml version="1.0"?>
+			 <Recipe>
+				 <name></name>
+				 <steps></steps>
+			 </Recipe>
+		End If
 	End Sub
 
 	Private Sub Button_AddValve_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddValve.Click
@@ -107,7 +116,23 @@
 	End Sub
 
 	Private Sub Button_AddStep_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddStep.Click
+		Dim recipeStep As XElement =
+		 <step index=<%= ListView_Steps.Items.Count %>>
+			 <name><%= TextBox_StepName %></name>
+			 <valves></valves>
+			 <MFCs></MFCs>
+		 </step>
 
+		For Each item As ListViewItem In ListView_ValveList.Items
+			Dim valve As XElement =
+			 <valve>
+				 <index><%= item.SubItems(0).Text %></index>
+				 <action><%= item.SubItems(1).Text %></action>
+			 </valve>
+			recipeStep.<valves>(0).Add(valve)
+		Next
+		xmlRecipe.<Recipe>.<steps>(0).Add(recipeStep)
+		TextBox1.Text = xmlRecipe.ToString
 	End Sub
 
 	Private Sub ListView_ValveList_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView_ValveList.ColumnClick
@@ -120,5 +145,9 @@
 
 	Private Sub Button_MFCs_Click(sender As System.Object, e As System.EventArgs) Handles Button_MFCs.Click
 
+	End Sub
+
+	Private Sub SaveToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SaveToolStripMenuItem.Click
+		
 	End Sub
 End Class
