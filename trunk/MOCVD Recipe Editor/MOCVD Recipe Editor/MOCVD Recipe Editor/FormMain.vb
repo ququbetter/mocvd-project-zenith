@@ -1,5 +1,6 @@
 ﻿Public Class FormMain
-	Dim sortColumn As Integer = -1
+	Dim sortColumn_ValveList As Integer = -1
+	Dim sortColumn_MFCsList As Integer = -1
 
 	'Visual Basic 
 	' Implements the manual sorting of items by columns.
@@ -19,11 +20,11 @@
 		End Sub
 
 		Public Function Compare(x As Object, y As Object) As Integer _
-								  Implements System.Collections.IComparer.Compare
+				  Implements System.Collections.IComparer.Compare
 			Dim returnVal As Integer = -1
 			returnVal = [String].Compare(CType(x,  _
-								 ListViewItem).SubItems(col).Text, _
-								 CType(y, ListViewItem).SubItems(col).Text)
+					ListViewItem).SubItems(col).Text, _
+					CType(y, ListViewItem).SubItems(col).Text)
 			' Determine whether the sort order is descending.
 			If order = SortOrder.Descending Then
 				' Invert the value returned by String.Compare.
@@ -33,6 +34,27 @@
 			Return returnVal
 		End Function
 	End Class
+
+	Private Sub sortListViewColumn(ByRef e As System.Windows.Forms.ColumnClickEventArgs, ByRef list As ListView, ByRef sortColumn As Integer)
+		If e.Column <> sortColumn Then
+			' Set the sort column to the new column.
+			sortColumn = e.Column
+			' Set the sort order to ascending by default.
+			list.Sorting = SortOrder.Ascending
+		Else
+			' Determine what the last sort order was and change it.
+			If list.Sorting = SortOrder.Ascending Then
+				list.Sorting = SortOrder.Descending
+			Else
+				list.Sorting = SortOrder.Ascending
+			End If
+		End If
+		' Call the sort method to manually sort.
+		list.Sort()
+		' Set the ListViewItemSorter property to a new ListViewItemComparer
+		' object.
+		list.ListViewItemSorter = New ListViewItemComparer(e.Column, list.Sorting)
+	End Sub
 
 
 
@@ -89,23 +111,14 @@
 	End Sub
 
 	Private Sub ListView_ValveList_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView_ValveList.ColumnClick
-		If e.Column <> sortColumn Then
-			' Set the sort column to the new column.
-			sortColumn = e.Column
-			' Set the sort order to ascending by default.
-			ListView_ValveList.Sorting = SortOrder.Ascending
-		Else
-			' Determine what the last sort order was and change it.
-			If ListView_ValveList.Sorting = SortOrder.Ascending Then
-				ListView_ValveList.Sorting = SortOrder.Descending
-			Else
-				ListView_ValveList.Sorting = SortOrder.Ascending
-			End If
-		End If
-		' Call the sort method to manually sort.
-		ListView_ValveList.Sort()
-		' Set the ListViewItemSorter property to a new ListViewItemComparer
-		' object.
-		ListView_ValveList.ListViewItemSorter = New ListViewItemComparer(e.Column, ListView_ValveList.Sorting)
+		sortListViewColumn(e, ListView_ValveList, sortColumn_ValveList)
+	End Sub
+
+	Private Sub ListView_MFCsList_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView_MFCsList.ColumnClick
+		sortListViewColumn(e, ListView_MFCsList, sortColumn_MFCsList)
+	End Sub
+
+	Private Sub Button_MFCs_Click(sender As System.Object, e As System.EventArgs) Handles Button_MFCs.Click
+
 	End Sub
 End Class
