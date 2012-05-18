@@ -78,7 +78,17 @@ Partial Class FormMain
 		Me.LabelValveIndex = New System.Windows.Forms.Label()
 		Me.NumericUpDownValveIndex = New System.Windows.Forms.NumericUpDown()
 		Me.GroupBoxTiming = New System.Windows.Forms.GroupBox()
-		Me.ListView1 = New System.Windows.Forms.ListView()
+		Me.ListView_Steps = New System.Windows.Forms.ListView()
+		Me.DataSocketServer1 = New NationalInstruments.Net.DataSocketServer(Me.components)
+		Me.GroupBox_MFCs = New System.Windows.Forms.GroupBox()
+		Me.ListView_MFCsList = New System.Windows.Forms.ListView()
+		Me.ColumnHeader_MFC = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+		Me.ColumnHeader_SetPoint = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+		Me.Button_MFCs = New System.Windows.Forms.Button()
+		Me.Label_MFCsSetPoint = New System.Windows.Forms.Label()
+		Me.NumericUpDown_MFCsSetPoint = New System.Windows.Forms.NumericUpDown()
+		Me.Label_MFCsIndex = New System.Windows.Forms.Label()
+		Me.NumericUpDown_MFCsIndex = New System.Windows.Forms.NumericUpDown()
 		Me.MenuStrip1.SuspendLayout()
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.NumericUpDown_Ramp, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,6 +97,10 @@ Partial Class FormMain
 		Me.ContextMenuStrip_ValveList.SuspendLayout()
 		CType(Me.NumericUpDownValveIndex, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBoxTiming.SuspendLayout()
+		CType(Me.DataSocketServer1, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.GroupBox_MFCs.SuspendLayout()
+		CType(Me.NumericUpDown_MFCsSetPoint, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.NumericUpDown_MFCsIndex, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'MenuStrip1
@@ -378,7 +392,7 @@ Partial Class FormMain
 		'
 		'Button_AddStep
 		'
-		Me.Button_AddStep.Location = New System.Drawing.Point(458, 396)
+		Me.Button_AddStep.Location = New System.Drawing.Point(277, 460)
 		Me.Button_AddStep.Name = "Button_AddStep"
 		Me.Button_AddStep.Size = New System.Drawing.Size(75, 23)
 		Me.Button_AddStep.TabIndex = 12
@@ -395,7 +409,7 @@ Partial Class FormMain
 		Me.GroupBoxValves.Controls.Add(Me.NumericUpDownValveIndex)
 		Me.GroupBoxValves.Location = New System.Drawing.Point(367, 134)
 		Me.GroupBoxValves.Name = "GroupBoxValves"
-		Me.GroupBoxValves.Size = New System.Drawing.Size(151, 202)
+		Me.GroupBoxValves.Size = New System.Drawing.Size(141, 202)
 		Me.GroupBoxValves.TabIndex = 13
 		Me.GroupBoxValves.TabStop = False
 		Me.GroupBoxValves.Text = "Valves"
@@ -407,7 +421,7 @@ Partial Class FormMain
 		Me.ListView_ValveList.FullRowSelect = True
 		Me.ListView_ValveList.Location = New System.Drawing.Point(6, 96)
 		Me.ListView_ValveList.Name = "ListView_ValveList"
-		Me.ListView_ValveList.Size = New System.Drawing.Size(139, 97)
+		Me.ListView_ValveList.Size = New System.Drawing.Size(127, 97)
 		Me.ListView_ValveList.TabIndex = 15
 		Me.ListView_ValveList.UseCompatibleStateImageBehavior = False
 		Me.ListView_ValveList.View = System.Windows.Forms.View.Details
@@ -450,7 +464,7 @@ Partial Class FormMain
 		'
 		Me.Button_AddValve.Location = New System.Drawing.Point(6, 65)
 		Me.Button_AddValve.Name = "Button_AddValve"
-		Me.Button_AddValve.Size = New System.Drawing.Size(139, 23)
+		Me.Button_AddValve.Size = New System.Drawing.Size(127, 23)
 		Me.Button_AddValve.TabIndex = 16
 		Me.Button_AddValve.Text = "Add Valve"
 		Me.Button_AddValve.UseVisualStyleBackColor = True
@@ -514,24 +528,106 @@ Partial Class FormMain
 		Me.GroupBoxTiming.TabStop = False
 		Me.GroupBoxTiming.Text = "Timing"
 		'
-		'ListView1
+		'ListView_Steps
 		'
-		Me.ListView1.Location = New System.Drawing.Point(63, 100)
-		Me.ListView1.Name = "ListView1"
-		Me.ListView1.Size = New System.Drawing.Size(121, 97)
-		Me.ListView1.TabIndex = 15
-		Me.ListView1.UseCompatibleStateImageBehavior = False
+		Me.ListView_Steps.Location = New System.Drawing.Point(63, 100)
+		Me.ListView_Steps.Name = "ListView_Steps"
+		Me.ListView_Steps.Size = New System.Drawing.Size(121, 97)
+		Me.ListView_Steps.TabIndex = 15
+		Me.ListView_Steps.UseCompatibleStateImageBehavior = False
+		'
+		'GroupBox_MFCs
+		'
+		Me.GroupBox_MFCs.Controls.Add(Me.ListView_MFCsList)
+		Me.GroupBox_MFCs.Controls.Add(Me.Button_MFCs)
+		Me.GroupBox_MFCs.Controls.Add(Me.Label_MFCsSetPoint)
+		Me.GroupBox_MFCs.Controls.Add(Me.NumericUpDown_MFCsSetPoint)
+		Me.GroupBox_MFCs.Controls.Add(Me.Label_MFCsIndex)
+		Me.GroupBox_MFCs.Controls.Add(Me.NumericUpDown_MFCsIndex)
+		Me.GroupBox_MFCs.Location = New System.Drawing.Point(514, 134)
+		Me.GroupBox_MFCs.Name = "GroupBox_MFCs"
+		Me.GroupBox_MFCs.Size = New System.Drawing.Size(141, 202)
+		Me.GroupBox_MFCs.TabIndex = 16
+		Me.GroupBox_MFCs.TabStop = False
+		Me.GroupBox_MFCs.Text = "MFCs"
+		'
+		'ListView_MFCsList
+		'
+		Me.ListView_MFCsList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader_MFC, Me.ColumnHeader_SetPoint})
+		Me.ListView_MFCsList.ContextMenuStrip = Me.ContextMenuStrip_ValveList
+		Me.ListView_MFCsList.FullRowSelect = True
+		Me.ListView_MFCsList.Location = New System.Drawing.Point(6, 90)
+		Me.ListView_MFCsList.Name = "ListView_MFCsList"
+		Me.ListView_MFCsList.Size = New System.Drawing.Size(127, 106)
+		Me.ListView_MFCsList.TabIndex = 17
+		Me.ListView_MFCsList.UseCompatibleStateImageBehavior = False
+		Me.ListView_MFCsList.View = System.Windows.Forms.View.Details
+		'
+		'ColumnHeader_MFC
+		'
+		Me.ColumnHeader_MFC.Text = "MFC"
+		Me.ColumnHeader_MFC.Width = 42
+		'
+		'ColumnHeader_SetPoint
+		'
+		Me.ColumnHeader_SetPoint.Text = "SetPoint"
+		Me.ColumnHeader_SetPoint.Width = 52
+		'
+		'Button_MFCs
+		'
+		Me.Button_MFCs.Location = New System.Drawing.Point(6, 61)
+		Me.Button_MFCs.Name = "Button_MFCs"
+		Me.Button_MFCs.Size = New System.Drawing.Size(127, 23)
+		Me.Button_MFCs.TabIndex = 17
+		Me.Button_MFCs.Text = "Add MFC"
+		Me.Button_MFCs.UseVisualStyleBackColor = True
+		'
+		'Label_MFCsSetPoint
+		'
+		Me.Label_MFCsSetPoint.AutoSize = True
+		Me.Label_MFCsSetPoint.Location = New System.Drawing.Point(65, 19)
+		Me.Label_MFCsSetPoint.Name = "Label_MFCsSetPoint"
+		Me.Label_MFCsSetPoint.Size = New System.Drawing.Size(50, 13)
+		Me.Label_MFCsSetPoint.TabIndex = 20
+		Me.Label_MFCsSetPoint.Text = "SetPoint:"
+		'
+		'NumericUpDown_MFCsSetPoint
+		'
+		Me.NumericUpDown_MFCsSetPoint.Location = New System.Drawing.Point(68, 35)
+		Me.NumericUpDown_MFCsSetPoint.Name = "NumericUpDown_MFCsSetPoint"
+		Me.NumericUpDown_MFCsSetPoint.Size = New System.Drawing.Size(65, 20)
+		Me.NumericUpDown_MFCsSetPoint.TabIndex = 17
+		'
+		'Label_MFCsIndex
+		'
+		Me.Label_MFCsIndex.AutoSize = True
+		Me.Label_MFCsIndex.Location = New System.Drawing.Point(11, 19)
+		Me.Label_MFCsIndex.Name = "Label_MFCsIndex"
+		Me.Label_MFCsIndex.Size = New System.Drawing.Size(36, 13)
+		Me.Label_MFCsIndex.TabIndex = 19
+		Me.Label_MFCsIndex.Text = "Index:"
+		'
+		'NumericUpDown_MFCsIndex
+		'
+		Me.NumericUpDown_MFCsIndex.Location = New System.Drawing.Point(14, 35)
+		Me.NumericUpDown_MFCsIndex.Maximum = New Decimal(New Integer() {128, 0, 0, 0})
+		Me.NumericUpDown_MFCsIndex.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+		Me.NumericUpDown_MFCsIndex.Name = "NumericUpDown_MFCsIndex"
+		Me.NumericUpDown_MFCsIndex.Size = New System.Drawing.Size(48, 20)
+		Me.NumericUpDown_MFCsIndex.TabIndex = 18
+		Me.NumericUpDown_MFCsIndex.Value = New Decimal(New Integer() {1, 0, 0, 0})
 		'
 		'FormMain
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(731, 610)
-		Me.Controls.Add(Me.ListView1)
+		Me.Controls.Add(Me.GroupBox_MFCs)
+		Me.Controls.Add(Me.ListView_Steps)
 		Me.Controls.Add(Me.GroupBoxTiming)
 		Me.Controls.Add(Me.GroupBoxValves)
-		Me.Controls.Add(Me.Button_AddStep)
 		Me.Controls.Add(Me.MenuStrip1)
+		Me.Controls.Add(Me.Button_AddStep)
 		Me.MainMenuStrip = Me.MenuStrip1
 		Me.Name = "FormMain"
 		Me.Text = "MOCVD Recipe Editor"
@@ -546,6 +642,11 @@ Partial Class FormMain
 		CType(Me.NumericUpDownValveIndex, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBoxTiming.ResumeLayout(False)
 		Me.GroupBoxTiming.PerformLayout()
+		CType(Me.DataSocketServer1, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.GroupBox_MFCs.ResumeLayout(False)
+		Me.GroupBox_MFCs.PerformLayout()
+		CType(Me.NumericUpDown_MFCsSetPoint, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.NumericUpDown_MFCsIndex, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -598,12 +699,22 @@ Partial Class FormMain
 	Friend WithEvents LabelValveIndex As System.Windows.Forms.Label
 	Friend WithEvents Button_AddValve As System.Windows.Forms.Button
 	Friend WithEvents ListView_ValveList As System.Windows.Forms.ListView
-	Friend WithEvents ListView1 As System.Windows.Forms.ListView
+	Friend WithEvents ListView_Steps As System.Windows.Forms.ListView
 	Friend WithEvents ColumnHeaderValve As System.Windows.Forms.ColumnHeader
 	Friend WithEvents ColumnHeaderAction As System.Windows.Forms.ColumnHeader
 	Friend WithEvents ContextMenuStrip_ValveList As System.Windows.Forms.ContextMenuStrip
 	Friend WithEvents SetToCloseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents RemoveItemsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents SetToOpenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents DataSocketServer1 As NationalInstruments.Net.DataSocketServer
+	Friend WithEvents GroupBox_MFCs As System.Windows.Forms.GroupBox
+	Friend WithEvents ListView_MFCsList As System.Windows.Forms.ListView
+	Friend WithEvents ColumnHeader_MFC As System.Windows.Forms.ColumnHeader
+	Friend WithEvents ColumnHeader_SetPoint As System.Windows.Forms.ColumnHeader
+	Friend WithEvents Button_MFCs As System.Windows.Forms.Button
+	Friend WithEvents Label_MFCsSetPoint As System.Windows.Forms.Label
+	Friend WithEvents NumericUpDown_MFCsSetPoint As System.Windows.Forms.NumericUpDown
+	Friend WithEvents Label_MFCsIndex As System.Windows.Forms.Label
+	Friend WithEvents NumericUpDown_MFCsIndex As System.Windows.Forms.NumericUpDown
 
 End Class
