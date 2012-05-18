@@ -89,6 +89,8 @@ Partial Class FormMain
 		Me.NumericUpDown_MFCsSetPoint = New System.Windows.Forms.NumericUpDown()
 		Me.Label_MFCsIndex = New System.Windows.Forms.Label()
 		Me.NumericUpDown_MFCsIndex = New System.Windows.Forms.NumericUpDown()
+		Me.TextBox_StepName = New System.Windows.Forms.TextBox()
+		Me.TextBox1 = New System.Windows.Forms.TextBox()
 		Me.MenuStrip1.SuspendLayout()
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.NumericUpDown_Ramp, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,7 +127,7 @@ Partial Class FormMain
 		Me.NewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
 		Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
 		Me.NewToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-		Me.NewToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+		Me.NewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
 		Me.NewToolStripMenuItem.Text = "&New"
 		'
 		'OpenToolStripMenuItem
@@ -148,7 +150,7 @@ Partial Class FormMain
 		Me.SaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
 		Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
 		Me.SaveToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-		Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+		Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
 		Me.SaveToolStripMenuItem.Text = "&Save"
 		'
 		'SaveAsToolStripMenuItem
@@ -392,7 +394,7 @@ Partial Class FormMain
 		'
 		'Button_AddStep
 		'
-		Me.Button_AddStep.Location = New System.Drawing.Point(277, 460)
+		Me.Button_AddStep.Location = New System.Drawing.Point(449, 462)
 		Me.Button_AddStep.Name = "Button_AddStep"
 		Me.Button_AddStep.Size = New System.Drawing.Size(75, 23)
 		Me.Button_AddStep.TabIndex = 12
@@ -462,7 +464,7 @@ Partial Class FormMain
 		'
 		'Button_AddValve
 		'
-		Me.Button_AddValve.Location = New System.Drawing.Point(6, 65)
+		Me.Button_AddValve.Location = New System.Drawing.Point(6, 67)
 		Me.Button_AddValve.Name = "Button_AddValve"
 		Me.Button_AddValve.Size = New System.Drawing.Size(127, 23)
 		Me.Button_AddValve.TabIndex = 16
@@ -556,9 +558,9 @@ Partial Class FormMain
 		Me.ListView_MFCsList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader_MFC, Me.ColumnHeader_SetPoint})
 		Me.ListView_MFCsList.ContextMenuStrip = Me.ContextMenuStrip_ValveList
 		Me.ListView_MFCsList.FullRowSelect = True
-		Me.ListView_MFCsList.Location = New System.Drawing.Point(6, 90)
+		Me.ListView_MFCsList.Location = New System.Drawing.Point(6, 96)
 		Me.ListView_MFCsList.Name = "ListView_MFCsList"
-		Me.ListView_MFCsList.Size = New System.Drawing.Size(127, 106)
+		Me.ListView_MFCsList.Size = New System.Drawing.Size(127, 100)
 		Me.ListView_MFCsList.TabIndex = 17
 		Me.ListView_MFCsList.UseCompatibleStateImageBehavior = False
 		Me.ListView_MFCsList.View = System.Windows.Forms.View.Details
@@ -575,7 +577,7 @@ Partial Class FormMain
 		'
 		'Button_MFCs
 		'
-		Me.Button_MFCs.Location = New System.Drawing.Point(6, 61)
+		Me.Button_MFCs.Location = New System.Drawing.Point(6, 67)
 		Me.Button_MFCs.Name = "Button_MFCs"
 		Me.Button_MFCs.Size = New System.Drawing.Size(127, 23)
 		Me.Button_MFCs.TabIndex = 17
@@ -585,7 +587,7 @@ Partial Class FormMain
 		'Label_MFCsSetPoint
 		'
 		Me.Label_MFCsSetPoint.AutoSize = True
-		Me.Label_MFCsSetPoint.Location = New System.Drawing.Point(65, 19)
+		Me.Label_MFCsSetPoint.Location = New System.Drawing.Point(61, 23)
 		Me.Label_MFCsSetPoint.Name = "Label_MFCsSetPoint"
 		Me.Label_MFCsSetPoint.Size = New System.Drawing.Size(50, 13)
 		Me.Label_MFCsSetPoint.TabIndex = 20
@@ -593,7 +595,7 @@ Partial Class FormMain
 		'
 		'NumericUpDown_MFCsSetPoint
 		'
-		Me.NumericUpDown_MFCsSetPoint.Location = New System.Drawing.Point(68, 35)
+		Me.NumericUpDown_MFCsSetPoint.Location = New System.Drawing.Point(64, 39)
 		Me.NumericUpDown_MFCsSetPoint.Name = "NumericUpDown_MFCsSetPoint"
 		Me.NumericUpDown_MFCsSetPoint.Size = New System.Drawing.Size(65, 20)
 		Me.NumericUpDown_MFCsSetPoint.TabIndex = 17
@@ -601,7 +603,7 @@ Partial Class FormMain
 		'Label_MFCsIndex
 		'
 		Me.Label_MFCsIndex.AutoSize = True
-		Me.Label_MFCsIndex.Location = New System.Drawing.Point(11, 19)
+		Me.Label_MFCsIndex.Location = New System.Drawing.Point(7, 23)
 		Me.Label_MFCsIndex.Name = "Label_MFCsIndex"
 		Me.Label_MFCsIndex.Size = New System.Drawing.Size(36, 13)
 		Me.Label_MFCsIndex.TabIndex = 19
@@ -609,7 +611,7 @@ Partial Class FormMain
 		'
 		'NumericUpDown_MFCsIndex
 		'
-		Me.NumericUpDown_MFCsIndex.Location = New System.Drawing.Point(14, 35)
+		Me.NumericUpDown_MFCsIndex.Location = New System.Drawing.Point(10, 39)
 		Me.NumericUpDown_MFCsIndex.Maximum = New Decimal(New Integer() {128, 0, 0, 0})
 		Me.NumericUpDown_MFCsIndex.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
 		Me.NumericUpDown_MFCsIndex.Name = "NumericUpDown_MFCsIndex"
@@ -617,11 +619,28 @@ Partial Class FormMain
 		Me.NumericUpDown_MFCsIndex.TabIndex = 18
 		Me.NumericUpDown_MFCsIndex.Value = New Decimal(New Integer() {1, 0, 0, 0})
 		'
+		'TextBox_StepName
+		'
+		Me.TextBox_StepName.Location = New System.Drawing.Point(433, 403)
+		Me.TextBox_StepName.Name = "TextBox_StepName"
+		Me.TextBox_StepName.Size = New System.Drawing.Size(100, 20)
+		Me.TextBox_StepName.TabIndex = 17
+		'
+		'TextBox1
+		'
+		Me.TextBox1.Location = New System.Drawing.Point(12, 240)
+		Me.TextBox1.Multiline = True
+		Me.TextBox1.Name = "TextBox1"
+		Me.TextBox1.Size = New System.Drawing.Size(340, 338)
+		Me.TextBox1.TabIndex = 18
+		'
 		'FormMain
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(731, 610)
+		Me.Controls.Add(Me.TextBox1)
+		Me.Controls.Add(Me.TextBox_StepName)
 		Me.Controls.Add(Me.GroupBox_MFCs)
 		Me.Controls.Add(Me.ListView_Steps)
 		Me.Controls.Add(Me.GroupBoxTiming)
@@ -716,5 +735,7 @@ Partial Class FormMain
 	Friend WithEvents NumericUpDown_MFCsSetPoint As System.Windows.Forms.NumericUpDown
 	Friend WithEvents Label_MFCsIndex As System.Windows.Forms.Label
 	Friend WithEvents NumericUpDown_MFCsIndex As System.Windows.Forms.NumericUpDown
+	Friend WithEvents TextBox_StepName As System.Windows.Forms.TextBox
+	Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
 
 End Class
