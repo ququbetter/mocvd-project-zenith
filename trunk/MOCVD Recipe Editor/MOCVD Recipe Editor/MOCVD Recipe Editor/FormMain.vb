@@ -1,7 +1,9 @@
 ﻿Public Class FormMain
 	Dim sortColumn_ValveList As Integer = -1
 	Dim sortColumn_MFCsList As Integer = -1
-	Dim xmlRecipe As XDocument
+
+	Dim recipe As Recipe
+
 	'Visual Basic 
 	' Implements the manual sorting of items by columns.
 	Class ListViewItemComparer
@@ -63,14 +65,12 @@
 		ComboBox_RampUnits.SelectedItem = "sec"
 		ComboBox_DelayUnits.SelectedItem = "sec"
 
-		If My.Settings.XML_File_Name <> "" Then
-			xmlRecipe =
-			 <?xml version="1.0"?>
-			 <Recipe>
-				 <name></name>
-				 <steps></steps>
-			 </Recipe>
-		End If
+		Dim routine As New RecipeRoutine()
+		routine.setName(My.Settings.Recipe_Name)
+
+		recipe = New Recipe
+		recipe.addRoutine(routine)
+		recipe.setRecipeName(My.Settings.Recipe_Name)
 	End Sub
 
 	Private Sub Button_AddValve_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddValve.Click
@@ -116,23 +116,23 @@
 	End Sub
 
 	Private Sub Button_AddStep_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddStep.Click
-		Dim recipeStep As XElement =
-		 <step index=<%= ListView_Steps.Items.Count %>>
-			 <name><%= TextBox_StepName %></name>
-			 <valves></valves>
-			 <MFCs></MFCs>
-		 </step>
+		Dim time As Integer
+		Dim ramp As Integer
+		Dim delay As Integer
+
+		getTiming(time, ramp, delay)
+
+		Dim recipeStep = New RecipeStep(TextBox_StepName.Text, TextBox_StepDescription.Text, time, ramp, delay)
 
 		For Each item As ListViewItem In ListView_ValveList.Items
-			Dim valve As XElement =
-			 <valve>
-				 <index><%= item.SubItems(0).Text %></index>
-				 <action><%= item.SubItems(1).Text %></action>
-			 </valve>
-			recipeStep.<valves>(0).Add(valve)
+			recipeStep.addValve(item.SubItems(0).Text, item.SubItems(1).Text)
 		Next
-		xmlRecipe.<Recipe>.<steps>(0).Add(recipeStep)
-		TextBox1.Text = xmlRecipe.ToString
+
+		recipe.getCurrentRoutine().addStep(recipeStep)
+
+		TextBox1.Text = recipe.xmlRecipe.ToString
+		addStep(recipeStep)
+		clearSettings()
 	End Sub
 
 	Private Sub ListView_ValveList_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView_ValveList.ColumnClick
@@ -149,5 +149,50 @@
 
 	Private Sub SaveToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SaveToolStripMenuItem.Click
 		
+	End Sub
+
+	Private Sub getTiming(ByRef time As Integer, ByRef ramp As Integer, ByRef delay As Integer)
+		Select Case (ComboBox_TimeUnits.SelectedItem)
+			Case "min"
+				time = NumericUpDown_Time.Value * 60000
+			Case "sec"
+				time = NumericUpDown_Time.Value * 1000
+			Case "ms"
+				time = NumericUpDown_Time.Value
+		End Select
+
+		Select Case (ComboBox_RampUnits.SelectedItem)
+			Case "min"
+				ramp = NumericUpDown_Ramp.Value * 60000
+			Case "sec"
+				ramp = NumericUpDown_Ramp.Value * 1000
+			Case "ms"
+				ramp = NumericUpDown_Ramp.Value
+		End Select
+
+		Select Case (ComboBox_DelayUnits.SelectedItem)
+			Case "min"
+				delay = NumericUpDown_Delay.Value * 60000
+			Case "sec"
+				delay = NumericUpDown_Delay.Value * 1000
+			Case "ms"
+				delay = NumericUpDown_Delay.Value
+		End Select
+	End Sub
+
+	Private Sub clearSettings()
+
+		ListView_ValveList.Items.Clear()
+		RadioButton_ValveClose.Checked = True
+		NumericUpDownValveIndex.Value = 1
+
+	End Sub
+
+	Private Sub addStep(ByRef recipeStep As RecipeStep)
+		ListView_Steps.Items.Add(New ListViewItem({recipeStep.getIndex, recipeStep.getName, recipeStep.getDescription, recipeStep.getTime / 1000, recipeStep.getRamp / 1000, recipeStep.getDelay / 1000, recipeStep.getValveCount, recipeStep.getMFCCount}))
+	End Sub
+
+	Private Sub Button_AddRoutine_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddRoutine.Click
+
 	End Sub
 End Class

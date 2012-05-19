@@ -57,12 +57,12 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("TestRecipe")>  _
-        Public Property XML_File_Name() As String
+        Public Property Recipe_Name() As String
             Get
-                Return CType(Me("XML_File_Name"),String)
+                Return CType(Me("Recipe_Name"),String)
             End Get
             Set
-                Me("XML_File_Name") = value
+                Me("Recipe_Name") = value
             End Set
         End Property
     End Class
