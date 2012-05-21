@@ -79,6 +79,14 @@ Partial Class FormMain
 		Me.NumericUpDownValveIndex = New System.Windows.Forms.NumericUpDown()
 		Me.GroupBoxTiming = New System.Windows.Forms.GroupBox()
 		Me.ListView_Steps = New System.Windows.Forms.ListView()
+		Me.ColumnHeader_StepIndex = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+		Me.ColumnHeader_StepName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+		Me.ColumnHeader_StepDescription = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+		Me.ColumnHeader_StepTime = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+		Me.ColumnHeader_StepRamp = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+		Me.ColumnHeader_StepDelay = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+		Me.ColumnHeader_StepValves = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+		Me.ColumnHeader_StepMFCs = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.DataSocketServer1 = New NationalInstruments.Net.DataSocketServer(Me.components)
 		Me.GroupBox_MFCs = New System.Windows.Forms.GroupBox()
 		Me.ListView_MFCsList = New System.Windows.Forms.ListView()
@@ -90,19 +98,10 @@ Partial Class FormMain
 		Me.Label_MFCsIndex = New System.Windows.Forms.Label()
 		Me.NumericUpDown_MFCsIndex = New System.Windows.Forms.NumericUpDown()
 		Me.TextBox_StepName = New System.Windows.Forms.TextBox()
-		Me.TextBox1 = New System.Windows.Forms.TextBox()
 		Me.Label_StepName = New System.Windows.Forms.Label()
 		Me.Label_StepDescription = New System.Windows.Forms.Label()
 		Me.TextBox_StepDescription = New System.Windows.Forms.TextBox()
-		Me.ColumnHeader_StepIndex = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-		Me.ColumnHeader_StepName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-		Me.ColumnHeader_StepDescription = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-		Me.ColumnHeader_StepValves = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-		Me.ColumnHeader_StepMFCs = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-		Me.ColumnHeader_StepTime = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-		Me.ColumnHeader_StepRamp = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-		Me.ColumnHeader_StepDelay = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-		Me.ListView1 = New System.Windows.Forms.ListView()
+		Me.ListView_Routines = New System.Windows.Forms.ListView()
 		Me.ColumnHeader_RoutineIndex = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_RoutineName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_RoutineDescription = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -110,12 +109,14 @@ Partial Class FormMain
 		Me.Button_AddRoutine = New System.Windows.Forms.Button()
 		Me.GroupBox_StepDetails = New System.Windows.Forms.GroupBox()
 		Me.GroupBox_RoutineDetails = New System.Windows.Forms.GroupBox()
-		Me.Label1 = New System.Windows.Forms.Label()
-		Me.TextBox2 = New System.Windows.Forms.TextBox()
+		Me.TextBox_RoutineDescription = New System.Windows.Forms.TextBox()
 		Me.Label2 = New System.Windows.Forms.Label()
-		Me.TextBox3 = New System.Windows.Forms.TextBox()
-		Me.Button_UndoChanges = New System.Windows.Forms.Button()
-		Me.Button_SaveChanges = New System.Windows.Forms.Button()
+		Me.TextBox_RoutineName = New System.Windows.Forms.TextBox()
+		Me.Label1 = New System.Windows.Forms.Label()
+		Me.Button_StepsUpdateChanges = New System.Windows.Forms.Button()
+		Me.Button_ShowSteps = New System.Windows.Forms.Button()
+		Me.ButtonLoadRoutine = New System.Windows.Forms.Button()
+		Me.Button_RoutineUpdateChanges = New System.Windows.Forms.Button()
 		Me.MenuStrip1.SuspendLayout()
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.NumericUpDown_Ramp, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,7 +138,7 @@ Partial Class FormMain
 		Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.HelpToolStripMenuItem})
 		Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
 		Me.MenuStrip1.Name = "MenuStrip1"
-		Me.MenuStrip1.Size = New System.Drawing.Size(1186, 24)
+		Me.MenuStrip1.Size = New System.Drawing.Size(1134, 24)
 		Me.MenuStrip1.TabIndex = 0
 		Me.MenuStrip1.Text = "MenuStrip1"
 		'
@@ -312,30 +313,30 @@ Partial Class FormMain
 		'ContentsToolStripMenuItem
 		'
 		Me.ContentsToolStripMenuItem.Name = "ContentsToolStripMenuItem"
-		Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+		Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
 		Me.ContentsToolStripMenuItem.Text = "&Contents"
 		'
 		'IndexToolStripMenuItem
 		'
 		Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
-		Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+		Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
 		Me.IndexToolStripMenuItem.Text = "&Index"
 		'
 		'SearchToolStripMenuItem
 		'
 		Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-		Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+		Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
 		Me.SearchToolStripMenuItem.Text = "&Search"
 		'
 		'toolStripSeparator5
 		'
 		Me.toolStripSeparator5.Name = "toolStripSeparator5"
-		Me.toolStripSeparator5.Size = New System.Drawing.Size(149, 6)
+		Me.toolStripSeparator5.Size = New System.Drawing.Size(119, 6)
 		'
 		'AboutToolStripMenuItem
 		'
 		Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-		Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+		Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
 		Me.AboutToolStripMenuItem.Text = "&About..."
 		'
 		'NumericUpDown_Time
@@ -424,9 +425,9 @@ Partial Class FormMain
 		'
 		'Button_AddStep
 		'
-		Me.Button_AddStep.Location = New System.Drawing.Point(200, 358)
+		Me.Button_AddStep.Location = New System.Drawing.Point(343, 423)
 		Me.Button_AddStep.Name = "Button_AddStep"
-		Me.Button_AddStep.Size = New System.Drawing.Size(200, 30)
+		Me.Button_AddStep.Size = New System.Drawing.Size(192, 30)
 		Me.Button_AddStep.TabIndex = 12
 		Me.Button_AddStep.Text = "Add Step"
 		Me.Button_AddStep.UseVisualStyleBackColor = True
@@ -439,7 +440,7 @@ Partial Class FormMain
 		Me.GroupBoxValves.Controls.Add(Me.RadioButton_ValveOpen)
 		Me.GroupBoxValves.Controls.Add(Me.LabelValveIndex)
 		Me.GroupBoxValves.Controls.Add(Me.NumericUpDownValveIndex)
-		Me.GroupBoxValves.Location = New System.Drawing.Point(406, 134)
+		Me.GroupBoxValves.Location = New System.Drawing.Point(835, 27)
 		Me.GroupBoxValves.Name = "GroupBoxValves"
 		Me.GroupBoxValves.Size = New System.Drawing.Size(141, 202)
 		Me.GroupBoxValves.TabIndex = 13
@@ -453,7 +454,7 @@ Partial Class FormMain
 		Me.ListView_ValveList.FullRowSelect = True
 		Me.ListView_ValveList.Location = New System.Drawing.Point(6, 96)
 		Me.ListView_ValveList.Name = "ListView_ValveList"
-		Me.ListView_ValveList.Size = New System.Drawing.Size(127, 97)
+		Me.ListView_ValveList.Size = New System.Drawing.Size(127, 100)
 		Me.ListView_ValveList.TabIndex = 15
 		Me.ListView_ValveList.UseCompatibleStateImageBehavior = False
 		Me.ListView_ValveList.View = System.Windows.Forms.View.Details
@@ -553,7 +554,7 @@ Partial Class FormMain
 		Me.GroupBoxTiming.Controls.Add(Me.ComboBox_RampUnits)
 		Me.GroupBoxTiming.Controls.Add(Me.NumericUpDown_Ramp)
 		Me.GroupBoxTiming.Controls.Add(Me.NumericUpDown_Delay)
-		Me.GroupBoxTiming.Location = New System.Drawing.Point(406, 27)
+		Me.GroupBoxTiming.Location = New System.Drawing.Point(343, 280)
 		Me.GroupBoxTiming.Name = "GroupBoxTiming"
 		Me.GroupBoxTiming.Size = New System.Drawing.Size(192, 101)
 		Me.GroupBoxTiming.TabIndex = 14
@@ -563,12 +564,54 @@ Partial Class FormMain
 		'ListView_Steps
 		'
 		Me.ListView_Steps.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader_StepIndex, Me.ColumnHeader_StepName, Me.ColumnHeader_StepDescription, Me.ColumnHeader_StepTime, Me.ColumnHeader_StepRamp, Me.ColumnHeader_StepDelay, Me.ColumnHeader_StepValves, Me.ColumnHeader_StepMFCs})
-		Me.ListView_Steps.Location = New System.Drawing.Point(0, 178)
+		Me.ListView_Steps.FullRowSelect = True
+		Me.ListView_Steps.Location = New System.Drawing.Point(343, 27)
+		Me.ListView_Steps.MultiSelect = False
 		Me.ListView_Steps.Name = "ListView_Steps"
-		Me.ListView_Steps.Size = New System.Drawing.Size(400, 174)
+		Me.ListView_Steps.Size = New System.Drawing.Size(486, 247)
 		Me.ListView_Steps.TabIndex = 15
 		Me.ListView_Steps.UseCompatibleStateImageBehavior = False
 		Me.ListView_Steps.View = System.Windows.Forms.View.Details
+		'
+		'ColumnHeader_StepIndex
+		'
+		Me.ColumnHeader_StepIndex.Text = "Step"
+		Me.ColumnHeader_StepIndex.Width = 36
+		'
+		'ColumnHeader_StepName
+		'
+		Me.ColumnHeader_StepName.Text = "Name"
+		Me.ColumnHeader_StepName.Width = 52
+		'
+		'ColumnHeader_StepDescription
+		'
+		Me.ColumnHeader_StepDescription.Text = "Description"
+		Me.ColumnHeader_StepDescription.Width = 66
+		'
+		'ColumnHeader_StepTime
+		'
+		Me.ColumnHeader_StepTime.Text = "Time"
+		Me.ColumnHeader_StepTime.Width = 35
+		'
+		'ColumnHeader_StepRamp
+		'
+		Me.ColumnHeader_StepRamp.Text = "Ramp"
+		Me.ColumnHeader_StepRamp.Width = 44
+		'
+		'ColumnHeader_StepDelay
+		'
+		Me.ColumnHeader_StepDelay.Text = "Delay"
+		Me.ColumnHeader_StepDelay.Width = 40
+		'
+		'ColumnHeader_StepValves
+		'
+		Me.ColumnHeader_StepValves.Text = "Valves"
+		Me.ColumnHeader_StepValves.Width = 45
+		'
+		'ColumnHeader_StepMFCs
+		'
+		Me.ColumnHeader_StepMFCs.Text = "MFCs"
+		Me.ColumnHeader_StepMFCs.Width = 43
 		'
 		'GroupBox_MFCs
 		'
@@ -578,7 +621,7 @@ Partial Class FormMain
 		Me.GroupBox_MFCs.Controls.Add(Me.NumericUpDown_MFCsSetPoint)
 		Me.GroupBox_MFCs.Controls.Add(Me.Label_MFCsIndex)
 		Me.GroupBox_MFCs.Controls.Add(Me.NumericUpDown_MFCsIndex)
-		Me.GroupBox_MFCs.Location = New System.Drawing.Point(553, 134)
+		Me.GroupBox_MFCs.Location = New System.Drawing.Point(982, 27)
 		Me.GroupBox_MFCs.Name = "GroupBox_MFCs"
 		Me.GroupBox_MFCs.Size = New System.Drawing.Size(141, 202)
 		Me.GroupBox_MFCs.TabIndex = 16
@@ -658,16 +701,6 @@ Partial Class FormMain
 		Me.TextBox_StepName.Size = New System.Drawing.Size(204, 20)
 		Me.TextBox_StepName.TabIndex = 17
 		'
-		'TextBox1
-		'
-		Me.TextBox1.Location = New System.Drawing.Point(734, 27)
-		Me.TextBox1.Multiline = True
-		Me.TextBox1.Name = "TextBox1"
-		Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both
-		Me.TextBox1.Size = New System.Drawing.Size(377, 541)
-		Me.TextBox1.TabIndex = 18
-		Me.TextBox1.WordWrap = False
-		'
 		'Label_StepName
 		'
 		Me.Label_StepName.AutoSize = True
@@ -694,58 +727,20 @@ Partial Class FormMain
 		Me.TextBox_StepDescription.Multiline = True
 		Me.TextBox_StepDescription.Name = "TextBox_StepDescription"
 		Me.TextBox_StepDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-		Me.TextBox_StepDescription.Size = New System.Drawing.Size(204, 108)
+		Me.TextBox_StepDescription.Size = New System.Drawing.Size(204, 121)
 		Me.TextBox_StepDescription.TabIndex = 21
 		'
-		'ColumnHeader_StepIndex
+		'ListView_Routines
 		'
-		Me.ColumnHeader_StepIndex.Text = "Step"
-		Me.ColumnHeader_StepIndex.Width = 36
-		'
-		'ColumnHeader_StepName
-		'
-		Me.ColumnHeader_StepName.Text = "Name"
-		Me.ColumnHeader_StepName.Width = 52
-		'
-		'ColumnHeader_StepDescription
-		'
-		Me.ColumnHeader_StepDescription.Text = "Description"
-		Me.ColumnHeader_StepDescription.Width = 66
-		'
-		'ColumnHeader_StepValves
-		'
-		Me.ColumnHeader_StepValves.Text = "Valves"
-		Me.ColumnHeader_StepValves.Width = 45
-		'
-		'ColumnHeader_StepMFCs
-		'
-		Me.ColumnHeader_StepMFCs.Text = "MFCs"
-		Me.ColumnHeader_StepMFCs.Width = 43
-		'
-		'ColumnHeader_StepTime
-		'
-		Me.ColumnHeader_StepTime.Text = "Time"
-		Me.ColumnHeader_StepTime.Width = 35
-		'
-		'ColumnHeader_StepRamp
-		'
-		Me.ColumnHeader_StepRamp.Text = "Ramp"
-		Me.ColumnHeader_StepRamp.Width = 44
-		'
-		'ColumnHeader_StepDelay
-		'
-		Me.ColumnHeader_StepDelay.Text = "Delay"
-		Me.ColumnHeader_StepDelay.Width = 40
-		'
-		'ListView1
-		'
-		Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader_RoutineIndex, Me.ColumnHeader_RoutineName, Me.ColumnHeader_RoutineDescription, Me.ColumnHeader_RoutineSteps})
-		Me.ListView1.Location = New System.Drawing.Point(0, 27)
-		Me.ListView1.Name = "ListView1"
-		Me.ListView1.Size = New System.Drawing.Size(400, 152)
-		Me.ListView1.TabIndex = 22
-		Me.ListView1.UseCompatibleStateImageBehavior = False
-		Me.ListView1.View = System.Windows.Forms.View.Details
+		Me.ListView_Routines.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader_RoutineIndex, Me.ColumnHeader_RoutineName, Me.ColumnHeader_RoutineDescription, Me.ColumnHeader_RoutineSteps})
+		Me.ListView_Routines.FullRowSelect = True
+		Me.ListView_Routines.Location = New System.Drawing.Point(12, 27)
+		Me.ListView_Routines.MultiSelect = False
+		Me.ListView_Routines.Name = "ListView_Routines"
+		Me.ListView_Routines.Size = New System.Drawing.Size(288, 174)
+		Me.ListView_Routines.TabIndex = 22
+		Me.ListView_Routines.UseCompatibleStateImageBehavior = False
+		Me.ListView_Routines.View = System.Windows.Forms.View.Details
 		'
 		'ColumnHeader_RoutineIndex
 		'
@@ -766,9 +761,9 @@ Partial Class FormMain
 		'
 		'Button_AddRoutine
 		'
-		Me.Button_AddRoutine.Location = New System.Drawing.Point(0, 358)
+		Me.Button_AddRoutine.Location = New System.Drawing.Point(158, 387)
 		Me.Button_AddRoutine.Name = "Button_AddRoutine"
-		Me.Button_AddRoutine.Size = New System.Drawing.Size(200, 30)
+		Me.Button_AddRoutine.Size = New System.Drawing.Size(142, 30)
 		Me.Button_AddRoutine.TabIndex = 23
 		Me.Button_AddRoutine.Text = "Add Routine"
 		Me.Button_AddRoutine.UseVisualStyleBackColor = True
@@ -779,41 +774,36 @@ Partial Class FormMain
 		Me.GroupBox_StepDetails.Controls.Add(Me.TextBox_StepName)
 		Me.GroupBox_StepDetails.Controls.Add(Me.Label_StepDescription)
 		Me.GroupBox_StepDetails.Controls.Add(Me.TextBox_StepDescription)
-		Me.GroupBox_StepDetails.Location = New System.Drawing.Point(406, 342)
+		Me.GroupBox_StepDetails.Location = New System.Drawing.Point(541, 280)
 		Me.GroupBox_StepDetails.Name = "GroupBox_StepDetails"
-		Me.GroupBox_StepDetails.Size = New System.Drawing.Size(288, 163)
+		Me.GroupBox_StepDetails.Size = New System.Drawing.Size(288, 173)
 		Me.GroupBox_StepDetails.TabIndex = 24
 		Me.GroupBox_StepDetails.TabStop = False
 		Me.GroupBox_StepDetails.Text = "Step Details"
 		'
 		'GroupBox_RoutineDetails
 		'
-		Me.GroupBox_RoutineDetails.Controls.Add(Me.TextBox3)
+		Me.GroupBox_RoutineDetails.Controls.Add(Me.TextBox_RoutineDescription)
 		Me.GroupBox_RoutineDetails.Controls.Add(Me.Label2)
-		Me.GroupBox_RoutineDetails.Controls.Add(Me.TextBox2)
+		Me.GroupBox_RoutineDetails.Controls.Add(Me.TextBox_RoutineName)
 		Me.GroupBox_RoutineDetails.Controls.Add(Me.Label1)
-		Me.GroupBox_RoutineDetails.Location = New System.Drawing.Point(0, 394)
+		Me.GroupBox_RoutineDetails.Location = New System.Drawing.Point(12, 207)
 		Me.GroupBox_RoutineDetails.Name = "GroupBox_RoutineDetails"
-		Me.GroupBox_RoutineDetails.Size = New System.Drawing.Size(400, 174)
+		Me.GroupBox_RoutineDetails.Size = New System.Drawing.Size(288, 174)
 		Me.GroupBox_RoutineDetails.TabIndex = 25
 		Me.GroupBox_RoutineDetails.TabStop = False
 		Me.GroupBox_RoutineDetails.Text = "Routine Details"
 		'
-		'Label1
+		'TextBox_RoutineDescription
 		'
-		Me.Label1.AutoSize = True
-		Me.Label1.Location = New System.Drawing.Point(6, 25)
-		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(78, 13)
-		Me.Label1.TabIndex = 26
-		Me.Label1.Text = "Routine Name:"
-		'
-		'TextBox2
-		'
-		Me.TextBox2.Location = New System.Drawing.Point(90, 22)
-		Me.TextBox2.Name = "TextBox2"
-		Me.TextBox2.Size = New System.Drawing.Size(304, 20)
-		Me.TextBox2.TabIndex = 26
+		Me.TextBox_RoutineDescription.AcceptsReturn = True
+		Me.TextBox_RoutineDescription.AcceptsTab = True
+		Me.TextBox_RoutineDescription.Location = New System.Drawing.Point(90, 48)
+		Me.TextBox_RoutineDescription.Multiline = True
+		Me.TextBox_RoutineDescription.Name = "TextBox_RoutineDescription"
+		Me.TextBox_RoutineDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+		Me.TextBox_RoutineDescription.Size = New System.Drawing.Size(192, 120)
+		Me.TextBox_RoutineDescription.TabIndex = 27
 		'
 		'Label2
 		'
@@ -824,53 +814,71 @@ Partial Class FormMain
 		Me.Label2.TabIndex = 26
 		Me.Label2.Text = "Description:"
 		'
-		'TextBox3
+		'TextBox_RoutineName
 		'
-		Me.TextBox3.AcceptsReturn = True
-		Me.TextBox3.AcceptsTab = True
-		Me.TextBox3.Location = New System.Drawing.Point(90, 48)
-		Me.TextBox3.Multiline = True
-		Me.TextBox3.Name = "TextBox3"
-		Me.TextBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-		Me.TextBox3.Size = New System.Drawing.Size(304, 120)
-		Me.TextBox3.TabIndex = 27
+		Me.TextBox_RoutineName.Location = New System.Drawing.Point(90, 22)
+		Me.TextBox_RoutineName.Name = "TextBox_RoutineName"
+		Me.TextBox_RoutineName.Size = New System.Drawing.Size(192, 20)
+		Me.TextBox_RoutineName.TabIndex = 26
 		'
-		'Button_UndoChanges
+		'Label1
 		'
-		Me.Button_UndoChanges.BackColor = System.Drawing.Color.Firebrick
-		Me.Button_UndoChanges.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Button_UndoChanges.ForeColor = System.Drawing.Color.Yellow
-		Me.Button_UndoChanges.Location = New System.Drawing.Point(406, 511)
-		Me.Button_UndoChanges.Name = "Button_UndoChanges"
-		Me.Button_UndoChanges.Size = New System.Drawing.Size(141, 57)
-		Me.Button_UndoChanges.TabIndex = 26
-		Me.Button_UndoChanges.Text = "Undo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Changes"
-		Me.Button_UndoChanges.UseVisualStyleBackColor = False
+		Me.Label1.AutoSize = True
+		Me.Label1.Location = New System.Drawing.Point(6, 25)
+		Me.Label1.Name = "Label1"
+		Me.Label1.Size = New System.Drawing.Size(78, 13)
+		Me.Label1.TabIndex = 26
+		Me.Label1.Text = "Routine Name:"
 		'
-		'Button_SaveChanges
+		'Button_StepsUpdateChanges
 		'
-		Me.Button_SaveChanges.BackColor = System.Drawing.Color.YellowGreen
-		Me.Button_SaveChanges.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Button_SaveChanges.ForeColor = System.Drawing.Color.MediumBlue
-		Me.Button_SaveChanges.Location = New System.Drawing.Point(553, 511)
-		Me.Button_SaveChanges.Name = "Button_SaveChanges"
-		Me.Button_SaveChanges.Size = New System.Drawing.Size(141, 57)
-		Me.Button_SaveChanges.TabIndex = 27
-		Me.Button_SaveChanges.Text = "Save" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Changes"
-		Me.Button_SaveChanges.UseVisualStyleBackColor = False
+		Me.Button_StepsUpdateChanges.Location = New System.Drawing.Point(343, 387)
+		Me.Button_StepsUpdateChanges.Name = "Button_StepsUpdateChanges"
+		Me.Button_StepsUpdateChanges.Size = New System.Drawing.Size(192, 30)
+		Me.Button_StepsUpdateChanges.TabIndex = 26
+		Me.Button_StepsUpdateChanges.Text = "Update Changes"
+		Me.Button_StepsUpdateChanges.UseVisualStyleBackColor = True
+		'
+		'Button_ShowSteps
+		'
+		Me.Button_ShowSteps.Location = New System.Drawing.Point(306, 27)
+		Me.Button_ShowSteps.Name = "Button_ShowSteps"
+		Me.Button_ShowSteps.Size = New System.Drawing.Size(31, 426)
+		Me.Button_ShowSteps.TabIndex = 27
+		Me.Button_ShowSteps.Text = "-->"
+		Me.Button_ShowSteps.UseVisualStyleBackColor = True
+		'
+		'ButtonLoadRoutine
+		'
+		Me.ButtonLoadRoutine.Location = New System.Drawing.Point(12, 387)
+		Me.ButtonLoadRoutine.Name = "ButtonLoadRoutine"
+		Me.ButtonLoadRoutine.Size = New System.Drawing.Size(142, 30)
+		Me.ButtonLoadRoutine.TabIndex = 28
+		Me.ButtonLoadRoutine.Text = "Insert Routine From File..."
+		Me.ButtonLoadRoutine.UseVisualStyleBackColor = True
+		'
+		'Button_RoutineUpdateChanges
+		'
+		Me.Button_RoutineUpdateChanges.Location = New System.Drawing.Point(12, 423)
+		Me.Button_RoutineUpdateChanges.Name = "Button_RoutineUpdateChanges"
+		Me.Button_RoutineUpdateChanges.Size = New System.Drawing.Size(288, 30)
+		Me.Button_RoutineUpdateChanges.TabIndex = 29
+		Me.Button_RoutineUpdateChanges.Text = "Update Changes"
+		Me.Button_RoutineUpdateChanges.UseVisualStyleBackColor = True
 		'
 		'FormMain
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(1186, 580)
-		Me.Controls.Add(Me.Button_SaveChanges)
-		Me.Controls.Add(Me.Button_UndoChanges)
+		Me.ClientSize = New System.Drawing.Size(1134, 459)
+		Me.Controls.Add(Me.Button_RoutineUpdateChanges)
+		Me.Controls.Add(Me.ButtonLoadRoutine)
+		Me.Controls.Add(Me.Button_ShowSteps)
+		Me.Controls.Add(Me.Button_StepsUpdateChanges)
 		Me.Controls.Add(Me.GroupBox_RoutineDetails)
 		Me.Controls.Add(Me.GroupBox_StepDetails)
 		Me.Controls.Add(Me.Button_AddRoutine)
-		Me.Controls.Add(Me.ListView1)
-		Me.Controls.Add(Me.TextBox1)
+		Me.Controls.Add(Me.ListView_Routines)
 		Me.Controls.Add(Me.GroupBox_MFCs)
 		Me.Controls.Add(Me.ListView_Steps)
 		Me.Controls.Add(Me.GroupBoxTiming)
@@ -970,7 +978,6 @@ Partial Class FormMain
 	Friend WithEvents Label_MFCsIndex As System.Windows.Forms.Label
 	Friend WithEvents NumericUpDown_MFCsIndex As System.Windows.Forms.NumericUpDown
 	Friend WithEvents TextBox_StepName As System.Windows.Forms.TextBox
-	Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
 	Friend WithEvents Label_StepName As System.Windows.Forms.Label
 	Friend WithEvents Label_StepDescription As System.Windows.Forms.Label
 	Friend WithEvents TextBox_StepDescription As System.Windows.Forms.TextBox
@@ -982,7 +989,7 @@ Partial Class FormMain
 	Friend WithEvents ColumnHeader_StepDelay As System.Windows.Forms.ColumnHeader
 	Friend WithEvents ColumnHeader_StepValves As System.Windows.Forms.ColumnHeader
 	Friend WithEvents ColumnHeader_StepMFCs As System.Windows.Forms.ColumnHeader
-	Friend WithEvents ListView1 As System.Windows.Forms.ListView
+	Friend WithEvents ListView_Routines As System.Windows.Forms.ListView
 	Friend WithEvents ColumnHeader_RoutineIndex As System.Windows.Forms.ColumnHeader
 	Friend WithEvents ColumnHeader_RoutineName As System.Windows.Forms.ColumnHeader
 	Friend WithEvents ColumnHeader_RoutineDescription As System.Windows.Forms.ColumnHeader
@@ -990,11 +997,13 @@ Partial Class FormMain
 	Friend WithEvents Button_AddRoutine As System.Windows.Forms.Button
 	Friend WithEvents GroupBox_StepDetails As System.Windows.Forms.GroupBox
 	Friend WithEvents GroupBox_RoutineDetails As System.Windows.Forms.GroupBox
-	Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+	Friend WithEvents TextBox_RoutineDescription As System.Windows.Forms.TextBox
 	Friend WithEvents Label2 As System.Windows.Forms.Label
-	Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+	Friend WithEvents TextBox_RoutineName As System.Windows.Forms.TextBox
 	Friend WithEvents Label1 As System.Windows.Forms.Label
-	Friend WithEvents Button_UndoChanges As System.Windows.Forms.Button
-	Friend WithEvents Button_SaveChanges As System.Windows.Forms.Button
+	Friend WithEvents Button_StepsUpdateChanges As System.Windows.Forms.Button
+	Friend WithEvents Button_ShowSteps As System.Windows.Forms.Button
+	Friend WithEvents ButtonLoadRoutine As System.Windows.Forms.Button
+	Friend WithEvents Button_RoutineUpdateChanges As System.Windows.Forms.Button
 
 End Class

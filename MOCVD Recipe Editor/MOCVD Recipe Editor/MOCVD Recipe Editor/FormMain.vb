@@ -1,8 +1,11 @@
 ﻿Public Class FormMain
-	Dim sortColumn_ValveList As Integer = -1
-	Dim sortColumn_MFCsList As Integer = -1
 
 	Dim recipe As Recipe
+
+
+#Region "Sort Columns"
+	Dim sortColumn_ValveList As Integer = -1
+	Dim sortColumn_MFCsList As Integer = -1
 
 	'Visual Basic 
 	' Implements the manual sorting of items by columns.
@@ -22,11 +25,11 @@
 		End Sub
 
 		Public Function Compare(x As Object, y As Object) As Integer _
-				  Implements System.Collections.IComparer.Compare
+		  Implements System.Collections.IComparer.Compare
 			Dim returnVal As Integer = -1
 			returnVal = [String].Compare(CType(x,  _
-					ListViewItem).SubItems(col).Text, _
-					CType(y, ListViewItem).SubItems(col).Text)
+			  ListViewItem).SubItems(col).Text, _
+			  CType(y, ListViewItem).SubItems(col).Text)
 			' Determine whether the sort order is descending.
 			If order = SortOrder.Descending Then
 				' Invert the value returned by String.Compare.
@@ -57,44 +60,25 @@
 		' object.
 		list.ListViewItemSorter = New ListViewItemComparer(e.Column, list.Sorting)
 	End Sub
+#End Region
 
 
-
+#Region "Forms"
 	Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 		ComboBox_TimeUnits.SelectedItem = "sec"
 		ComboBox_RampUnits.SelectedItem = "sec"
 		ComboBox_DelayUnits.SelectedItem = "sec"
 
-		Dim routine As New RecipeRoutine()
-		routine.setName(My.Settings.Recipe_Name)
-
 		recipe = New Recipe
-		recipe.addRoutine(routine)
 		recipe.setRecipeName(My.Settings.Recipe_Name)
+
+		Me.Size = New Size(ShowStepsHiddenSize, Me.Size.Height)
+		FormDebug.Show()
 	End Sub
-
-	Private Sub Button_AddValve_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddValve.Click
-		If Not ListView_ValveList.Items.ContainsKey(NumericUpDownValveIndex.Value.ToString) Then
-			ListView_ValveList.Items.Add(NumericUpDownValveIndex.Value.ToString, NumericUpDownValveIndex.Value.ToString, 0)
-
-			Dim valve = ListView_ValveList.Items(ListView_ValveList.Items.Count - 1)
-
-			If RadioButton_ValveClose.Checked = True Then
-				valve.SubItems.Add("Close")
-				valve.SubItems(0).ForeColor = Color.Red
-			Else
-				valve.SubItems.Add("Open")
-				valve.SubItems(0).ForeColor = Color.Green
-			End If
-
-		Else
+#End Region
 
 
-		End If
-
-
-	End Sub
-
+#Region "Menu"
 	Private Sub SetToOpenToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SetToOpenToolStripMenuItem.Click
 		For Each item As ListViewItem In ListView_ValveList.SelectedItems
 			item.SubItems(1).Text = "Open"
@@ -115,6 +99,76 @@
 		Next
 	End Sub
 
+	Private Sub SaveToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SaveToolStripMenuItem.Click
+
+	End Sub
+#End Region
+
+
+#Region "ListView"
+	Private Sub ListView_ValveList_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView_ValveList.ColumnClick
+		sortListViewColumn(e, ListView_ValveList, sortColumn_ValveList)
+	End Sub
+
+	Private Sub ListView_MFCsList_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView_MFCsList.ColumnClick
+		sortListViewColumn(e, ListView_MFCsList, sortColumn_MFCsList)
+	End Sub
+#End Region
+
+
+#Region "Routines"
+
+	Private Sub Button_AddRoutine_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddRoutine.Click
+		Dim routine As New RecipeRoutine(TextBox_RoutineName.Text, TextBox_RoutineDescription.Text)
+		recipe.addRoutine(routine)
+
+		addListViewRoutine(routine)
+
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+	End Sub
+
+	Private Sub addListViewRoutine(ByRef recipeRoutine As RecipeRoutine)
+		ListView_Routines.Items.Add(New ListViewItem({recipeRoutine.getIndex, recipeRoutine.getName, recipeRoutine.getDescription, recipeRoutine.steps.count}))
+	End Sub
+
+
+	Private Sub ListView_Routines_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView_Routines.SelectedIndexChanged
+		If ListView_Routines.SelectedIndices.Count > 0 Then
+			recipe.setCurrentRoutine(recipe.routines.routines((ListView_Routines.SelectedIndices(0))))
+
+			ListView_Steps.Items.Clear()
+
+			For Each item As RecipeStep In recipe.getCurrentRoutine().steps.steps
+				If IsNothing(item) Then
+					Exit For
+				End If
+				addListViewStep(item)
+			Next
+		End If
+	End Sub
+
+#End Region
+
+
+#Region "Steps"
+
+#Region "Show Steps"
+	Dim ShowStepsEnabled As Boolean = False
+	Dim ShowStepsHiddenSize As Integer = 359
+	Dim ShowStepsRevealedSize As Integer = 1150
+
+	Private Sub Button_ShowSteps_Click(sender As System.Object, e As System.EventArgs) Handles Button_ShowSteps.Click
+		ShowStepsEnabled = Not ShowStepsEnabled
+		If (ShowStepsEnabled) Then
+			Button_ShowSteps.Text = "<--"
+			Me.Size = New Size(ShowStepsRevealedSize, Me.Size.Height)
+		Else
+			Button_ShowSteps.Text = "-->"
+			Me.Size = New Size(ShowStepsHiddenSize, Me.Size.Height)
+		End If
+	End Sub
+#End Region
+
 	Private Sub Button_AddStep_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddStep.Click
 		Dim time As Integer
 		Dim ramp As Integer
@@ -130,27 +184,38 @@
 
 		recipe.getCurrentRoutine().addStep(recipeStep)
 
-		TextBox1.Text = recipe.xmlRecipe.ToString
-		addStep(recipeStep)
-		clearSettings()
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		addListViewStep(recipeStep)
+		clearStep()
 	End Sub
 
-	Private Sub ListView_ValveList_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView_ValveList.ColumnClick
-		sortListViewColumn(e, ListView_ValveList, sortColumn_ValveList)
+	Private Sub addListViewStep(ByRef recipeStep As RecipeStep)
+		ListView_Steps.Items.Add(New ListViewItem({recipeStep.getIndex, recipeStep.getName, recipeStep.getDescription, recipeStep.getTime / 1000, recipeStep.getRamp / 1000, recipeStep.getDelay / 1000, recipeStep.getValveCount, recipeStep.getMFCCount}))
 	End Sub
 
-	Private Sub ListView_MFCsList_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView_MFCsList.ColumnClick
-		sortListViewColumn(e, ListView_MFCsList, sortColumn_MFCsList)
+	Private Sub ListView_Steps_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView_Steps.SelectedIndexChanged
+		If ListView_Steps.SelectedIndices.Count > 0 Then
+			recipe.getCurrentRoutine().steps.setCurrentStep(recipe.getCurrentRoutine().steps.steps(ListView_Steps.SelectedIndices(0)))
+			displayStep(recipe.getCurrentRoutine().steps.getCurrentStep())
+		End If
 	End Sub
 
-	Private Sub Button_MFCs_Click(sender As System.Object, e As System.EventArgs) Handles Button_MFCs.Click
+	Private Sub displayStep(ByRef recipeStep As RecipeStep)
+		clearStep()
+		For Each valve As XElement In recipeStep.xmlStep.<valves>.<valve>
+			addValve(valve.<index>.Value, valve.<action>.Value)
+		Next
+	End Sub
+
+	Private Sub clearStep()
+
+		ListView_ValveList.Items.Clear()
+		RadioButton_ValveClose.Checked = True
+		NumericUpDownValveIndex.Value = 1
 
 	End Sub
 
-	Private Sub SaveToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SaveToolStripMenuItem.Click
-		
-	End Sub
-
+#Region "Timing"
 	Private Sub getTiming(ByRef time As Integer, ByRef ramp As Integer, ByRef delay As Integer)
 		Select Case (ComboBox_TimeUnits.SelectedItem)
 			Case "min"
@@ -179,20 +244,52 @@
 				delay = NumericUpDown_Delay.Value
 		End Select
 	End Sub
+#End Region
 
-	Private Sub clearSettings()
+#Region "Valves"
+	Private Sub Button_AddValve_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddValve.Click
+		If Not ListView_ValveList.Items.ContainsKey(NumericUpDownValveIndex.Value.ToString) Then
+			addValve(NumericUpDownValveIndex.Value, RadioButton_ValveClose.Checked)
+		Else
 
-		ListView_ValveList.Items.Clear()
-		RadioButton_ValveClose.Checked = True
-		NumericUpDownValveIndex.Value = 1
-
+		End If
 	End Sub
 
-	Private Sub addStep(ByRef recipeStep As RecipeStep)
-		ListView_Steps.Items.Add(New ListViewItem({recipeStep.getIndex, recipeStep.getName, recipeStep.getDescription, recipeStep.getTime / 1000, recipeStep.getRamp / 1000, recipeStep.getDelay / 1000, recipeStep.getValveCount, recipeStep.getMFCCount}))
+	Private Sub addValve(index As Decimal, value As Boolean)
+		ListView_ValveList.Items.Add(index.ToString, index.ToString, 0)
+
+		Dim valve = ListView_ValveList.Items(ListView_ValveList.Items.Count - 1)
+
+		If value = True Then
+			valve.SubItems.Add("Close")
+			valve.SubItems(0).ForeColor = Color.Red
+		Else
+			valve.SubItems.Add("Open")
+			valve.SubItems(0).ForeColor = Color.Green
+		End If
 	End Sub
 
-	Private Sub Button_AddRoutine_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddRoutine.Click
+	Private Sub addValve(index As String, action As String)
+		ListView_ValveList.Items.Add(index, index, 0)
+
+		Dim valve = ListView_ValveList.Items(ListView_ValveList.Items.Count - 1)
+
+		If action = "Close" Then
+			valve.SubItems.Add("Close")
+			valve.SubItems(0).ForeColor = Color.Red
+		Else
+			valve.SubItems.Add("Open")
+			valve.SubItems(0).ForeColor = Color.Green
+		End If
+	End Sub
+
+#End Region
+
+#Region "MFCs"
+	Private Sub Button_MFCs_Click(sender As System.Object, e As System.EventArgs) Handles Button_MFCs.Click
 
 	End Sub
+#End Region
+
+#End Region
 End Class

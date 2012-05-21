@@ -97,6 +97,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormDebug.Designer.vb">
+      <DependentUpon>FormDebug.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDebug.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     <Compile Include="RecipeSteps.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormDebug.resx">
+      <DependentUpon>FormDebug.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
     </EmbeddedResource>
