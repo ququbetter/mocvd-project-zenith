@@ -1,7 +1,6 @@
 ﻿Public Class RecipeRoutines
 	Public xmlRoutines As XElement
 	Public routines() As RecipeRoutine
-	Public currentRoutine As RecipeRoutine
 	Private dimSize As Integer = 8
 	Public count As Integer = 0
 
@@ -22,7 +21,7 @@
 		recipeRoutine.setIndex(count)
 		routines(count) = recipeRoutine
 		xmlRoutines.Add(recipeRoutine.xmlRoutine)
-		currentRoutine = recipeRoutine
+		FormMain.currentRoutine = recipeRoutine
 		count += 1
 
 	End Sub

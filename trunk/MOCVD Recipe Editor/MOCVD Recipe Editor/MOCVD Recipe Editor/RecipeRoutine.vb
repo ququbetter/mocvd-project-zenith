@@ -7,7 +7,7 @@
 		 <routine>
 			 <name><%= name %></name>
 			 <description><%= description %></description>
-			 <steps>0</steps>
+			 <steps></steps>
 		 </routine>
 
 		steps = New RecipeSteps(xmlRoutine.<steps>(0))
