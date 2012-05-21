@@ -24,16 +24,8 @@
 		xmlSteps.Add(recipeStep.xmlStep)
 		count += 1
 
-		setCurrentStep(recipeStep)
+		FormMain.currentStep = recipeStep
 	End Sub
-
-	Public Sub setCurrentStep(ByRef recipeStep As RecipeStep)
-		currentStep = recipeStep
-	End Sub
-
-	Public Function getCurrentStep() As RecipeStep
-		Return currentStep
-	End Function
 
 
 End Class

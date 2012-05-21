@@ -1,7 +1,8 @@
 ﻿Public Class FormMain
 
 	Dim recipe As Recipe
-
+	Public currentRoutine As RecipeRoutine
+	Public currentStep As RecipeStep
 
 #Region "Sort Columns"
 	Dim sortColumn_ValveList As Integer = -1
@@ -134,16 +135,23 @@
 
 	Private Sub ListView_Routines_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView_Routines.SelectedIndexChanged
 		If ListView_Routines.SelectedIndices.Count > 0 Then
-			recipe.setCurrentRoutine(recipe.routines.routines((ListView_Routines.SelectedIndices(0))))
+			currentRoutine = recipe.routines.routines((ListView_Routines.SelectedIndices(0)))
 
 			ListView_Steps.Items.Clear()
+			If currentRoutine.steps.steps.Count > 0 Then
+				currentStep = currentRoutine.steps.steps(0)
+				displayStep(currentStep)
+				For Each item As RecipeStep In currentRoutine.steps.steps
+					If IsNothing(item) Then
+						Exit For
+					End If
+					addListViewStep(item)
+				Next
+			Else
+				clearStep()
+				currentStep = Nothing
+			End If
 
-			For Each item As RecipeStep In recipe.getCurrentRoutine().steps.steps
-				If IsNothing(item) Then
-					Exit For
-				End If
-				addListViewStep(item)
-			Next
 		End If
 	End Sub
 
@@ -170,6 +178,20 @@
 #End Region
 
 	Private Sub Button_AddStep_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddStep.Click
+		If IsNothing(currentRoutine) Then
+			Return
+		End If
+
+		Dim recipeStep = generateStep()
+
+		currentRoutine.addStep(recipeStep)
+
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		addListViewStep(recipeStep)
+		clearStep()
+	End Sub
+
+	Private Function generateStep() As RecipeStep
 		Dim time As Integer
 		Dim ramp As Integer
 		Dim delay As Integer
@@ -182,26 +204,34 @@
 			recipeStep.addValve(item.SubItems(0).Text, item.SubItems(1).Text)
 		Next
 
-		recipe.getCurrentRoutine().addStep(recipeStep)
+		Return recipeStep
+	End Function
 
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
-		addListViewStep(recipeStep)
-		clearStep()
+	Private Sub Button_StepsUpdateChanges_Click(sender As System.Object, e As System.EventArgs) Handles Button_StepsUpdateChanges.Click
+		currentStep = generateStep()
+
 	End Sub
 
 	Private Sub addListViewStep(ByRef recipeStep As RecipeStep)
+		If IsNothing(currentStep) Then
+			Return
+		End If
 		ListView_Steps.Items.Add(New ListViewItem({recipeStep.getIndex, recipeStep.getName, recipeStep.getDescription, recipeStep.getTime / 1000, recipeStep.getRamp / 1000, recipeStep.getDelay / 1000, recipeStep.getValveCount, recipeStep.getMFCCount}))
 	End Sub
 
 	Private Sub ListView_Steps_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView_Steps.SelectedIndexChanged
 		If ListView_Steps.SelectedIndices.Count > 0 Then
-			recipe.getCurrentRoutine().steps.setCurrentStep(recipe.getCurrentRoutine().steps.steps(ListView_Steps.SelectedIndices(0)))
-			displayStep(recipe.getCurrentRoutine().steps.getCurrentStep())
+			currentStep = currentRoutine.steps.steps(ListView_Steps.SelectedIndices(0))
+			displayStep(currentStep)
 		End If
 	End Sub
 
 	Private Sub displayStep(ByRef recipeStep As RecipeStep)
 		clearStep()
+		If IsNothing(currentStep) Then
+			Return
+		End If
+
 		For Each valve As XElement In recipeStep.xmlStep.<valves>.<valve>
 			addValve(valve.<index>.Value, valve.<action>.Value)
 		Next

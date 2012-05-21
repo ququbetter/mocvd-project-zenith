@@ -117,6 +117,8 @@ Partial Class FormMain
 		Me.Button_ShowSteps = New System.Windows.Forms.Button()
 		Me.ButtonLoadRoutine = New System.Windows.Forms.Button()
 		Me.Button_RoutineUpdateChanges = New System.Windows.Forms.Button()
+		Me.Button_StepIndexUp = New System.Windows.Forms.Button()
+		Me.Button_StepIndexDown = New System.Windows.Forms.Button()
 		Me.MenuStrip1.SuspendLayout()
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.NumericUpDown_Ramp, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -135,7 +137,6 @@ Partial Class FormMain
 		'
 		'MenuStrip1
 		'
-		Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.HelpToolStripMenuItem})
 		Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
 		Me.MenuStrip1.Name = "MenuStrip1"
 		Me.MenuStrip1.Size = New System.Drawing.Size(1134, 24)
@@ -770,10 +771,12 @@ Partial Class FormMain
 		'
 		'GroupBox_StepDetails
 		'
+		Me.GroupBox_StepDetails.Controls.Add(Me.Button_StepIndexDown)
 		Me.GroupBox_StepDetails.Controls.Add(Me.Label_StepName)
 		Me.GroupBox_StepDetails.Controls.Add(Me.TextBox_StepName)
 		Me.GroupBox_StepDetails.Controls.Add(Me.Label_StepDescription)
 		Me.GroupBox_StepDetails.Controls.Add(Me.TextBox_StepDescription)
+		Me.GroupBox_StepDetails.Controls.Add(Me.Button_StepIndexUp)
 		Me.GroupBox_StepDetails.Location = New System.Drawing.Point(541, 280)
 		Me.GroupBox_StepDetails.Name = "GroupBox_StepDetails"
 		Me.GroupBox_StepDetails.Size = New System.Drawing.Size(288, 173)
@@ -865,6 +868,26 @@ Partial Class FormMain
 		Me.Button_RoutineUpdateChanges.TabIndex = 29
 		Me.Button_RoutineUpdateChanges.Text = "Update Changes"
 		Me.Button_RoutineUpdateChanges.UseVisualStyleBackColor = True
+		'
+		'Button_StepIndexUp
+		'
+		Me.Button_StepIndexUp.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.UpArrow
+		Me.Button_StepIndexUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+		Me.Button_StepIndexUp.Location = New System.Drawing.Point(6, 76)
+		Me.Button_StepIndexUp.Name = "Button_StepIndexUp"
+		Me.Button_StepIndexUp.Size = New System.Drawing.Size(25, 25)
+		Me.Button_StepIndexUp.TabIndex = 30
+		Me.Button_StepIndexUp.UseVisualStyleBackColor = True
+		'
+		'Button_StepIndexDown
+		'
+		Me.Button_StepIndexDown.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.DownArrow
+		Me.Button_StepIndexDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+		Me.Button_StepIndexDown.Location = New System.Drawing.Point(6, 107)
+		Me.Button_StepIndexDown.Name = "Button_StepIndexDown"
+		Me.Button_StepIndexDown.Size = New System.Drawing.Size(25, 25)
+		Me.Button_StepIndexDown.TabIndex = 30
+		Me.Button_StepIndexDown.UseVisualStyleBackColor = True
 		'
 		'FormMain
 		'
@@ -1005,5 +1028,7 @@ Partial Class FormMain
 	Friend WithEvents Button_ShowSteps As System.Windows.Forms.Button
 	Friend WithEvents ButtonLoadRoutine As System.Windows.Forms.Button
 	Friend WithEvents Button_RoutineUpdateChanges As System.Windows.Forms.Button
+	Friend WithEvents Button_StepIndexUp As System.Windows.Forms.Button
+	Friend WithEvents Button_StepIndexDown As System.Windows.Forms.Button
 
 End Class

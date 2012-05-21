@@ -27,10 +27,11 @@ Partial Class FormDebug
 		'
 		'RichTextBox1
 		'
-		Me.RichTextBox1.Location = New System.Drawing.Point(12, 12)
+		Me.RichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.RichTextBox1.Location = New System.Drawing.Point(0, 0)
 		Me.RichTextBox1.Name = "RichTextBox1"
 		Me.RichTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth
-		Me.RichTextBox1.Size = New System.Drawing.Size(425, 478)
+		Me.RichTextBox1.Size = New System.Drawing.Size(449, 502)
 		Me.RichTextBox1.TabIndex = 0
 		Me.RichTextBox1.Text = ""
 		'
