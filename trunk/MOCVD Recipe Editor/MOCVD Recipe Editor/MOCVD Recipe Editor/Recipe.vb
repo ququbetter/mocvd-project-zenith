@@ -29,4 +29,8 @@
 		Return routines.currentRoutine
 	End Function
 
+	Public Sub setCurrentRoutine(ByRef recipeRoutine As RecipeRoutine)
+		routines.currentRoutine = recipeRoutine
+	End Sub
+
 End Class
