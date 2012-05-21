@@ -1,6 +1,7 @@
 ﻿Public Class RecipeRoutine
 	Public xmlRoutine As XElement
 	Public steps As RecipeSteps
+	Public listViewRoutine As ListViewItem
 
 	Public Sub New(Optional name As String = "", Optional description As String = "")
 		xmlRoutine =

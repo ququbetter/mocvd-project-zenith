@@ -24,7 +24,6 @@ Partial Class FormMain
 	Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
-		Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
 		Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -87,7 +86,6 @@ Partial Class FormMain
 		Me.ColumnHeader_StepDelay = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepValves = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepMFCs = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-		Me.DataSocketServer1 = New NationalInstruments.Net.DataSocketServer(Me.components)
 		Me.GroupBox_MFCs = New System.Windows.Forms.GroupBox()
 		Me.ListView_MFCsList = New System.Windows.Forms.ListView()
 		Me.ColumnHeader_MFC = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -108,6 +106,8 @@ Partial Class FormMain
 		Me.ColumnHeader_RoutineSteps = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.Button_AddRoutine = New System.Windows.Forms.Button()
 		Me.GroupBox_StepDetails = New System.Windows.Forms.GroupBox()
+		Me.Button_StepIndexDown = New System.Windows.Forms.Button()
+		Me.Button_StepIndexUp = New System.Windows.Forms.Button()
 		Me.GroupBox_RoutineDetails = New System.Windows.Forms.GroupBox()
 		Me.TextBox_RoutineDescription = New System.Windows.Forms.TextBox()
 		Me.Label2 = New System.Windows.Forms.Label()
@@ -117,9 +117,65 @@ Partial Class FormMain
 		Me.Button_ShowSteps = New System.Windows.Forms.Button()
 		Me.ButtonLoadRoutine = New System.Windows.Forms.Button()
 		Me.Button_RoutineUpdateChanges = New System.Windows.Forms.Button()
-		Me.Button_StepIndexUp = New System.Windows.Forms.Button()
-		Me.Button_StepIndexDown = New System.Windows.Forms.Button()
-		Me.MenuStrip1.SuspendLayout()
+		Me.FileToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.NewToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.OpenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.toolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+		Me.SaveToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.SaveAsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.toolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+		Me.PrintToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.PrintPreviewToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.toolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+		Me.ExitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.EditToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.UndoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.RedoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.toolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+		Me.CutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.CopyToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.PasteToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.toolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+		Me.SelectAllToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.ToolsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.CustomizeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.OptionsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.HelpToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.ContentsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.IndexToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.SearchToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.toolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+		Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+		Me.FileToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.NewToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.OpenToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.toolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+		Me.SaveToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.SaveAsToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.toolStripSeparator13 = New System.Windows.Forms.ToolStripSeparator()
+		Me.PrintToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.PrintPreviewToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.toolStripSeparator14 = New System.Windows.Forms.ToolStripSeparator()
+		Me.ExitToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.EditToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.UndoToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.RedoToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.toolStripSeparator15 = New System.Windows.Forms.ToolStripSeparator()
+		Me.CutToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.CopyToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.PasteToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.toolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
+		Me.SelectAllToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.ToolsToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.CustomizeToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.OptionsToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.HelpToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.ContentsToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.IndexToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.SearchToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.toolStripSeparator17 = New System.Windows.Forms.ToolStripSeparator()
+		Me.AboutToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.NumericUpDown_Ramp, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.NumericUpDown_Delay, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -127,21 +183,13 @@ Partial Class FormMain
 		Me.ContextMenuStrip_ValveList.SuspendLayout()
 		CType(Me.NumericUpDownValveIndex, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBoxTiming.SuspendLayout()
-		CType(Me.DataSocketServer1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox_MFCs.SuspendLayout()
 		CType(Me.NumericUpDown_MFCsSetPoint, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.NumericUpDown_MFCsIndex, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox_StepDetails.SuspendLayout()
 		Me.GroupBox_RoutineDetails.SuspendLayout()
+		Me.MenuStrip1.SuspendLayout()
 		Me.SuspendLayout()
-		'
-		'MenuStrip1
-		'
-		Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-		Me.MenuStrip1.Name = "MenuStrip1"
-		Me.MenuStrip1.Size = New System.Drawing.Size(1134, 24)
-		Me.MenuStrip1.TabIndex = 0
-		Me.MenuStrip1.Text = "MenuStrip1"
 		'
 		'FileToolStripMenuItem
 		'
@@ -784,6 +832,26 @@ Partial Class FormMain
 		Me.GroupBox_StepDetails.TabStop = False
 		Me.GroupBox_StepDetails.Text = "Step Details"
 		'
+		'Button_StepIndexDown
+		'
+		Me.Button_StepIndexDown.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.DownArrow
+		Me.Button_StepIndexDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+		Me.Button_StepIndexDown.Location = New System.Drawing.Point(6, 107)
+		Me.Button_StepIndexDown.Name = "Button_StepIndexDown"
+		Me.Button_StepIndexDown.Size = New System.Drawing.Size(25, 25)
+		Me.Button_StepIndexDown.TabIndex = 30
+		Me.Button_StepIndexDown.UseVisualStyleBackColor = True
+		'
+		'Button_StepIndexUp
+		'
+		Me.Button_StepIndexUp.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.UpArrow
+		Me.Button_StepIndexUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+		Me.Button_StepIndexUp.Location = New System.Drawing.Point(6, 76)
+		Me.Button_StepIndexUp.Name = "Button_StepIndexUp"
+		Me.Button_StepIndexUp.Size = New System.Drawing.Size(25, 25)
+		Me.Button_StepIndexUp.TabIndex = 30
+		Me.Button_StepIndexUp.UseVisualStyleBackColor = True
+		'
 		'GroupBox_RoutineDetails
 		'
 		Me.GroupBox_RoutineDetails.Controls.Add(Me.TextBox_RoutineDescription)
@@ -869,31 +937,397 @@ Partial Class FormMain
 		Me.Button_RoutineUpdateChanges.Text = "Update Changes"
 		Me.Button_RoutineUpdateChanges.UseVisualStyleBackColor = True
 		'
-		'Button_StepIndexUp
+		'FileToolStripMenuItem1
 		'
-		Me.Button_StepIndexUp.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.UpArrow
-		Me.Button_StepIndexUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-		Me.Button_StepIndexUp.Location = New System.Drawing.Point(6, 76)
-		Me.Button_StepIndexUp.Name = "Button_StepIndexUp"
-		Me.Button_StepIndexUp.Size = New System.Drawing.Size(25, 25)
-		Me.Button_StepIndexUp.TabIndex = 30
-		Me.Button_StepIndexUp.UseVisualStyleBackColor = True
+		Me.FileToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem1, Me.OpenToolStripMenuItem1, Me.toolStripSeparator6, Me.SaveToolStripMenuItem1, Me.SaveAsToolStripMenuItem1, Me.toolStripSeparator7, Me.PrintToolStripMenuItem1, Me.PrintPreviewToolStripMenuItem1, Me.toolStripSeparator8, Me.ExitToolStripMenuItem1})
+		Me.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1"
+		Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(37, 20)
+		Me.FileToolStripMenuItem1.Text = "&File"
 		'
-		'Button_StepIndexDown
+		'NewToolStripMenuItem1
 		'
-		Me.Button_StepIndexDown.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.DownArrow
-		Me.Button_StepIndexDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-		Me.Button_StepIndexDown.Location = New System.Drawing.Point(6, 107)
-		Me.Button_StepIndexDown.Name = "Button_StepIndexDown"
-		Me.Button_StepIndexDown.Size = New System.Drawing.Size(25, 25)
-		Me.Button_StepIndexDown.TabIndex = 30
-		Me.Button_StepIndexDown.UseVisualStyleBackColor = True
+		Me.NewToolStripMenuItem1.Image = CType(resources.GetObject("NewToolStripMenuItem1.Image"), System.Drawing.Image)
+		Me.NewToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.NewToolStripMenuItem1.Name = "NewToolStripMenuItem1"
+		Me.NewToolStripMenuItem1.Size = New System.Drawing.Size(143, 22)
+		Me.NewToolStripMenuItem1.Text = "&New"
+		'
+		'OpenToolStripMenuItem1
+		'
+		Me.OpenToolStripMenuItem1.Image = CType(resources.GetObject("OpenToolStripMenuItem1.Image"), System.Drawing.Image)
+		Me.OpenToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.OpenToolStripMenuItem1.Name = "OpenToolStripMenuItem1"
+		Me.OpenToolStripMenuItem1.Size = New System.Drawing.Size(143, 22)
+		Me.OpenToolStripMenuItem1.Text = "&Open"
+		'
+		'toolStripSeparator6
+		'
+		Me.toolStripSeparator6.Name = "toolStripSeparator6"
+		Me.toolStripSeparator6.Size = New System.Drawing.Size(140, 6)
+		'
+		'SaveToolStripMenuItem1
+		'
+		Me.SaveToolStripMenuItem1.Image = CType(resources.GetObject("SaveToolStripMenuItem1.Image"), System.Drawing.Image)
+		Me.SaveToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.SaveToolStripMenuItem1.Name = "SaveToolStripMenuItem1"
+		Me.SaveToolStripMenuItem1.Size = New System.Drawing.Size(143, 22)
+		Me.SaveToolStripMenuItem1.Text = "&Save"
+		'
+		'SaveAsToolStripMenuItem1
+		'
+		Me.SaveAsToolStripMenuItem1.Name = "SaveAsToolStripMenuItem1"
+		Me.SaveAsToolStripMenuItem1.Size = New System.Drawing.Size(143, 22)
+		Me.SaveAsToolStripMenuItem1.Text = "Save &As"
+		'
+		'toolStripSeparator7
+		'
+		Me.toolStripSeparator7.Name = "toolStripSeparator7"
+		Me.toolStripSeparator7.Size = New System.Drawing.Size(140, 6)
+		'
+		'PrintToolStripMenuItem1
+		'
+		Me.PrintToolStripMenuItem1.Image = CType(resources.GetObject("PrintToolStripMenuItem1.Image"), System.Drawing.Image)
+		Me.PrintToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.PrintToolStripMenuItem1.Name = "PrintToolStripMenuItem1"
+		Me.PrintToolStripMenuItem1.Size = New System.Drawing.Size(143, 22)
+		Me.PrintToolStripMenuItem1.Text = "&Print"
+		'
+		'PrintPreviewToolStripMenuItem1
+		'
+		Me.PrintPreviewToolStripMenuItem1.Image = CType(resources.GetObject("PrintPreviewToolStripMenuItem1.Image"), System.Drawing.Image)
+		Me.PrintPreviewToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.PrintPreviewToolStripMenuItem1.Name = "PrintPreviewToolStripMenuItem1"
+		Me.PrintPreviewToolStripMenuItem1.Size = New System.Drawing.Size(143, 22)
+		Me.PrintPreviewToolStripMenuItem1.Text = "Print Pre&view"
+		'
+		'toolStripSeparator8
+		'
+		Me.toolStripSeparator8.Name = "toolStripSeparator8"
+		Me.toolStripSeparator8.Size = New System.Drawing.Size(140, 6)
+		'
+		'ExitToolStripMenuItem1
+		'
+		Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
+		Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(143, 22)
+		Me.ExitToolStripMenuItem1.Text = "E&xit"
+		'
+		'EditToolStripMenuItem1
+		'
+		Me.EditToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoToolStripMenuItem1, Me.RedoToolStripMenuItem1, Me.toolStripSeparator9, Me.CutToolStripMenuItem1, Me.CopyToolStripMenuItem1, Me.PasteToolStripMenuItem1, Me.toolStripSeparator10, Me.SelectAllToolStripMenuItem1})
+		Me.EditToolStripMenuItem1.Name = "EditToolStripMenuItem1"
+		Me.EditToolStripMenuItem1.Size = New System.Drawing.Size(39, 20)
+		Me.EditToolStripMenuItem1.Text = "&Edit"
+		'
+		'UndoToolStripMenuItem1
+		'
+		Me.UndoToolStripMenuItem1.Name = "UndoToolStripMenuItem1"
+		Me.UndoToolStripMenuItem1.Size = New System.Drawing.Size(122, 22)
+		Me.UndoToolStripMenuItem1.Text = "&Undo"
+		'
+		'RedoToolStripMenuItem1
+		'
+		Me.RedoToolStripMenuItem1.Name = "RedoToolStripMenuItem1"
+		Me.RedoToolStripMenuItem1.Size = New System.Drawing.Size(122, 22)
+		Me.RedoToolStripMenuItem1.Text = "&Redo"
+		'
+		'toolStripSeparator9
+		'
+		Me.toolStripSeparator9.Name = "toolStripSeparator9"
+		Me.toolStripSeparator9.Size = New System.Drawing.Size(119, 6)
+		'
+		'CutToolStripMenuItem1
+		'
+		Me.CutToolStripMenuItem1.Image = CType(resources.GetObject("CutToolStripMenuItem1.Image"), System.Drawing.Image)
+		Me.CutToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.CutToolStripMenuItem1.Name = "CutToolStripMenuItem1"
+		Me.CutToolStripMenuItem1.Size = New System.Drawing.Size(122, 22)
+		Me.CutToolStripMenuItem1.Text = "Cu&t"
+		'
+		'CopyToolStripMenuItem1
+		'
+		Me.CopyToolStripMenuItem1.Image = CType(resources.GetObject("CopyToolStripMenuItem1.Image"), System.Drawing.Image)
+		Me.CopyToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.CopyToolStripMenuItem1.Name = "CopyToolStripMenuItem1"
+		Me.CopyToolStripMenuItem1.Size = New System.Drawing.Size(122, 22)
+		Me.CopyToolStripMenuItem1.Text = "&Copy"
+		'
+		'PasteToolStripMenuItem1
+		'
+		Me.PasteToolStripMenuItem1.Image = CType(resources.GetObject("PasteToolStripMenuItem1.Image"), System.Drawing.Image)
+		Me.PasteToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.PasteToolStripMenuItem1.Name = "PasteToolStripMenuItem1"
+		Me.PasteToolStripMenuItem1.Size = New System.Drawing.Size(122, 22)
+		Me.PasteToolStripMenuItem1.Text = "&Paste"
+		'
+		'toolStripSeparator10
+		'
+		Me.toolStripSeparator10.Name = "toolStripSeparator10"
+		Me.toolStripSeparator10.Size = New System.Drawing.Size(119, 6)
+		'
+		'SelectAllToolStripMenuItem1
+		'
+		Me.SelectAllToolStripMenuItem1.Name = "SelectAllToolStripMenuItem1"
+		Me.SelectAllToolStripMenuItem1.Size = New System.Drawing.Size(122, 22)
+		Me.SelectAllToolStripMenuItem1.Text = "Select &All"
+		'
+		'ToolsToolStripMenuItem1
+		'
+		Me.ToolsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CustomizeToolStripMenuItem1, Me.OptionsToolStripMenuItem1})
+		Me.ToolsToolStripMenuItem1.Name = "ToolsToolStripMenuItem1"
+		Me.ToolsToolStripMenuItem1.Size = New System.Drawing.Size(48, 20)
+		Me.ToolsToolStripMenuItem1.Text = "&Tools"
+		'
+		'CustomizeToolStripMenuItem1
+		'
+		Me.CustomizeToolStripMenuItem1.Name = "CustomizeToolStripMenuItem1"
+		Me.CustomizeToolStripMenuItem1.Size = New System.Drawing.Size(130, 22)
+		Me.CustomizeToolStripMenuItem1.Text = "&Customize"
+		'
+		'OptionsToolStripMenuItem1
+		'
+		Me.OptionsToolStripMenuItem1.Name = "OptionsToolStripMenuItem1"
+		Me.OptionsToolStripMenuItem1.Size = New System.Drawing.Size(130, 22)
+		Me.OptionsToolStripMenuItem1.Text = "&Options"
+		'
+		'HelpToolStripMenuItem1
+		'
+		Me.HelpToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentsToolStripMenuItem1, Me.IndexToolStripMenuItem1, Me.SearchToolStripMenuItem1, Me.toolStripSeparator11, Me.AboutToolStripMenuItem1})
+		Me.HelpToolStripMenuItem1.Name = "HelpToolStripMenuItem1"
+		Me.HelpToolStripMenuItem1.Size = New System.Drawing.Size(44, 20)
+		Me.HelpToolStripMenuItem1.Text = "&Help"
+		'
+		'ContentsToolStripMenuItem1
+		'
+		Me.ContentsToolStripMenuItem1.Name = "ContentsToolStripMenuItem1"
+		Me.ContentsToolStripMenuItem1.Size = New System.Drawing.Size(122, 22)
+		Me.ContentsToolStripMenuItem1.Text = "&Contents"
+		'
+		'IndexToolStripMenuItem1
+		'
+		Me.IndexToolStripMenuItem1.Name = "IndexToolStripMenuItem1"
+		Me.IndexToolStripMenuItem1.Size = New System.Drawing.Size(122, 22)
+		Me.IndexToolStripMenuItem1.Text = "&Index"
+		'
+		'SearchToolStripMenuItem1
+		'
+		Me.SearchToolStripMenuItem1.Name = "SearchToolStripMenuItem1"
+		Me.SearchToolStripMenuItem1.Size = New System.Drawing.Size(122, 22)
+		Me.SearchToolStripMenuItem1.Text = "&Search"
+		'
+		'toolStripSeparator11
+		'
+		Me.toolStripSeparator11.Name = "toolStripSeparator11"
+		Me.toolStripSeparator11.Size = New System.Drawing.Size(119, 6)
+		'
+		'AboutToolStripMenuItem1
+		'
+		Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
+		Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(122, 22)
+		Me.AboutToolStripMenuItem1.Text = "&About..."
+		'
+		'MenuStrip1
+		'
+		Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem2, Me.EditToolStripMenuItem2, Me.ToolsToolStripMenuItem2, Me.HelpToolStripMenuItem2})
+		Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+		Me.MenuStrip1.Name = "MenuStrip1"
+		Me.MenuStrip1.Size = New System.Drawing.Size(1134, 24)
+		Me.MenuStrip1.TabIndex = 30
+		Me.MenuStrip1.Text = "MenuStrip1"
+		'
+		'FileToolStripMenuItem2
+		'
+		Me.FileToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem2, Me.OpenToolStripMenuItem2, Me.toolStripSeparator12, Me.SaveToolStripMenuItem2, Me.SaveAsToolStripMenuItem2, Me.toolStripSeparator13, Me.PrintToolStripMenuItem2, Me.PrintPreviewToolStripMenuItem2, Me.toolStripSeparator14, Me.ExitToolStripMenuItem2})
+		Me.FileToolStripMenuItem2.Name = "FileToolStripMenuItem2"
+		Me.FileToolStripMenuItem2.Size = New System.Drawing.Size(37, 20)
+		Me.FileToolStripMenuItem2.Text = "&File"
+		'
+		'NewToolStripMenuItem2
+		'
+		Me.NewToolStripMenuItem2.Image = CType(resources.GetObject("NewToolStripMenuItem2.Image"), System.Drawing.Image)
+		Me.NewToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.NewToolStripMenuItem2.Name = "NewToolStripMenuItem2"
+		Me.NewToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.NewToolStripMenuItem2.Text = "&New"
+		'
+		'OpenToolStripMenuItem2
+		'
+		Me.OpenToolStripMenuItem2.Image = CType(resources.GetObject("OpenToolStripMenuItem2.Image"), System.Drawing.Image)
+		Me.OpenToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.OpenToolStripMenuItem2.Name = "OpenToolStripMenuItem2"
+		Me.OpenToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.OpenToolStripMenuItem2.Text = "&Open"
+		'
+		'toolStripSeparator12
+		'
+		Me.toolStripSeparator12.Name = "toolStripSeparator12"
+		Me.toolStripSeparator12.Size = New System.Drawing.Size(6, 6)
+		'
+		'SaveToolStripMenuItem2
+		'
+		Me.SaveToolStripMenuItem2.Image = CType(resources.GetObject("SaveToolStripMenuItem2.Image"), System.Drawing.Image)
+		Me.SaveToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.SaveToolStripMenuItem2.Name = "SaveToolStripMenuItem2"
+		Me.SaveToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.SaveToolStripMenuItem2.Text = "&Save"
+		'
+		'SaveAsToolStripMenuItem2
+		'
+		Me.SaveAsToolStripMenuItem2.Name = "SaveAsToolStripMenuItem2"
+		Me.SaveAsToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.SaveAsToolStripMenuItem2.Text = "Save &As"
+		'
+		'toolStripSeparator13
+		'
+		Me.toolStripSeparator13.Name = "toolStripSeparator13"
+		Me.toolStripSeparator13.Size = New System.Drawing.Size(6, 6)
+		'
+		'PrintToolStripMenuItem2
+		'
+		Me.PrintToolStripMenuItem2.Image = CType(resources.GetObject("PrintToolStripMenuItem2.Image"), System.Drawing.Image)
+		Me.PrintToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.PrintToolStripMenuItem2.Name = "PrintToolStripMenuItem2"
+		Me.PrintToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.PrintToolStripMenuItem2.Text = "&Print"
+		'
+		'PrintPreviewToolStripMenuItem2
+		'
+		Me.PrintPreviewToolStripMenuItem2.Image = CType(resources.GetObject("PrintPreviewToolStripMenuItem2.Image"), System.Drawing.Image)
+		Me.PrintPreviewToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.PrintPreviewToolStripMenuItem2.Name = "PrintPreviewToolStripMenuItem2"
+		Me.PrintPreviewToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.PrintPreviewToolStripMenuItem2.Text = "Print Pre&view"
+		'
+		'toolStripSeparator14
+		'
+		Me.toolStripSeparator14.Name = "toolStripSeparator14"
+		Me.toolStripSeparator14.Size = New System.Drawing.Size(6, 6)
+		'
+		'ExitToolStripMenuItem2
+		'
+		Me.ExitToolStripMenuItem2.Name = "ExitToolStripMenuItem2"
+		Me.ExitToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.ExitToolStripMenuItem2.Text = "E&xit"
+		'
+		'EditToolStripMenuItem2
+		'
+		Me.EditToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoToolStripMenuItem2, Me.RedoToolStripMenuItem2, Me.toolStripSeparator15, Me.CutToolStripMenuItem2, Me.CopyToolStripMenuItem2, Me.PasteToolStripMenuItem2, Me.toolStripSeparator16, Me.SelectAllToolStripMenuItem2})
+		Me.EditToolStripMenuItem2.Name = "EditToolStripMenuItem2"
+		Me.EditToolStripMenuItem2.Size = New System.Drawing.Size(39, 20)
+		Me.EditToolStripMenuItem2.Text = "&Edit"
+		'
+		'UndoToolStripMenuItem2
+		'
+		Me.UndoToolStripMenuItem2.Name = "UndoToolStripMenuItem2"
+		Me.UndoToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.UndoToolStripMenuItem2.Text = "&Undo"
+		'
+		'RedoToolStripMenuItem2
+		'
+		Me.RedoToolStripMenuItem2.Name = "RedoToolStripMenuItem2"
+		Me.RedoToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.RedoToolStripMenuItem2.Text = "&Redo"
+		'
+		'toolStripSeparator15
+		'
+		Me.toolStripSeparator15.Name = "toolStripSeparator15"
+		Me.toolStripSeparator15.Size = New System.Drawing.Size(6, 6)
+		'
+		'CutToolStripMenuItem2
+		'
+		Me.CutToolStripMenuItem2.Image = CType(resources.GetObject("CutToolStripMenuItem2.Image"), System.Drawing.Image)
+		Me.CutToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.CutToolStripMenuItem2.Name = "CutToolStripMenuItem2"
+		Me.CutToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.CutToolStripMenuItem2.Text = "Cu&t"
+		'
+		'CopyToolStripMenuItem2
+		'
+		Me.CopyToolStripMenuItem2.Image = CType(resources.GetObject("CopyToolStripMenuItem2.Image"), System.Drawing.Image)
+		Me.CopyToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.CopyToolStripMenuItem2.Name = "CopyToolStripMenuItem2"
+		Me.CopyToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.CopyToolStripMenuItem2.Text = "&Copy"
+		'
+		'PasteToolStripMenuItem2
+		'
+		Me.PasteToolStripMenuItem2.Image = CType(resources.GetObject("PasteToolStripMenuItem2.Image"), System.Drawing.Image)
+		Me.PasteToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
+		Me.PasteToolStripMenuItem2.Name = "PasteToolStripMenuItem2"
+		Me.PasteToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.PasteToolStripMenuItem2.Text = "&Paste"
+		'
+		'toolStripSeparator16
+		'
+		Me.toolStripSeparator16.Name = "toolStripSeparator16"
+		Me.toolStripSeparator16.Size = New System.Drawing.Size(6, 6)
+		'
+		'SelectAllToolStripMenuItem2
+		'
+		Me.SelectAllToolStripMenuItem2.Name = "SelectAllToolStripMenuItem2"
+		Me.SelectAllToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.SelectAllToolStripMenuItem2.Text = "Select &All"
+		'
+		'ToolsToolStripMenuItem2
+		'
+		Me.ToolsToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CustomizeToolStripMenuItem2, Me.OptionsToolStripMenuItem2})
+		Me.ToolsToolStripMenuItem2.Name = "ToolsToolStripMenuItem2"
+		Me.ToolsToolStripMenuItem2.Size = New System.Drawing.Size(48, 20)
+		Me.ToolsToolStripMenuItem2.Text = "&Tools"
+		'
+		'CustomizeToolStripMenuItem2
+		'
+		Me.CustomizeToolStripMenuItem2.Name = "CustomizeToolStripMenuItem2"
+		Me.CustomizeToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.CustomizeToolStripMenuItem2.Text = "&Customize"
+		'
+		'OptionsToolStripMenuItem2
+		'
+		Me.OptionsToolStripMenuItem2.Name = "OptionsToolStripMenuItem2"
+		Me.OptionsToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.OptionsToolStripMenuItem2.Text = "&Options"
+		'
+		'HelpToolStripMenuItem2
+		'
+		Me.HelpToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentsToolStripMenuItem2, Me.IndexToolStripMenuItem2, Me.SearchToolStripMenuItem2, Me.toolStripSeparator17, Me.AboutToolStripMenuItem2})
+		Me.HelpToolStripMenuItem2.Name = "HelpToolStripMenuItem2"
+		Me.HelpToolStripMenuItem2.Size = New System.Drawing.Size(44, 20)
+		Me.HelpToolStripMenuItem2.Text = "&Help"
+		'
+		'ContentsToolStripMenuItem2
+		'
+		Me.ContentsToolStripMenuItem2.Name = "ContentsToolStripMenuItem2"
+		Me.ContentsToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.ContentsToolStripMenuItem2.Text = "&Contents"
+		'
+		'IndexToolStripMenuItem2
+		'
+		Me.IndexToolStripMenuItem2.Name = "IndexToolStripMenuItem2"
+		Me.IndexToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.IndexToolStripMenuItem2.Text = "&Index"
+		'
+		'SearchToolStripMenuItem2
+		'
+		Me.SearchToolStripMenuItem2.Name = "SearchToolStripMenuItem2"
+		Me.SearchToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.SearchToolStripMenuItem2.Text = "&Search"
+		'
+		'toolStripSeparator17
+		'
+		Me.toolStripSeparator17.Name = "toolStripSeparator17"
+		Me.toolStripSeparator17.Size = New System.Drawing.Size(6, 6)
+		'
+		'AboutToolStripMenuItem2
+		'
+		Me.AboutToolStripMenuItem2.Name = "AboutToolStripMenuItem2"
+		Me.AboutToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.AboutToolStripMenuItem2.Text = "&About..."
 		'
 		'FormMain
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1134, 459)
+		Me.Controls.Add(Me.MenuStrip1)
 		Me.Controls.Add(Me.Button_RoutineUpdateChanges)
 		Me.Controls.Add(Me.ButtonLoadRoutine)
 		Me.Controls.Add(Me.Button_ShowSteps)
@@ -906,13 +1340,10 @@ Partial Class FormMain
 		Me.Controls.Add(Me.ListView_Steps)
 		Me.Controls.Add(Me.GroupBoxTiming)
 		Me.Controls.Add(Me.GroupBoxValves)
-		Me.Controls.Add(Me.MenuStrip1)
 		Me.Controls.Add(Me.Button_AddStep)
 		Me.MainMenuStrip = Me.MenuStrip1
 		Me.Name = "FormMain"
 		Me.Text = "MOCVD Recipe Editor"
-		Me.MenuStrip1.ResumeLayout(False)
-		Me.MenuStrip1.PerformLayout()
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.NumericUpDown_Ramp, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.NumericUpDown_Delay, System.ComponentModel.ISupportInitialize).EndInit()
@@ -922,7 +1353,6 @@ Partial Class FormMain
 		CType(Me.NumericUpDownValveIndex, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBoxTiming.ResumeLayout(False)
 		Me.GroupBoxTiming.PerformLayout()
-		CType(Me.DataSocketServer1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox_MFCs.ResumeLayout(False)
 		Me.GroupBox_MFCs.PerformLayout()
 		CType(Me.NumericUpDown_MFCsSetPoint, System.ComponentModel.ISupportInitialize).EndInit()
@@ -931,11 +1361,12 @@ Partial Class FormMain
 		Me.GroupBox_StepDetails.PerformLayout()
 		Me.GroupBox_RoutineDetails.ResumeLayout(False)
 		Me.GroupBox_RoutineDetails.PerformLayout()
+		Me.MenuStrip1.ResumeLayout(False)
+		Me.MenuStrip1.PerformLayout()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
 	End Sub
-	Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
 	Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents NewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents OpenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -990,7 +1421,6 @@ Partial Class FormMain
 	Friend WithEvents SetToCloseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents RemoveItemsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents SetToOpenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-	Friend WithEvents DataSocketServer1 As NationalInstruments.Net.DataSocketServer
 	Friend WithEvents GroupBox_MFCs As System.Windows.Forms.GroupBox
 	Friend WithEvents ListView_MFCsList As System.Windows.Forms.ListView
 	Friend WithEvents ColumnHeader_MFC As System.Windows.Forms.ColumnHeader
@@ -1030,5 +1460,64 @@ Partial Class FormMain
 	Friend WithEvents Button_RoutineUpdateChanges As System.Windows.Forms.Button
 	Friend WithEvents Button_StepIndexUp As System.Windows.Forms.Button
 	Friend WithEvents Button_StepIndexDown As System.Windows.Forms.Button
+	Friend WithEvents FileToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents NewToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents OpenToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents toolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents SaveToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents SaveAsToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents toolStripSeparator7 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents PrintToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents PrintPreviewToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents toolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents ExitToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents EditToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents UndoToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents RedoToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents toolStripSeparator9 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents CutToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents CopyToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents PasteToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents toolStripSeparator10 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents SelectAllToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents ToolsToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents CustomizeToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents OptionsToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents HelpToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents ContentsToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents IndexToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents SearchToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents toolStripSeparator11 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents AboutToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+	Friend WithEvents FileToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents NewToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents OpenToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents toolStripSeparator12 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents SaveToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents SaveAsToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents toolStripSeparator13 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents PrintToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents PrintPreviewToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents toolStripSeparator14 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents ExitToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents EditToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents UndoToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents RedoToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents toolStripSeparator15 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents CutToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents CopyToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents PasteToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents toolStripSeparator16 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents SelectAllToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents ToolsToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents CustomizeToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents OptionsToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents HelpToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents ContentsToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents IndexToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents SearchToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents toolStripSeparator17 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents AboutToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

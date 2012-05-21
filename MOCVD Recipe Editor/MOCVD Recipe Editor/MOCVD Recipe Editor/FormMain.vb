@@ -216,7 +216,7 @@
 		If IsNothing(currentStep) Then
 			Return
 		End If
-		ListView_Steps.Items.Add(New ListViewItem({recipeStep.getIndex, recipeStep.getName, recipeStep.getDescription, recipeStep.getTime / 1000, recipeStep.getRamp / 1000, recipeStep.getDelay / 1000, recipeStep.getValveCount, recipeStep.getMFCCount}))
+		ListView_Steps.Items.Add(recipeStep.listViewStep)
 	End Sub
 
 	Private Sub ListView_Steps_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView_Steps.SelectedIndexChanged
