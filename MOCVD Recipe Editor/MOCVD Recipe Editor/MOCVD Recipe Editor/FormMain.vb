@@ -236,7 +236,7 @@ Public Class FormMain
 		disableEvent = True
 
 		For Each valve As XElement In recipeStep.xmlStep.<valves>.<valve>
-			addValve(valve.<index>.Value, valve.<action>.Value)
+			addValve(valve.@index, valve.<action>.Value)
 		Next
 
 		TextBox_StepName.Text = recipeStep.getName()
@@ -360,7 +360,7 @@ Public Class FormMain
 		For Each item As ListViewItem In ListView_ValveList.SelectedItems
 			item.SubItems(1).Text = "Open"
 			item.SubItems(0).ForeColor = Color.Green
-  Next()
+		Next
 	End Sub
 
 	Private Sub SetToCloseToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SetToCloseToolStripMenuItem.Click
