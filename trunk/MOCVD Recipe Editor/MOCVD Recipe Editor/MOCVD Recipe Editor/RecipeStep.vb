@@ -2,19 +2,18 @@
 	Public xmlStep As XElement
 	Public listViewStep As ListViewItem
 
-	Public Sub New(Optional name As String = "", Optional description As String = "", Optional time As Integer = 0, Optional ramp As Integer = 0, Optional delay As Integer = 0)
+	Public Sub New()
 		xmlStep =
-		 <step>
-			 <name><%= name %></name>
-			 <description><%= description %></description>
-			 <time><%= time %></time>
-			 <ramp><%= ramp %></ramp>
-			 <delay><%= delay %></delay>
+		 <step index="0">
+			 <name>(name)</name>
+			 <description>(description)</description>
+			 <time unit="sec">0</time>
+			 <ramp>none</ramp>
 			 <valves></valves>
 			 <MFCs></MFCs>
 		 </step>
 
-		listViewStep = New ListViewItem({0, name, description, time, ramp, delay, 0, 0})
+		listViewStep = New ListViewItem({0, "(name)", "(description)", 0, "sec", "none", 0, 0})
 	End Sub
 
 	Public Sub setIndex(index As Integer)
@@ -32,19 +31,16 @@
 		listViewStep.SubItems(2).Text = description
 	End Sub
 
-	Public Sub setTime(time As String)
+	Public Sub setTime(time As String, unit As String)
 		xmlStep.<time>.Value = time
+		xmlStep.<time>.@unit = unit
 		listViewStep.SubItems(3).Text = time
+		listViewStep.SubItems(4).Text = unit
 	End Sub
 
 	Public Sub setRamp(ramp As String)
 		xmlStep.<ramp>.Value = ramp
-		listViewStep.SubItems(4).Text = ramp
-	End Sub
-
-	Public Sub setDelay(delay As String)
-		xmlStep.<delay>.Value = delay
-		listViewStep.SubItems(5).Text = delay
+		listViewStep.SubItems(5).Text = ramp
 	End Sub
 
 	Public Function getIndex() As Integer
@@ -63,12 +59,12 @@
 		Return xmlStep.<time>.Value
 	End Function
 
-	Public Function getRamp() As Integer
-		Return xmlStep.<ramp>.Value
+	Public Function getTimeUnit() As String
+		Return xmlStep.<time>.@unit
 	End Function
 
-	Public Function getDelay() As Integer
-		Return xmlStep.<delay>.Value
+	Public Function getRamp() As String
+		Return xmlStep.<ramp>.Value
 	End Function
 
 	Public Function getValveCount() As Integer
@@ -81,8 +77,7 @@
 
 	Public Sub addValve(index As String, action As String)
 		Dim valve As XElement =
-		  <valve>
-			  <index><%= index %></index>
+		  <valve index=<%= index %>>
 			  <action><%= action %></action>
 		  </valve>
 		xmlStep.<valves>(0).Add(valve)

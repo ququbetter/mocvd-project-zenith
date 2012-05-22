@@ -1,8 +1,10 @@
-﻿Public Class FormMain
+﻿
+Public Class FormMain
 
 	Dim recipe As Recipe
 	Public currentRoutine As RecipeRoutine
 	Public currentStep As RecipeStep
+	Dim disableEvent As Boolean = False
 
 #Region "Sort Columns"
 	Dim sortColumn_ValveList As Integer = -1
@@ -67,39 +69,22 @@
 #Region "Forms"
 	Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 		ComboBox_TimeUnits.SelectedItem = "sec"
-		ComboBox_RampUnits.SelectedItem = "sec"
-		ComboBox_DelayUnits.SelectedItem = "sec"
+		ComboBox_Ramp.SelectedItem = "none"
 
 		recipe = New Recipe
 		recipe.setRecipeName(My.Settings.Recipe_Name)
 
 		Me.Size = New Size(ShowStepsHiddenSize, Me.Size.Height)
+
+#If DEBUG Then
 		FormDebug.Show()
+#End If
+
 	End Sub
 #End Region
 
 
 #Region "Menu"
-	Private Sub SetToOpenToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SetToOpenToolStripMenuItem.Click
-		For Each item As ListViewItem In ListView_ValveList.SelectedItems
-			item.SubItems(1).Text = "Open"
-			item.SubItems(0).ForeColor = Color.Green
-		Next
-	End Sub
-
-	Private Sub SetToCloseToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SetToCloseToolStripMenuItem.Click
-		For Each item As ListViewItem In ListView_ValveList.SelectedItems
-			item.SubItems(1).Text = "Close"
-			item.SubItems(0).ForeColor = Color.Red
-		Next
-	End Sub
-
-	Private Sub RemoveItemsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RemoveItemsToolStripMenuItem.Click
-		For Each item As ListViewItem In ListView_ValveList.SelectedItems
-			ListView_ValveList.Items.Remove(item)
-		Next
-	End Sub
-
 	Private Sub SaveToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SaveToolStripMenuItem.Click
 
 	End Sub
@@ -120,46 +105,80 @@
 #Region "Routines"
 
 	Private Sub Button_AddRoutine_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddRoutine.Click
-		Dim routine As New RecipeRoutine(TextBox_RoutineName.Text, TextBox_RoutineDescription.Text)
+		Dim routine As New RecipeRoutine()
 		recipe.addRoutine(routine)
 
 		addListViewRoutine(routine)
 
+#If DEBUG Then
 		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
 	End Sub
 
 	Private Sub addListViewRoutine(ByRef recipeRoutine As RecipeRoutine)
-		ListView_Routines.Items.Add(New ListViewItem({recipeRoutine.getIndex, recipeRoutine.getName, recipeRoutine.getDescription, recipeRoutine.steps.count}))
+		If IsNothing(recipeRoutine) Or disableEvent Then
+			Return
+		End If
+		ListView_Routines.Items.Add(recipeRoutine.listViewRoutine)
 	End Sub
-
 
 	Private Sub ListView_Routines_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView_Routines.SelectedIndexChanged
 		If ListView_Routines.SelectedIndices.Count > 0 Then
 			currentRoutine = recipe.routines.routines((ListView_Routines.SelectedIndices(0)))
-
-			ListView_Steps.Items.Clear()
-			If currentRoutine.steps.steps.Count > 0 Then
-				currentStep = currentRoutine.steps.steps(0)
-				displayStep(currentStep)
-				For Each item As RecipeStep In currentRoutine.steps.steps
-					If IsNothing(item) Then
-						Exit For
-					End If
-					addListViewStep(item)
-				Next
-			Else
-				clearStep()
-				currentStep = Nothing
-			End If
-
+			displayRoutine(currentRoutine)
 		End If
 	End Sub
+
+	Private Sub displayRoutine(recipeRoutine As RecipeRoutine)
+		Dim tempDisableEvent = disableEvent
+		disableEvent = True
+		ListView_Steps.Items.Clear()
+		If recipeRoutine.steps.steps.Count > 0 Then
+			currentStep = recipeRoutine.steps.steps(0)
+			displayStep(currentStep)
+			For Each item As RecipeStep In recipeRoutine.steps.steps
+				If IsNothing(item) Then
+					Exit For
+				End If
+				addListViewStep(item)
+			Next
+			TextBox_RoutineName.Text = recipeRoutine.getName()
+			TextBox_RoutineDescription.Text = recipeRoutine.getDescription()
+		Else
+			clearStep()
+			currentStep = Nothing
+		End If
+
+		disableEvent = tempDisableEvent
+	End Sub
+
+	Private Sub clearRoutine()
+		Dim tempDisableEvent = disableEvent
+		disableEvent = True
+		TextBox_RoutineName.Text = ""
+		TextBox_RoutineDescription.Text = ""
+		disableEvent = tempDisableEvent
+	End Sub
+
+#Region "Routine Details"
+	Private Sub TextBox_Routine_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox_RoutineName.TextChanged, TextBox_RoutineDescription.TextChanged
+		If IsNothing(currentRoutine) Or disableEvent Then
+			Return
+		End If
+
+		currentRoutine.setName(TextBox_RoutineName.Text)
+		currentRoutine.setDescription(TextBox_RoutineDescription.Text)
+
+#If DEBUG Then
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
+	End Sub
+#End Region
 
 #End Region
 
 
 #Region "Steps"
-
 #Region "Show Steps"
 	Dim ShowStepsEnabled As Boolean = False
 	Dim ShowStepsHiddenSize As Integer = 359
@@ -178,42 +197,23 @@
 #End Region
 
 	Private Sub Button_AddStep_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddStep.Click
-		If IsNothing(currentRoutine) Then
+		If IsNothing(currentRoutine) Or disableEvent Then
 			Return
 		End If
 
-		Dim recipeStep = generateStep()
+		Dim recipeStep = New RecipeStep()
 
 		currentRoutine.addStep(recipeStep)
-
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
 		addListViewStep(recipeStep)
 		clearStep()
-	End Sub
 
-	Private Function generateStep() As RecipeStep
-		Dim time As Integer
-		Dim ramp As Integer
-		Dim delay As Integer
-
-		getTiming(time, ramp, delay)
-
-		Dim recipeStep = New RecipeStep(TextBox_StepName.Text, TextBox_StepDescription.Text, time, ramp, delay)
-
-		For Each item As ListViewItem In ListView_ValveList.Items
-			recipeStep.addValve(item.SubItems(0).Text, item.SubItems(1).Text)
-		Next
-
-		Return recipeStep
-	End Function
-
-	Private Sub Button_StepsUpdateChanges_Click(sender As System.Object, e As System.EventArgs) Handles Button_StepsUpdateChanges.Click
-		currentStep = generateStep()
-
+#If DEBUG Then
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
 	End Sub
 
 	Private Sub addListViewStep(ByRef recipeStep As RecipeStep)
-		If IsNothing(currentStep) Then
+		If IsNothing(currentStep) Or disableEvent Then
 			Return
 		End If
 		ListView_Steps.Items.Add(recipeStep.listViewStep)
@@ -228,51 +228,84 @@
 
 	Private Sub displayStep(ByRef recipeStep As RecipeStep)
 		clearStep()
-		If IsNothing(currentStep) Then
+		If IsNothing(recipeStep) Then
 			Return
 		End If
+
+		Dim tempDisableEvent = disableEvent
+		disableEvent = True
 
 		For Each valve As XElement In recipeStep.xmlStep.<valves>.<valve>
 			addValve(valve.<index>.Value, valve.<action>.Value)
 		Next
+
+		TextBox_StepName.Text = recipeStep.getName()
+		TextBox_StepDescription.Text = recipeStep.getDescription()
+
+		NumericUpDown_Time.Value = Integer.Parse(recipeStep.getTime())
+		ComboBox_TimeUnits.SelectedItem = recipeStep.getTimeUnit()
+		ComboBox_Ramp.SelectedItem = recipeStep.getRamp()
+
+		disableEvent = tempDisableEvent
 	End Sub
 
 	Private Sub clearStep()
+		Dim tempDisableEvent = disableEvent
+		disableEvent = True
 
 		ListView_ValveList.Items.Clear()
 		RadioButton_ValveClose.Checked = True
 		NumericUpDownValveIndex.Value = 1
 
+		TextBox_StepName.Text = ""
+		TextBox_StepDescription.Text = ""
+
+		NumericUpDown_Time.Value = 0
+		ComboBox_TimeUnits.SelectedItem = "sec"
+		ComboBox_Ramp.SelectedItem = "none"
+
+		disableEvent = tempDisableEvent
 	End Sub
 
+#Region "Step Details"
+	Private Sub TextBox_Step_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox_StepName.TextChanged, TextBox_StepDescription.TextChanged
+		If IsNothing(currentStep) Or disableEvent Then
+			Return
+		End If
+
+		currentStep.setName(TextBox_StepName.Text)
+		currentStep.setDescription(TextBox_StepDescription.Text)
+
+#If DEBUG Then
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
+	End Sub
+#End Region
+
 #Region "Timing"
-	Private Sub getTiming(ByRef time As Integer, ByRef ramp As Integer, ByRef delay As Integer)
-		Select Case (ComboBox_TimeUnits.SelectedItem)
-			Case "min"
-				time = NumericUpDown_Time.Value * 60000
-			Case "sec"
-				time = NumericUpDown_Time.Value * 1000
-			Case "ms"
-				time = NumericUpDown_Time.Value
-		End Select
 
-		Select Case (ComboBox_RampUnits.SelectedItem)
-			Case "min"
-				ramp = NumericUpDown_Ramp.Value * 60000
-			Case "sec"
-				ramp = NumericUpDown_Ramp.Value * 1000
-			Case "ms"
-				ramp = NumericUpDown_Ramp.Value
-		End Select
+	Private Sub NumericUpDown_Timing_ValueChanged(sender As System.Object, e As System.EventArgs) Handles NumericUpDown_Time.ValueChanged, ComboBox_TimeUnits.SelectedIndexChanged
+		If IsNothing(currentStep) Or disableEvent Then
+			Return
+		End If
 
-		Select Case (ComboBox_DelayUnits.SelectedItem)
-			Case "min"
-				delay = NumericUpDown_Delay.Value * 60000
-			Case "sec"
-				delay = NumericUpDown_Delay.Value * 1000
-			Case "ms"
-				delay = NumericUpDown_Delay.Value
-		End Select
+		currentStep.setTime(NumericUpDown_Time.Value, ComboBox_TimeUnits.SelectedItem)
+
+#If DEBUG Then
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
+	End Sub
+
+	Private Sub ComboBox_Ramp_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox_Ramp.SelectedIndexChanged
+		If IsNothing(currentStep) Or disableEvent Then
+			Return
+		End If
+
+		currentStep.setRamp(ComboBox_Ramp.SelectedItem)
+
+#If DEBUG Then
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
 	End Sub
 #End Region
 
@@ -283,6 +316,10 @@
 		Else
 
 		End If
+
+#If DEBUG Then
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
 	End Sub
 
 	Private Sub addValve(index As Decimal, value As Boolean)
@@ -293,9 +330,11 @@
 		If value = True Then
 			valve.SubItems.Add("Close")
 			valve.SubItems(0).ForeColor = Color.Red
+			currentStep.addValve(index.ToString, "Close")
 		Else
 			valve.SubItems.Add("Open")
 			valve.SubItems(0).ForeColor = Color.Green
+			currentStep.addValve(index.ToString, "Open")
 		End If
 	End Sub
 
@@ -311,6 +350,38 @@
 			valve.SubItems.Add("Open")
 			valve.SubItems(0).ForeColor = Color.Green
 		End If
+	End Sub
+
+	Private Sub SetToOpenToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SetToOpenToolStripMenuItem.Click
+		If IsNothing(currentStep) Or disableEvent Then
+			Return
+		End If
+
+		For Each item As ListViewItem In ListView_ValveList.SelectedItems
+			item.SubItems(1).Text = "Open"
+			item.SubItems(0).ForeColor = Color.Green
+  Next()
+	End Sub
+
+	Private Sub SetToCloseToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SetToCloseToolStripMenuItem.Click
+		If IsNothing(currentStep) Or disableEvent Then
+			Return
+		End If
+
+		For Each item As ListViewItem In ListView_ValveList.SelectedItems
+			item.SubItems(1).Text = "Close"
+			item.SubItems(0).ForeColor = Color.Red
+		Next
+	End Sub
+
+	Private Sub RemoveItemsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RemoveItemsToolStripMenuItem.Click
+		If IsNothing(currentStep) Or disableEvent Then
+			Return
+		End If
+
+		For Each item As ListViewItem In ListView_ValveList.SelectedItems
+			ListView_ValveList.Items.Remove(item)
+		Next
 	End Sub
 
 #End Region
