@@ -56,12 +56,7 @@ Partial Class FormMain
 		Me.NumericUpDown_Time = New System.Windows.Forms.NumericUpDown()
 		Me.Label_Time = New System.Windows.Forms.Label()
 		Me.Label_Ramp = New System.Windows.Forms.Label()
-		Me.Label_Delay = New System.Windows.Forms.Label()
-		Me.NumericUpDown_Ramp = New System.Windows.Forms.NumericUpDown()
-		Me.NumericUpDown_Delay = New System.Windows.Forms.NumericUpDown()
 		Me.ComboBox_TimeUnits = New System.Windows.Forms.ComboBox()
-		Me.ComboBox_RampUnits = New System.Windows.Forms.ComboBox()
-		Me.ComboBox_DelayUnits = New System.Windows.Forms.ComboBox()
 		Me.Button_AddStep = New System.Windows.Forms.Button()
 		Me.GroupBoxValves = New System.Windows.Forms.GroupBox()
 		Me.ListView_ValveList = New System.Windows.Forms.ListView()
@@ -83,7 +78,7 @@ Partial Class FormMain
 		Me.ColumnHeader_StepDescription = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepTime = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepRamp = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-		Me.ColumnHeader_StepDelay = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+		Me.ColumnHeader_StepTimeUnits = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepValves = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepMFCs = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.GroupBox_MFCs = New System.Windows.Forms.GroupBox()
@@ -113,10 +108,8 @@ Partial Class FormMain
 		Me.Label2 = New System.Windows.Forms.Label()
 		Me.TextBox_RoutineName = New System.Windows.Forms.TextBox()
 		Me.Label1 = New System.Windows.Forms.Label()
-		Me.Button_StepsUpdateChanges = New System.Windows.Forms.Button()
 		Me.Button_ShowSteps = New System.Windows.Forms.Button()
 		Me.ButtonLoadRoutine = New System.Windows.Forms.Button()
-		Me.Button_RoutineUpdateChanges = New System.Windows.Forms.Button()
 		Me.FileToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.NewToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.OpenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -176,9 +169,8 @@ Partial Class FormMain
 		Me.SearchToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.toolStripSeparator17 = New System.Windows.Forms.ToolStripSeparator()
 		Me.AboutToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.ComboBox_Ramp = New System.Windows.Forms.ComboBox()
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.NumericUpDown_Ramp, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.NumericUpDown_Delay, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBoxValves.SuspendLayout()
 		Me.ContextMenuStrip_ValveList.SuspendLayout()
 		CType(Me.NumericUpDownValveIndex, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -414,31 +406,6 @@ Partial Class FormMain
 		Me.Label_Ramp.TabIndex = 5
 		Me.Label_Ramp.Text = "Ramp:"
 		'
-		'Label_Delay
-		'
-		Me.Label_Delay.AutoSize = True
-		Me.Label_Delay.Location = New System.Drawing.Point(15, 73)
-		Me.Label_Delay.Name = "Label_Delay"
-		Me.Label_Delay.Size = New System.Drawing.Size(37, 13)
-		Me.Label_Delay.TabIndex = 6
-		Me.Label_Delay.Text = "Delay:"
-		'
-		'NumericUpDown_Ramp
-		'
-		Me.NumericUpDown_Ramp.DecimalPlaces = 2
-		Me.NumericUpDown_Ramp.Location = New System.Drawing.Point(54, 45)
-		Me.NumericUpDown_Ramp.Name = "NumericUpDown_Ramp"
-		Me.NumericUpDown_Ramp.Size = New System.Drawing.Size(81, 20)
-		Me.NumericUpDown_Ramp.TabIndex = 7
-		'
-		'NumericUpDown_Delay
-		'
-		Me.NumericUpDown_Delay.DecimalPlaces = 2
-		Me.NumericUpDown_Delay.Location = New System.Drawing.Point(54, 71)
-		Me.NumericUpDown_Delay.Name = "NumericUpDown_Delay"
-		Me.NumericUpDown_Delay.Size = New System.Drawing.Size(81, 20)
-		Me.NumericUpDown_Delay.TabIndex = 8
-		'
 		'ComboBox_TimeUnits
 		'
 		Me.ComboBox_TimeUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -450,31 +417,9 @@ Partial Class FormMain
 		Me.ComboBox_TimeUnits.Size = New System.Drawing.Size(42, 21)
 		Me.ComboBox_TimeUnits.TabIndex = 9
 		'
-		'ComboBox_RampUnits
-		'
-		Me.ComboBox_RampUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBox_RampUnits.FormattingEnabled = True
-		Me.ComboBox_RampUnits.Items.AddRange(New Object() {"min", "sec", "ms"})
-		Me.ComboBox_RampUnits.Location = New System.Drawing.Point(141, 45)
-		Me.ComboBox_RampUnits.MaxLength = 3
-		Me.ComboBox_RampUnits.Name = "ComboBox_RampUnits"
-		Me.ComboBox_RampUnits.Size = New System.Drawing.Size(42, 21)
-		Me.ComboBox_RampUnits.TabIndex = 10
-		'
-		'ComboBox_DelayUnits
-		'
-		Me.ComboBox_DelayUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBox_DelayUnits.FormattingEnabled = True
-		Me.ComboBox_DelayUnits.Items.AddRange(New Object() {"min", "sec", "ms"})
-		Me.ComboBox_DelayUnits.Location = New System.Drawing.Point(141, 71)
-		Me.ComboBox_DelayUnits.MaxLength = 3
-		Me.ComboBox_DelayUnits.Name = "ComboBox_DelayUnits"
-		Me.ComboBox_DelayUnits.Size = New System.Drawing.Size(42, 21)
-		Me.ComboBox_DelayUnits.TabIndex = 11
-		'
 		'Button_AddStep
 		'
-		Me.Button_AddStep.Location = New System.Drawing.Point(343, 423)
+		Me.Button_AddStep.Location = New System.Drawing.Point(343, 387)
 		Me.Button_AddStep.Name = "Button_AddStep"
 		Me.Button_AddStep.Size = New System.Drawing.Size(192, 30)
 		Me.Button_AddStep.TabIndex = 12
@@ -594,15 +539,11 @@ Partial Class FormMain
 		'
 		'GroupBoxTiming
 		'
+		Me.GroupBoxTiming.Controls.Add(Me.ComboBox_Ramp)
 		Me.GroupBoxTiming.Controls.Add(Me.ComboBox_TimeUnits)
 		Me.GroupBoxTiming.Controls.Add(Me.NumericUpDown_Time)
 		Me.GroupBoxTiming.Controls.Add(Me.Label_Time)
 		Me.GroupBoxTiming.Controls.Add(Me.Label_Ramp)
-		Me.GroupBoxTiming.Controls.Add(Me.ComboBox_DelayUnits)
-		Me.GroupBoxTiming.Controls.Add(Me.Label_Delay)
-		Me.GroupBoxTiming.Controls.Add(Me.ComboBox_RampUnits)
-		Me.GroupBoxTiming.Controls.Add(Me.NumericUpDown_Ramp)
-		Me.GroupBoxTiming.Controls.Add(Me.NumericUpDown_Delay)
 		Me.GroupBoxTiming.Location = New System.Drawing.Point(343, 280)
 		Me.GroupBoxTiming.Name = "GroupBoxTiming"
 		Me.GroupBoxTiming.Size = New System.Drawing.Size(192, 101)
@@ -612,7 +553,7 @@ Partial Class FormMain
 		'
 		'ListView_Steps
 		'
-		Me.ListView_Steps.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader_StepIndex, Me.ColumnHeader_StepName, Me.ColumnHeader_StepDescription, Me.ColumnHeader_StepTime, Me.ColumnHeader_StepRamp, Me.ColumnHeader_StepDelay, Me.ColumnHeader_StepValves, Me.ColumnHeader_StepMFCs})
+		Me.ListView_Steps.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader_StepIndex, Me.ColumnHeader_StepName, Me.ColumnHeader_StepDescription, Me.ColumnHeader_StepTime, Me.ColumnHeader_StepTimeUnits, Me.ColumnHeader_StepRamp, Me.ColumnHeader_StepValves, Me.ColumnHeader_StepMFCs})
 		Me.ListView_Steps.FullRowSelect = True
 		Me.ListView_Steps.Location = New System.Drawing.Point(343, 27)
 		Me.ListView_Steps.MultiSelect = False
@@ -640,17 +581,17 @@ Partial Class FormMain
 		'ColumnHeader_StepTime
 		'
 		Me.ColumnHeader_StepTime.Text = "Time"
-		Me.ColumnHeader_StepTime.Width = 35
+		Me.ColumnHeader_StepTime.Width = 50
 		'
 		'ColumnHeader_StepRamp
 		'
 		Me.ColumnHeader_StepRamp.Text = "Ramp"
-		Me.ColumnHeader_StepRamp.Width = 44
+		Me.ColumnHeader_StepRamp.Width = 71
 		'
-		'ColumnHeader_StepDelay
+		'ColumnHeader_StepTimeUnits
 		'
-		Me.ColumnHeader_StepDelay.Text = "Delay"
-		Me.ColumnHeader_StepDelay.Width = 40
+		Me.ColumnHeader_StepTimeUnits.Text = "Units"
+		Me.ColumnHeader_StepTimeUnits.Width = 45
 		'
 		'ColumnHeader_StepValves
 		'
@@ -776,7 +717,7 @@ Partial Class FormMain
 		Me.TextBox_StepDescription.Multiline = True
 		Me.TextBox_StepDescription.Name = "TextBox_StepDescription"
 		Me.TextBox_StepDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-		Me.TextBox_StepDescription.Size = New System.Drawing.Size(204, 121)
+		Me.TextBox_StepDescription.Size = New System.Drawing.Size(204, 85)
 		Me.TextBox_StepDescription.TabIndex = 21
 		'
 		'ListView_Routines
@@ -827,7 +768,7 @@ Partial Class FormMain
 		Me.GroupBox_StepDetails.Controls.Add(Me.Button_StepIndexUp)
 		Me.GroupBox_StepDetails.Location = New System.Drawing.Point(541, 280)
 		Me.GroupBox_StepDetails.Name = "GroupBox_StepDetails"
-		Me.GroupBox_StepDetails.Size = New System.Drawing.Size(288, 173)
+		Me.GroupBox_StepDetails.Size = New System.Drawing.Size(288, 137)
 		Me.GroupBox_StepDetails.TabIndex = 24
 		Me.GroupBox_StepDetails.TabStop = False
 		Me.GroupBox_StepDetails.Text = "Step Details"
@@ -901,20 +842,11 @@ Partial Class FormMain
 		Me.Label1.TabIndex = 26
 		Me.Label1.Text = "Routine Name:"
 		'
-		'Button_StepsUpdateChanges
-		'
-		Me.Button_StepsUpdateChanges.Location = New System.Drawing.Point(343, 387)
-		Me.Button_StepsUpdateChanges.Name = "Button_StepsUpdateChanges"
-		Me.Button_StepsUpdateChanges.Size = New System.Drawing.Size(192, 30)
-		Me.Button_StepsUpdateChanges.TabIndex = 26
-		Me.Button_StepsUpdateChanges.Text = "Update Changes"
-		Me.Button_StepsUpdateChanges.UseVisualStyleBackColor = True
-		'
 		'Button_ShowSteps
 		'
 		Me.Button_ShowSteps.Location = New System.Drawing.Point(306, 27)
 		Me.Button_ShowSteps.Name = "Button_ShowSteps"
-		Me.Button_ShowSteps.Size = New System.Drawing.Size(31, 426)
+		Me.Button_ShowSteps.Size = New System.Drawing.Size(31, 390)
 		Me.Button_ShowSteps.TabIndex = 27
 		Me.Button_ShowSteps.Text = "-->"
 		Me.Button_ShowSteps.UseVisualStyleBackColor = True
@@ -927,15 +859,6 @@ Partial Class FormMain
 		Me.ButtonLoadRoutine.TabIndex = 28
 		Me.ButtonLoadRoutine.Text = "Insert Routine From File..."
 		Me.ButtonLoadRoutine.UseVisualStyleBackColor = True
-		'
-		'Button_RoutineUpdateChanges
-		'
-		Me.Button_RoutineUpdateChanges.Location = New System.Drawing.Point(12, 423)
-		Me.Button_RoutineUpdateChanges.Name = "Button_RoutineUpdateChanges"
-		Me.Button_RoutineUpdateChanges.Size = New System.Drawing.Size(288, 30)
-		Me.Button_RoutineUpdateChanges.TabIndex = 29
-		Me.Button_RoutineUpdateChanges.Text = "Update Changes"
-		Me.Button_RoutineUpdateChanges.UseVisualStyleBackColor = True
 		'
 		'FileToolStripMenuItem1
 		'
@@ -1146,7 +1069,7 @@ Partial Class FormMain
 		Me.NewToolStripMenuItem2.Image = CType(resources.GetObject("NewToolStripMenuItem2.Image"), System.Drawing.Image)
 		Me.NewToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
 		Me.NewToolStripMenuItem2.Name = "NewToolStripMenuItem2"
-		Me.NewToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.NewToolStripMenuItem2.Size = New System.Drawing.Size(143, 22)
 		Me.NewToolStripMenuItem2.Text = "&New"
 		'
 		'OpenToolStripMenuItem2
@@ -1154,39 +1077,39 @@ Partial Class FormMain
 		Me.OpenToolStripMenuItem2.Image = CType(resources.GetObject("OpenToolStripMenuItem2.Image"), System.Drawing.Image)
 		Me.OpenToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
 		Me.OpenToolStripMenuItem2.Name = "OpenToolStripMenuItem2"
-		Me.OpenToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.OpenToolStripMenuItem2.Size = New System.Drawing.Size(143, 22)
 		Me.OpenToolStripMenuItem2.Text = "&Open"
 		'
 		'toolStripSeparator12
 		'
 		Me.toolStripSeparator12.Name = "toolStripSeparator12"
-		Me.toolStripSeparator12.Size = New System.Drawing.Size(6, 6)
+		Me.toolStripSeparator12.Size = New System.Drawing.Size(140, 6)
 		'
 		'SaveToolStripMenuItem2
 		'
 		Me.SaveToolStripMenuItem2.Image = CType(resources.GetObject("SaveToolStripMenuItem2.Image"), System.Drawing.Image)
 		Me.SaveToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
 		Me.SaveToolStripMenuItem2.Name = "SaveToolStripMenuItem2"
-		Me.SaveToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.SaveToolStripMenuItem2.Size = New System.Drawing.Size(143, 22)
 		Me.SaveToolStripMenuItem2.Text = "&Save"
 		'
 		'SaveAsToolStripMenuItem2
 		'
 		Me.SaveAsToolStripMenuItem2.Name = "SaveAsToolStripMenuItem2"
-		Me.SaveAsToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.SaveAsToolStripMenuItem2.Size = New System.Drawing.Size(143, 22)
 		Me.SaveAsToolStripMenuItem2.Text = "Save &As"
 		'
 		'toolStripSeparator13
 		'
 		Me.toolStripSeparator13.Name = "toolStripSeparator13"
-		Me.toolStripSeparator13.Size = New System.Drawing.Size(6, 6)
+		Me.toolStripSeparator13.Size = New System.Drawing.Size(140, 6)
 		'
 		'PrintToolStripMenuItem2
 		'
 		Me.PrintToolStripMenuItem2.Image = CType(resources.GetObject("PrintToolStripMenuItem2.Image"), System.Drawing.Image)
 		Me.PrintToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
 		Me.PrintToolStripMenuItem2.Name = "PrintToolStripMenuItem2"
-		Me.PrintToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.PrintToolStripMenuItem2.Size = New System.Drawing.Size(143, 22)
 		Me.PrintToolStripMenuItem2.Text = "&Print"
 		'
 		'PrintPreviewToolStripMenuItem2
@@ -1194,18 +1117,18 @@ Partial Class FormMain
 		Me.PrintPreviewToolStripMenuItem2.Image = CType(resources.GetObject("PrintPreviewToolStripMenuItem2.Image"), System.Drawing.Image)
 		Me.PrintPreviewToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
 		Me.PrintPreviewToolStripMenuItem2.Name = "PrintPreviewToolStripMenuItem2"
-		Me.PrintPreviewToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.PrintPreviewToolStripMenuItem2.Size = New System.Drawing.Size(143, 22)
 		Me.PrintPreviewToolStripMenuItem2.Text = "Print Pre&view"
 		'
 		'toolStripSeparator14
 		'
 		Me.toolStripSeparator14.Name = "toolStripSeparator14"
-		Me.toolStripSeparator14.Size = New System.Drawing.Size(6, 6)
+		Me.toolStripSeparator14.Size = New System.Drawing.Size(140, 6)
 		'
 		'ExitToolStripMenuItem2
 		'
 		Me.ExitToolStripMenuItem2.Name = "ExitToolStripMenuItem2"
-		Me.ExitToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.ExitToolStripMenuItem2.Size = New System.Drawing.Size(143, 22)
 		Me.ExitToolStripMenuItem2.Text = "E&xit"
 		'
 		'EditToolStripMenuItem2
@@ -1218,26 +1141,26 @@ Partial Class FormMain
 		'UndoToolStripMenuItem2
 		'
 		Me.UndoToolStripMenuItem2.Name = "UndoToolStripMenuItem2"
-		Me.UndoToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.UndoToolStripMenuItem2.Size = New System.Drawing.Size(122, 22)
 		Me.UndoToolStripMenuItem2.Text = "&Undo"
 		'
 		'RedoToolStripMenuItem2
 		'
 		Me.RedoToolStripMenuItem2.Name = "RedoToolStripMenuItem2"
-		Me.RedoToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.RedoToolStripMenuItem2.Size = New System.Drawing.Size(122, 22)
 		Me.RedoToolStripMenuItem2.Text = "&Redo"
 		'
 		'toolStripSeparator15
 		'
 		Me.toolStripSeparator15.Name = "toolStripSeparator15"
-		Me.toolStripSeparator15.Size = New System.Drawing.Size(6, 6)
+		Me.toolStripSeparator15.Size = New System.Drawing.Size(119, 6)
 		'
 		'CutToolStripMenuItem2
 		'
 		Me.CutToolStripMenuItem2.Image = CType(resources.GetObject("CutToolStripMenuItem2.Image"), System.Drawing.Image)
 		Me.CutToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
 		Me.CutToolStripMenuItem2.Name = "CutToolStripMenuItem2"
-		Me.CutToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.CutToolStripMenuItem2.Size = New System.Drawing.Size(122, 22)
 		Me.CutToolStripMenuItem2.Text = "Cu&t"
 		'
 		'CopyToolStripMenuItem2
@@ -1245,7 +1168,7 @@ Partial Class FormMain
 		Me.CopyToolStripMenuItem2.Image = CType(resources.GetObject("CopyToolStripMenuItem2.Image"), System.Drawing.Image)
 		Me.CopyToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
 		Me.CopyToolStripMenuItem2.Name = "CopyToolStripMenuItem2"
-		Me.CopyToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.CopyToolStripMenuItem2.Size = New System.Drawing.Size(122, 22)
 		Me.CopyToolStripMenuItem2.Text = "&Copy"
 		'
 		'PasteToolStripMenuItem2
@@ -1253,18 +1176,18 @@ Partial Class FormMain
 		Me.PasteToolStripMenuItem2.Image = CType(resources.GetObject("PasteToolStripMenuItem2.Image"), System.Drawing.Image)
 		Me.PasteToolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta
 		Me.PasteToolStripMenuItem2.Name = "PasteToolStripMenuItem2"
-		Me.PasteToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.PasteToolStripMenuItem2.Size = New System.Drawing.Size(122, 22)
 		Me.PasteToolStripMenuItem2.Text = "&Paste"
 		'
 		'toolStripSeparator16
 		'
 		Me.toolStripSeparator16.Name = "toolStripSeparator16"
-		Me.toolStripSeparator16.Size = New System.Drawing.Size(6, 6)
+		Me.toolStripSeparator16.Size = New System.Drawing.Size(119, 6)
 		'
 		'SelectAllToolStripMenuItem2
 		'
 		Me.SelectAllToolStripMenuItem2.Name = "SelectAllToolStripMenuItem2"
-		Me.SelectAllToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.SelectAllToolStripMenuItem2.Size = New System.Drawing.Size(122, 22)
 		Me.SelectAllToolStripMenuItem2.Text = "Select &All"
 		'
 		'ToolsToolStripMenuItem2
@@ -1277,13 +1200,13 @@ Partial Class FormMain
 		'CustomizeToolStripMenuItem2
 		'
 		Me.CustomizeToolStripMenuItem2.Name = "CustomizeToolStripMenuItem2"
-		Me.CustomizeToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.CustomizeToolStripMenuItem2.Size = New System.Drawing.Size(130, 22)
 		Me.CustomizeToolStripMenuItem2.Text = "&Customize"
 		'
 		'OptionsToolStripMenuItem2
 		'
 		Me.OptionsToolStripMenuItem2.Name = "OptionsToolStripMenuItem2"
-		Me.OptionsToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.OptionsToolStripMenuItem2.Size = New System.Drawing.Size(130, 22)
 		Me.OptionsToolStripMenuItem2.Text = "&Options"
 		'
 		'HelpToolStripMenuItem2
@@ -1296,42 +1219,50 @@ Partial Class FormMain
 		'ContentsToolStripMenuItem2
 		'
 		Me.ContentsToolStripMenuItem2.Name = "ContentsToolStripMenuItem2"
-		Me.ContentsToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.ContentsToolStripMenuItem2.Size = New System.Drawing.Size(122, 22)
 		Me.ContentsToolStripMenuItem2.Text = "&Contents"
 		'
 		'IndexToolStripMenuItem2
 		'
 		Me.IndexToolStripMenuItem2.Name = "IndexToolStripMenuItem2"
-		Me.IndexToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.IndexToolStripMenuItem2.Size = New System.Drawing.Size(122, 22)
 		Me.IndexToolStripMenuItem2.Text = "&Index"
 		'
 		'SearchToolStripMenuItem2
 		'
 		Me.SearchToolStripMenuItem2.Name = "SearchToolStripMenuItem2"
-		Me.SearchToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.SearchToolStripMenuItem2.Size = New System.Drawing.Size(122, 22)
 		Me.SearchToolStripMenuItem2.Text = "&Search"
 		'
 		'toolStripSeparator17
 		'
 		Me.toolStripSeparator17.Name = "toolStripSeparator17"
-		Me.toolStripSeparator17.Size = New System.Drawing.Size(6, 6)
+		Me.toolStripSeparator17.Size = New System.Drawing.Size(119, 6)
 		'
 		'AboutToolStripMenuItem2
 		'
 		Me.AboutToolStripMenuItem2.Name = "AboutToolStripMenuItem2"
-		Me.AboutToolStripMenuItem2.Size = New System.Drawing.Size(32, 19)
+		Me.AboutToolStripMenuItem2.Size = New System.Drawing.Size(122, 22)
 		Me.AboutToolStripMenuItem2.Text = "&About..."
+		'
+		'ComboBox_Ramp
+		'
+		Me.ComboBox_Ramp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.ComboBox_Ramp.FormattingEnabled = True
+		Me.ComboBox_Ramp.Items.AddRange(New Object() {"none", "linear", "exponential"})
+		Me.ComboBox_Ramp.Location = New System.Drawing.Point(54, 44)
+		Me.ComboBox_Ramp.Name = "ComboBox_Ramp"
+		Me.ComboBox_Ramp.Size = New System.Drawing.Size(129, 21)
+		Me.ComboBox_Ramp.TabIndex = 10
 		'
 		'FormMain
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(1134, 459)
+		Me.ClientSize = New System.Drawing.Size(1134, 424)
 		Me.Controls.Add(Me.MenuStrip1)
-		Me.Controls.Add(Me.Button_RoutineUpdateChanges)
 		Me.Controls.Add(Me.ButtonLoadRoutine)
 		Me.Controls.Add(Me.Button_ShowSteps)
-		Me.Controls.Add(Me.Button_StepsUpdateChanges)
 		Me.Controls.Add(Me.GroupBox_RoutineDetails)
 		Me.Controls.Add(Me.GroupBox_StepDetails)
 		Me.Controls.Add(Me.Button_AddRoutine)
@@ -1345,8 +1276,6 @@ Partial Class FormMain
 		Me.Name = "FormMain"
 		Me.Text = "MOCVD Recipe Editor"
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.NumericUpDown_Ramp, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.NumericUpDown_Delay, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBoxValves.ResumeLayout(False)
 		Me.GroupBoxValves.PerformLayout()
 		Me.ContextMenuStrip_ValveList.ResumeLayout(False)
@@ -1399,12 +1328,7 @@ Partial Class FormMain
 	Friend WithEvents NumericUpDown_Time As System.Windows.Forms.NumericUpDown
 	Friend WithEvents Label_Time As System.Windows.Forms.Label
 	Friend WithEvents Label_Ramp As System.Windows.Forms.Label
-	Friend WithEvents Label_Delay As System.Windows.Forms.Label
-	Friend WithEvents NumericUpDown_Ramp As System.Windows.Forms.NumericUpDown
-	Friend WithEvents NumericUpDown_Delay As System.Windows.Forms.NumericUpDown
 	Friend WithEvents ComboBox_TimeUnits As System.Windows.Forms.ComboBox
-	Friend WithEvents ComboBox_RampUnits As System.Windows.Forms.ComboBox
-	Friend WithEvents ComboBox_DelayUnits As System.Windows.Forms.ComboBox
 	Friend WithEvents Button_AddStep As System.Windows.Forms.Button
 	Friend WithEvents GroupBoxValves As System.Windows.Forms.GroupBox
 	Friend WithEvents GroupBoxTiming As System.Windows.Forms.GroupBox
@@ -1439,7 +1363,7 @@ Partial Class FormMain
 	Friend WithEvents ColumnHeader_StepDescription As System.Windows.Forms.ColumnHeader
 	Friend WithEvents ColumnHeader_StepTime As System.Windows.Forms.ColumnHeader
 	Friend WithEvents ColumnHeader_StepRamp As System.Windows.Forms.ColumnHeader
-	Friend WithEvents ColumnHeader_StepDelay As System.Windows.Forms.ColumnHeader
+	Friend WithEvents ColumnHeader_StepTimeUnits As System.Windows.Forms.ColumnHeader
 	Friend WithEvents ColumnHeader_StepValves As System.Windows.Forms.ColumnHeader
 	Friend WithEvents ColumnHeader_StepMFCs As System.Windows.Forms.ColumnHeader
 	Friend WithEvents ListView_Routines As System.Windows.Forms.ListView
@@ -1454,10 +1378,8 @@ Partial Class FormMain
 	Friend WithEvents Label2 As System.Windows.Forms.Label
 	Friend WithEvents TextBox_RoutineName As System.Windows.Forms.TextBox
 	Friend WithEvents Label1 As System.Windows.Forms.Label
-	Friend WithEvents Button_StepsUpdateChanges As System.Windows.Forms.Button
 	Friend WithEvents Button_ShowSteps As System.Windows.Forms.Button
 	Friend WithEvents ButtonLoadRoutine As System.Windows.Forms.Button
-	Friend WithEvents Button_RoutineUpdateChanges As System.Windows.Forms.Button
 	Friend WithEvents Button_StepIndexUp As System.Windows.Forms.Button
 	Friend WithEvents Button_StepIndexDown As System.Windows.Forms.Button
 	Friend WithEvents FileToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
@@ -1519,5 +1441,6 @@ Partial Class FormMain
 	Friend WithEvents SearchToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents toolStripSeparator17 As System.Windows.Forms.ToolStripSeparator
 	Friend WithEvents AboutToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents ComboBox_Ramp As System.Windows.Forms.ComboBox
 
 End Class
