@@ -83,14 +83,14 @@ Partial Class FormMain
 		Me.ColumnHeader_StepValves = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepMFCs = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.GroupBox_MFCs = New System.Windows.Forms.GroupBox()
-		Me.ListView_MFCsList = New System.Windows.Forms.ListView()
+		Me.ListView_MFCList = New System.Windows.Forms.ListView()
 		Me.ColumnHeader_MFC = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_SetPoint = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.Button_MFCs = New System.Windows.Forms.Button()
 		Me.Label_MFCsSetPoint = New System.Windows.Forms.Label()
-		Me.NumericUpDown_MFCsSetPoint = New System.Windows.Forms.NumericUpDown()
+		Me.NumericUpDown_MFCSetPoint = New System.Windows.Forms.NumericUpDown()
 		Me.Label_MFCsIndex = New System.Windows.Forms.Label()
-		Me.NumericUpDown_MFCsIndex = New System.Windows.Forms.NumericUpDown()
+		Me.NumericUpDown_MFCIndex = New System.Windows.Forms.NumericUpDown()
 		Me.TextBox_StepName = New System.Windows.Forms.TextBox()
 		Me.Label_StepName = New System.Windows.Forms.Label()
 		Me.Label_StepDescription = New System.Windows.Forms.Label()
@@ -102,9 +102,13 @@ Partial Class FormMain
 		Me.ColumnHeader_RoutineSteps = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.Button_AddRoutine = New System.Windows.Forms.Button()
 		Me.GroupBox_StepDetails = New System.Windows.Forms.GroupBox()
+		Me.TextBox_StepSelectedIndex = New System.Windows.Forms.TextBox()
 		Me.Button_StepIndexDown = New System.Windows.Forms.Button()
 		Me.Button_StepIndexUp = New System.Windows.Forms.Button()
 		Me.GroupBox_RoutineDetails = New System.Windows.Forms.GroupBox()
+		Me.Button_RoutineIndexDown = New System.Windows.Forms.Button()
+		Me.Button_RoutineIndexUp = New System.Windows.Forms.Button()
+		Me.TextBox_RoutineSelectedIndex = New System.Windows.Forms.TextBox()
 		Me.TextBox_RoutineDescription = New System.Windows.Forms.TextBox()
 		Me.Label2 = New System.Windows.Forms.Label()
 		Me.TextBox_RoutineName = New System.Windows.Forms.TextBox()
@@ -170,21 +174,21 @@ Partial Class FormMain
 		Me.SearchToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.toolStripSeparator17 = New System.Windows.Forms.ToolStripSeparator()
 		Me.AboutToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-		Me.TextBox_RoutineSelectedIndex = New System.Windows.Forms.TextBox()
-		Me.TextBox_StepSelectedIndex = New System.Windows.Forms.TextBox()
-		Me.Button_RoutineIndexUp = New System.Windows.Forms.Button()
-		Me.Button_RoutineIndexDown = New System.Windows.Forms.Button()
+		Me.ContextMenuStrip_MFCList = New System.Windows.Forms.ContextMenuStrip(Me.components)
+		Me.RemoveItemsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBoxValves.SuspendLayout()
 		Me.ContextMenuStrip_ValveList.SuspendLayout()
 		CType(Me.NumericUpDownValveIndex, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBoxTiming.SuspendLayout()
 		Me.GroupBox_MFCs.SuspendLayout()
-		CType(Me.NumericUpDown_MFCsSetPoint, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.NumericUpDown_MFCsIndex, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.NumericUpDown_MFCSetPoint, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.NumericUpDown_MFCIndex, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox_StepDetails.SuspendLayout()
 		Me.GroupBox_RoutineDetails.SuspendLayout()
 		Me.MenuStrip1.SuspendLayout()
+		Me.ContextMenuStrip_MFCList.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'FileToolStripMenuItem
@@ -620,12 +624,12 @@ Partial Class FormMain
 		'
 		'GroupBox_MFCs
 		'
-		Me.GroupBox_MFCs.Controls.Add(Me.ListView_MFCsList)
+		Me.GroupBox_MFCs.Controls.Add(Me.ListView_MFCList)
 		Me.GroupBox_MFCs.Controls.Add(Me.Button_MFCs)
 		Me.GroupBox_MFCs.Controls.Add(Me.Label_MFCsSetPoint)
-		Me.GroupBox_MFCs.Controls.Add(Me.NumericUpDown_MFCsSetPoint)
+		Me.GroupBox_MFCs.Controls.Add(Me.NumericUpDown_MFCSetPoint)
 		Me.GroupBox_MFCs.Controls.Add(Me.Label_MFCsIndex)
-		Me.GroupBox_MFCs.Controls.Add(Me.NumericUpDown_MFCsIndex)
+		Me.GroupBox_MFCs.Controls.Add(Me.NumericUpDown_MFCIndex)
 		Me.GroupBox_MFCs.Location = New System.Drawing.Point(982, 27)
 		Me.GroupBox_MFCs.Name = "GroupBox_MFCs"
 		Me.GroupBox_MFCs.Size = New System.Drawing.Size(141, 202)
@@ -633,17 +637,17 @@ Partial Class FormMain
 		Me.GroupBox_MFCs.TabStop = False
 		Me.GroupBox_MFCs.Text = "MFCs"
 		'
-		'ListView_MFCsList
+		'ListView_MFCList
 		'
-		Me.ListView_MFCsList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader_MFC, Me.ColumnHeader_SetPoint})
-		Me.ListView_MFCsList.ContextMenuStrip = Me.ContextMenuStrip_ValveList
-		Me.ListView_MFCsList.FullRowSelect = True
-		Me.ListView_MFCsList.Location = New System.Drawing.Point(6, 96)
-		Me.ListView_MFCsList.Name = "ListView_MFCsList"
-		Me.ListView_MFCsList.Size = New System.Drawing.Size(127, 100)
-		Me.ListView_MFCsList.TabIndex = 17
-		Me.ListView_MFCsList.UseCompatibleStateImageBehavior = False
-		Me.ListView_MFCsList.View = System.Windows.Forms.View.Details
+		Me.ListView_MFCList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader_MFC, Me.ColumnHeader_SetPoint})
+		Me.ListView_MFCList.ContextMenuStrip = Me.ContextMenuStrip_MFCList
+		Me.ListView_MFCList.FullRowSelect = True
+		Me.ListView_MFCList.Location = New System.Drawing.Point(6, 96)
+		Me.ListView_MFCList.Name = "ListView_MFCList"
+		Me.ListView_MFCList.Size = New System.Drawing.Size(127, 100)
+		Me.ListView_MFCList.TabIndex = 17
+		Me.ListView_MFCList.UseCompatibleStateImageBehavior = False
+		Me.ListView_MFCList.View = System.Windows.Forms.View.Details
 		'
 		'ColumnHeader_MFC
 		'
@@ -673,12 +677,13 @@ Partial Class FormMain
 		Me.Label_MFCsSetPoint.TabIndex = 20
 		Me.Label_MFCsSetPoint.Text = "SetPoint:"
 		'
-		'NumericUpDown_MFCsSetPoint
+		'NumericUpDown_MFCSetPoint
 		'
-		Me.NumericUpDown_MFCsSetPoint.Location = New System.Drawing.Point(64, 39)
-		Me.NumericUpDown_MFCsSetPoint.Name = "NumericUpDown_MFCsSetPoint"
-		Me.NumericUpDown_MFCsSetPoint.Size = New System.Drawing.Size(65, 20)
-		Me.NumericUpDown_MFCsSetPoint.TabIndex = 17
+		Me.NumericUpDown_MFCSetPoint.DecimalPlaces = 2
+		Me.NumericUpDown_MFCSetPoint.Location = New System.Drawing.Point(64, 39)
+		Me.NumericUpDown_MFCSetPoint.Name = "NumericUpDown_MFCSetPoint"
+		Me.NumericUpDown_MFCSetPoint.Size = New System.Drawing.Size(65, 20)
+		Me.NumericUpDown_MFCSetPoint.TabIndex = 17
 		'
 		'Label_MFCsIndex
 		'
@@ -689,15 +694,15 @@ Partial Class FormMain
 		Me.Label_MFCsIndex.TabIndex = 19
 		Me.Label_MFCsIndex.Text = "Index:"
 		'
-		'NumericUpDown_MFCsIndex
+		'NumericUpDown_MFCIndex
 		'
-		Me.NumericUpDown_MFCsIndex.Location = New System.Drawing.Point(10, 39)
-		Me.NumericUpDown_MFCsIndex.Maximum = New Decimal(New Integer() {128, 0, 0, 0})
-		Me.NumericUpDown_MFCsIndex.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-		Me.NumericUpDown_MFCsIndex.Name = "NumericUpDown_MFCsIndex"
-		Me.NumericUpDown_MFCsIndex.Size = New System.Drawing.Size(48, 20)
-		Me.NumericUpDown_MFCsIndex.TabIndex = 18
-		Me.NumericUpDown_MFCsIndex.Value = New Decimal(New Integer() {1, 0, 0, 0})
+		Me.NumericUpDown_MFCIndex.Location = New System.Drawing.Point(10, 39)
+		Me.NumericUpDown_MFCIndex.Maximum = New Decimal(New Integer() {128, 0, 0, 0})
+		Me.NumericUpDown_MFCIndex.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+		Me.NumericUpDown_MFCIndex.Name = "NumericUpDown_MFCIndex"
+		Me.NumericUpDown_MFCIndex.Size = New System.Drawing.Size(48, 20)
+		Me.NumericUpDown_MFCIndex.TabIndex = 18
+		Me.NumericUpDown_MFCIndex.Value = New Decimal(New Integer() {1, 0, 0, 0})
 		'
 		'TextBox_StepName
 		'
@@ -790,6 +795,15 @@ Partial Class FormMain
 		Me.GroupBox_StepDetails.TabStop = False
 		Me.GroupBox_StepDetails.Text = "Step Details"
 		'
+		'TextBox_StepSelectedIndex
+		'
+		Me.TextBox_StepSelectedIndex.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.TextBox_StepSelectedIndex.Location = New System.Drawing.Point(37, 76)
+		Me.TextBox_StepSelectedIndex.Name = "TextBox_StepSelectedIndex"
+		Me.TextBox_StepSelectedIndex.Size = New System.Drawing.Size(35, 38)
+		Me.TextBox_StepSelectedIndex.TabIndex = 31
+		Me.TextBox_StepSelectedIndex.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
 		'Button_StepIndexDown
 		'
 		Me.Button_StepIndexDown.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.DownArrow
@@ -825,6 +839,35 @@ Partial Class FormMain
 		Me.GroupBox_RoutineDetails.TabIndex = 25
 		Me.GroupBox_RoutineDetails.TabStop = False
 		Me.GroupBox_RoutineDetails.Text = "Routine Details"
+		'
+		'Button_RoutineIndexDown
+		'
+		Me.Button_RoutineIndexDown.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.DownArrow
+		Me.Button_RoutineIndexDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+		Me.Button_RoutineIndexDown.Location = New System.Drawing.Point(6, 104)
+		Me.Button_RoutineIndexDown.Name = "Button_RoutineIndexDown"
+		Me.Button_RoutineIndexDown.Size = New System.Drawing.Size(25, 25)
+		Me.Button_RoutineIndexDown.TabIndex = 32
+		Me.Button_RoutineIndexDown.UseVisualStyleBackColor = True
+		'
+		'Button_RoutineIndexUp
+		'
+		Me.Button_RoutineIndexUp.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.UpArrow
+		Me.Button_RoutineIndexUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+		Me.Button_RoutineIndexUp.Location = New System.Drawing.Point(6, 73)
+		Me.Button_RoutineIndexUp.Name = "Button_RoutineIndexUp"
+		Me.Button_RoutineIndexUp.Size = New System.Drawing.Size(25, 25)
+		Me.Button_RoutineIndexUp.TabIndex = 31
+		Me.Button_RoutineIndexUp.UseVisualStyleBackColor = True
+		'
+		'TextBox_RoutineSelectedIndex
+		'
+		Me.TextBox_RoutineSelectedIndex.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.TextBox_RoutineSelectedIndex.Location = New System.Drawing.Point(37, 77)
+		Me.TextBox_RoutineSelectedIndex.Name = "TextBox_RoutineSelectedIndex"
+		Me.TextBox_RoutineSelectedIndex.Size = New System.Drawing.Size(45, 38)
+		Me.TextBox_RoutineSelectedIndex.TabIndex = 28
+		Me.TextBox_RoutineSelectedIndex.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
 		'TextBox_RoutineDescription
 		'
@@ -1265,43 +1308,22 @@ Partial Class FormMain
 		Me.AboutToolStripMenuItem2.Size = New System.Drawing.Size(122, 22)
 		Me.AboutToolStripMenuItem2.Text = "&About..."
 		'
-		'TextBox_RoutineSelectedIndex
+		'ContextMenuStrip_MFCList
 		'
-		Me.TextBox_RoutineSelectedIndex.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.TextBox_RoutineSelectedIndex.Location = New System.Drawing.Point(37, 77)
-		Me.TextBox_RoutineSelectedIndex.Name = "TextBox_RoutineSelectedIndex"
-		Me.TextBox_RoutineSelectedIndex.Size = New System.Drawing.Size(45, 38)
-		Me.TextBox_RoutineSelectedIndex.TabIndex = 28
-		Me.TextBox_RoutineSelectedIndex.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		Me.ContextMenuStrip_MFCList.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTextBox1, Me.RemoveItemsToolStripMenuItem1})
+		Me.ContextMenuStrip_MFCList.Name = "ContextMenuStrip_MFCList"
+		Me.ContextMenuStrip_MFCList.Size = New System.Drawing.Size(218, 51)
 		'
-		'TextBox_StepSelectedIndex
+		'RemoveItemsToolStripMenuItem1
 		'
-		Me.TextBox_StepSelectedIndex.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.TextBox_StepSelectedIndex.Location = New System.Drawing.Point(37, 76)
-		Me.TextBox_StepSelectedIndex.Name = "TextBox_StepSelectedIndex"
-		Me.TextBox_StepSelectedIndex.Size = New System.Drawing.Size(35, 38)
-		Me.TextBox_StepSelectedIndex.TabIndex = 31
-		Me.TextBox_StepSelectedIndex.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		Me.RemoveItemsToolStripMenuItem1.Name = "RemoveItemsToolStripMenuItem1"
+		Me.RemoveItemsToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
+		Me.RemoveItemsToolStripMenuItem1.Text = "Remove Item(s)"
 		'
-		'Button_RoutineIndexUp
+		'ToolStripTextBox1
 		'
-		Me.Button_RoutineIndexUp.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.UpArrow
-		Me.Button_RoutineIndexUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-		Me.Button_RoutineIndexUp.Location = New System.Drawing.Point(6, 73)
-		Me.Button_RoutineIndexUp.Name = "Button_RoutineIndexUp"
-		Me.Button_RoutineIndexUp.Size = New System.Drawing.Size(25, 25)
-		Me.Button_RoutineIndexUp.TabIndex = 31
-		Me.Button_RoutineIndexUp.UseVisualStyleBackColor = True
-		'
-		'Button_RoutineIndexDown
-		'
-		Me.Button_RoutineIndexDown.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.DownArrow
-		Me.Button_RoutineIndexDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-		Me.Button_RoutineIndexDown.Location = New System.Drawing.Point(6, 104)
-		Me.Button_RoutineIndexDown.Name = "Button_RoutineIndexDown"
-		Me.Button_RoutineIndexDown.Size = New System.Drawing.Size(25, 25)
-		Me.Button_RoutineIndexDown.TabIndex = 32
-		Me.Button_RoutineIndexDown.UseVisualStyleBackColor = True
+		Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
+		Me.ToolStripTextBox1.Size = New System.Drawing.Size(157, 23)
 		'
 		'FormMain
 		'
@@ -1334,14 +1356,16 @@ Partial Class FormMain
 		Me.GroupBoxTiming.PerformLayout()
 		Me.GroupBox_MFCs.ResumeLayout(False)
 		Me.GroupBox_MFCs.PerformLayout()
-		CType(Me.NumericUpDown_MFCsSetPoint, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.NumericUpDown_MFCsIndex, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.NumericUpDown_MFCSetPoint, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.NumericUpDown_MFCIndex, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox_StepDetails.ResumeLayout(False)
 		Me.GroupBox_StepDetails.PerformLayout()
 		Me.GroupBox_RoutineDetails.ResumeLayout(False)
 		Me.GroupBox_RoutineDetails.PerformLayout()
 		Me.MenuStrip1.ResumeLayout(False)
 		Me.MenuStrip1.PerformLayout()
+		Me.ContextMenuStrip_MFCList.ResumeLayout(False)
+		Me.ContextMenuStrip_MFCList.PerformLayout()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -1396,14 +1420,14 @@ Partial Class FormMain
 	Friend WithEvents RemoveItemsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents SetToOpenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents GroupBox_MFCs As System.Windows.Forms.GroupBox
-	Friend WithEvents ListView_MFCsList As System.Windows.Forms.ListView
+	Friend WithEvents ListView_MFCList As System.Windows.Forms.ListView
 	Friend WithEvents ColumnHeader_MFC As System.Windows.Forms.ColumnHeader
 	Friend WithEvents ColumnHeader_SetPoint As System.Windows.Forms.ColumnHeader
 	Friend WithEvents Button_MFCs As System.Windows.Forms.Button
 	Friend WithEvents Label_MFCsSetPoint As System.Windows.Forms.Label
-	Friend WithEvents NumericUpDown_MFCsSetPoint As System.Windows.Forms.NumericUpDown
+	Friend WithEvents NumericUpDown_MFCSetPoint As System.Windows.Forms.NumericUpDown
 	Friend WithEvents Label_MFCsIndex As System.Windows.Forms.Label
-	Friend WithEvents NumericUpDown_MFCsIndex As System.Windows.Forms.NumericUpDown
+	Friend WithEvents NumericUpDown_MFCIndex As System.Windows.Forms.NumericUpDown
 	Friend WithEvents TextBox_StepName As System.Windows.Forms.TextBox
 	Friend WithEvents Label_StepName As System.Windows.Forms.Label
 	Friend WithEvents Label_StepDescription As System.Windows.Forms.Label
@@ -1496,5 +1520,8 @@ Partial Class FormMain
 	Friend WithEvents Button_RoutineIndexDown As System.Windows.Forms.Button
 	Friend WithEvents Button_RoutineIndexUp As System.Windows.Forms.Button
 	Friend WithEvents TextBox_RoutineSelectedIndex As System.Windows.Forms.TextBox
+	Friend WithEvents ContextMenuStrip_MFCList As System.Windows.Forms.ContextMenuStrip
+	Friend WithEvents ToolStripTextBox1 As System.Windows.Forms.ToolStripTextBox
+	Friend WithEvents RemoveItemsToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
 End Class
