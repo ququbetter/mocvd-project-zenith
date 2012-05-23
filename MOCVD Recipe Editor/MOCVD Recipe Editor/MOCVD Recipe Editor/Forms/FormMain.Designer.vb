@@ -72,13 +72,14 @@ Partial Class FormMain
 		Me.LabelValveIndex = New System.Windows.Forms.Label()
 		Me.NumericUpDownValveIndex = New System.Windows.Forms.NumericUpDown()
 		Me.GroupBoxTiming = New System.Windows.Forms.GroupBox()
+		Me.ComboBox_Ramp = New System.Windows.Forms.ComboBox()
 		Me.ListView_Steps = New System.Windows.Forms.ListView()
 		Me.ColumnHeader_StepIndex = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepDescription = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepTime = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-		Me.ColumnHeader_StepRamp = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepTimeUnits = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+		Me.ColumnHeader_StepRamp = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepValves = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.ColumnHeader_StepMFCs = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
 		Me.GroupBox_MFCs = New System.Windows.Forms.GroupBox()
@@ -169,7 +170,10 @@ Partial Class FormMain
 		Me.SearchToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.toolStripSeparator17 = New System.Windows.Forms.ToolStripSeparator()
 		Me.AboutToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-		Me.ComboBox_Ramp = New System.Windows.Forms.ComboBox()
+		Me.TextBox_RoutineSelectedIndex = New System.Windows.Forms.TextBox()
+		Me.TextBox_StepSelectedIndex = New System.Windows.Forms.TextBox()
+		Me.Button_RoutineIndexUp = New System.Windows.Forms.Button()
+		Me.Button_RoutineIndexDown = New System.Windows.Forms.Button()
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBoxValves.SuspendLayout()
 		Me.ContextMenuStrip_ValveList.SuspendLayout()
@@ -551,10 +555,21 @@ Partial Class FormMain
 		Me.GroupBoxTiming.TabStop = False
 		Me.GroupBoxTiming.Text = "Timing"
 		'
+		'ComboBox_Ramp
+		'
+		Me.ComboBox_Ramp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.ComboBox_Ramp.FormattingEnabled = True
+		Me.ComboBox_Ramp.Items.AddRange(New Object() {"none", "linear", "exponential"})
+		Me.ComboBox_Ramp.Location = New System.Drawing.Point(54, 44)
+		Me.ComboBox_Ramp.Name = "ComboBox_Ramp"
+		Me.ComboBox_Ramp.Size = New System.Drawing.Size(129, 21)
+		Me.ComboBox_Ramp.TabIndex = 10
+		'
 		'ListView_Steps
 		'
 		Me.ListView_Steps.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader_StepIndex, Me.ColumnHeader_StepName, Me.ColumnHeader_StepDescription, Me.ColumnHeader_StepTime, Me.ColumnHeader_StepTimeUnits, Me.ColumnHeader_StepRamp, Me.ColumnHeader_StepValves, Me.ColumnHeader_StepMFCs})
 		Me.ListView_Steps.FullRowSelect = True
+		Me.ListView_Steps.HideSelection = False
 		Me.ListView_Steps.Location = New System.Drawing.Point(343, 27)
 		Me.ListView_Steps.MultiSelect = False
 		Me.ListView_Steps.Name = "ListView_Steps"
@@ -583,15 +598,15 @@ Partial Class FormMain
 		Me.ColumnHeader_StepTime.Text = "Time"
 		Me.ColumnHeader_StepTime.Width = 50
 		'
-		'ColumnHeader_StepRamp
-		'
-		Me.ColumnHeader_StepRamp.Text = "Ramp"
-		Me.ColumnHeader_StepRamp.Width = 71
-		'
 		'ColumnHeader_StepTimeUnits
 		'
 		Me.ColumnHeader_StepTimeUnits.Text = "Units"
 		Me.ColumnHeader_StepTimeUnits.Width = 45
+		'
+		'ColumnHeader_StepRamp
+		'
+		Me.ColumnHeader_StepRamp.Text = "Ramp"
+		Me.ColumnHeader_StepRamp.Width = 71
 		'
 		'ColumnHeader_StepValves
 		'
@@ -724,6 +739,7 @@ Partial Class FormMain
 		'
 		Me.ListView_Routines.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader_RoutineIndex, Me.ColumnHeader_RoutineName, Me.ColumnHeader_RoutineDescription, Me.ColumnHeader_RoutineSteps})
 		Me.ListView_Routines.FullRowSelect = True
+		Me.ListView_Routines.HideSelection = False
 		Me.ListView_Routines.Location = New System.Drawing.Point(12, 27)
 		Me.ListView_Routines.MultiSelect = False
 		Me.ListView_Routines.Name = "ListView_Routines"
@@ -760,6 +776,7 @@ Partial Class FormMain
 		'
 		'GroupBox_StepDetails
 		'
+		Me.GroupBox_StepDetails.Controls.Add(Me.TextBox_StepSelectedIndex)
 		Me.GroupBox_StepDetails.Controls.Add(Me.Button_StepIndexDown)
 		Me.GroupBox_StepDetails.Controls.Add(Me.Label_StepName)
 		Me.GroupBox_StepDetails.Controls.Add(Me.TextBox_StepName)
@@ -795,6 +812,9 @@ Partial Class FormMain
 		'
 		'GroupBox_RoutineDetails
 		'
+		Me.GroupBox_RoutineDetails.Controls.Add(Me.Button_RoutineIndexDown)
+		Me.GroupBox_RoutineDetails.Controls.Add(Me.Button_RoutineIndexUp)
+		Me.GroupBox_RoutineDetails.Controls.Add(Me.TextBox_RoutineSelectedIndex)
 		Me.GroupBox_RoutineDetails.Controls.Add(Me.TextBox_RoutineDescription)
 		Me.GroupBox_RoutineDetails.Controls.Add(Me.Label2)
 		Me.GroupBox_RoutineDetails.Controls.Add(Me.TextBox_RoutineName)
@@ -1245,15 +1265,43 @@ Partial Class FormMain
 		Me.AboutToolStripMenuItem2.Size = New System.Drawing.Size(122, 22)
 		Me.AboutToolStripMenuItem2.Text = "&About..."
 		'
-		'ComboBox_Ramp
+		'TextBox_RoutineSelectedIndex
 		'
-		Me.ComboBox_Ramp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBox_Ramp.FormattingEnabled = True
-		Me.ComboBox_Ramp.Items.AddRange(New Object() {"none", "linear", "exponential"})
-		Me.ComboBox_Ramp.Location = New System.Drawing.Point(54, 44)
-		Me.ComboBox_Ramp.Name = "ComboBox_Ramp"
-		Me.ComboBox_Ramp.Size = New System.Drawing.Size(129, 21)
-		Me.ComboBox_Ramp.TabIndex = 10
+		Me.TextBox_RoutineSelectedIndex.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.TextBox_RoutineSelectedIndex.Location = New System.Drawing.Point(37, 77)
+		Me.TextBox_RoutineSelectedIndex.Name = "TextBox_RoutineSelectedIndex"
+		Me.TextBox_RoutineSelectedIndex.Size = New System.Drawing.Size(45, 38)
+		Me.TextBox_RoutineSelectedIndex.TabIndex = 28
+		Me.TextBox_RoutineSelectedIndex.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
+		'TextBox_StepSelectedIndex
+		'
+		Me.TextBox_StepSelectedIndex.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.TextBox_StepSelectedIndex.Location = New System.Drawing.Point(37, 76)
+		Me.TextBox_StepSelectedIndex.Name = "TextBox_StepSelectedIndex"
+		Me.TextBox_StepSelectedIndex.Size = New System.Drawing.Size(35, 38)
+		Me.TextBox_StepSelectedIndex.TabIndex = 31
+		Me.TextBox_StepSelectedIndex.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
+		'Button_RoutineIndexUp
+		'
+		Me.Button_RoutineIndexUp.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.UpArrow
+		Me.Button_RoutineIndexUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+		Me.Button_RoutineIndexUp.Location = New System.Drawing.Point(6, 73)
+		Me.Button_RoutineIndexUp.Name = "Button_RoutineIndexUp"
+		Me.Button_RoutineIndexUp.Size = New System.Drawing.Size(25, 25)
+		Me.Button_RoutineIndexUp.TabIndex = 31
+		Me.Button_RoutineIndexUp.UseVisualStyleBackColor = True
+		'
+		'Button_RoutineIndexDown
+		'
+		Me.Button_RoutineIndexDown.BackgroundImage = Global.MOCVD_Recipe_Editor.My.Resources.Resources.DownArrow
+		Me.Button_RoutineIndexDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+		Me.Button_RoutineIndexDown.Location = New System.Drawing.Point(6, 104)
+		Me.Button_RoutineIndexDown.Name = "Button_RoutineIndexDown"
+		Me.Button_RoutineIndexDown.Size = New System.Drawing.Size(25, 25)
+		Me.Button_RoutineIndexDown.TabIndex = 32
+		Me.Button_RoutineIndexDown.UseVisualStyleBackColor = True
 		'
 		'FormMain
 		'
@@ -1273,7 +1321,9 @@ Partial Class FormMain
 		Me.Controls.Add(Me.GroupBoxValves)
 		Me.Controls.Add(Me.Button_AddStep)
 		Me.MainMenuStrip = Me.MenuStrip1
+		Me.MaximizeBox = False
 		Me.Name = "FormMain"
+		Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
 		Me.Text = "MOCVD Recipe Editor"
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBoxValves.ResumeLayout(False)
@@ -1442,5 +1492,9 @@ Partial Class FormMain
 	Friend WithEvents toolStripSeparator17 As System.Windows.Forms.ToolStripSeparator
 	Friend WithEvents AboutToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents ComboBox_Ramp As System.Windows.Forms.ComboBox
+	Friend WithEvents TextBox_StepSelectedIndex As System.Windows.Forms.TextBox
+	Friend WithEvents Button_RoutineIndexDown As System.Windows.Forms.Button
+	Friend WithEvents Button_RoutineIndexUp As System.Windows.Forms.Button
+	Friend WithEvents TextBox_RoutineSelectedIndex As System.Windows.Forms.TextBox
 
 End Class
