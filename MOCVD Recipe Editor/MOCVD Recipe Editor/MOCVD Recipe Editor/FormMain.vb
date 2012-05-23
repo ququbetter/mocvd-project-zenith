@@ -116,13 +116,17 @@ Public Class FormMain
 	End Sub
 
 	Private Sub addListViewRoutine(ByRef recipeRoutine As RecipeRoutine)
-		If IsNothing(recipeRoutine) Or disableEvent Then
+		If IsNothing(recipeRoutine) Then
 			Return
 		End If
 		ListView_Routines.Items.Add(recipeRoutine.listViewRoutine)
+		displayRoutine(recipeRoutine)
 	End Sub
 
 	Private Sub ListView_Routines_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView_Routines.SelectedIndexChanged
+		If disableEvent Then
+			Return
+		End If
 		If ListView_Routines.SelectedIndices.Count > 0 Then
 			currentRoutine = recipe.routines.routines((ListView_Routines.SelectedIndices(0)))
 			displayRoutine(currentRoutine)
@@ -213,7 +217,7 @@ Public Class FormMain
 	End Sub
 
 	Private Sub addListViewStep(ByRef recipeStep As RecipeStep)
-		If IsNothing(currentStep) Or disableEvent Then
+		If IsNothing(currentStep) Then
 			Return
 		End If
 		ListView_Steps.Items.Add(recipeStep.listViewStep)
@@ -323,6 +327,9 @@ Public Class FormMain
 	End Sub
 
 	Private Sub addValve(index As Decimal, value As Boolean)
+		If IsNothing(currentStep) Then
+			Return
+		End If
 		ListView_ValveList.Items.Add(index.ToString, index.ToString, 0)
 
 		Dim valve = ListView_ValveList.Items(ListView_ValveList.Items.Count - 1)
