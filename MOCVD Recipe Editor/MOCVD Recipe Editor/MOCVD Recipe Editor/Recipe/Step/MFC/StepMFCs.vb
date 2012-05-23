@@ -52,7 +52,12 @@
 	End Sub
 
 	Public Function getMFC(index As Integer) As StepMFC
-		Return MFCs(index)
+		For i As Integer = 0 To count - 1
+			If MFCs(i).getIndex = index Then
+				Return MFCs(i)
+			End If
+		Next
+		Return Nothing
 	End Function
 
 	Public Function getCount() As Integer

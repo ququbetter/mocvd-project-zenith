@@ -444,8 +444,34 @@ Public Class FormMain
 		NumericUpDown_MFCSetPoint.Value = 0
 	End Sub
 
-	Private Sub ToolStripTextBox1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripTextBox1.Click
+	Private Sub ContextMenuStrip_MFCList_Closing(sender As Object, e As System.Windows.Forms.ToolStripDropDownClosingEventArgs) Handles ContextMenuStrip_MFCList.Closing
+		If ToolStripTextBox_MFCSetPoint.Enabled Then
+			Dim value As Double
+			If Double.TryParse(ToolStripTextBox_MFCSetPoint.Text, value) Then
+				currentStep.MFCs.getMFC(ListView_MFCList.SelectedItems(0).Text).setSetPoint(value)
+			End If
+		End If
 
+#If DEBUG Then
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
+	End Sub
+
+	Private Sub ContextMenuStrip_MFCList_Opening(sender As System.Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip_MFCList.Opening
+		Dim tempDisableEvent = disableEvent
+		disableEvent = True
+
+		If ListView_MFCList.SelectedItems.Count = 0 Or ListView_MFCList.SelectedItems.Count > 1 Then
+			ToolStripTextBox_MFCSetPoint.Text = ""
+			ToolStripTextBox_MFCSetPoint.Enabled = False
+			ToolStripTextBox_MFCSetPoint.BackColor = Color.LightGray
+		Else
+			ToolStripTextBox_MFCSetPoint.Text = ListView_MFCList.SelectedItems(0).SubItems(1).Text
+			ToolStripTextBox_MFCSetPoint.Enabled = True
+			ToolStripTextBox_MFCSetPoint.BackColor = Color.White
+		End If
+
+		disableEvent = tempDisableEvent
 	End Sub
 
 	Private Sub RemoveItemsToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles RemoveItemsToolStripMenuItem1.Click
@@ -465,6 +491,5 @@ Public Class FormMain
 #End Region
 
 #End Region
-
 
 End Class

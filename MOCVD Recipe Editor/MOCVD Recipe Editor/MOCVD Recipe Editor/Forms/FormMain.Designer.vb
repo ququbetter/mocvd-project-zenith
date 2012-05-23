@@ -176,7 +176,7 @@ Partial Class FormMain
 		Me.AboutToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ContextMenuStrip_MFCList = New System.Windows.Forms.ContextMenuStrip(Me.components)
 		Me.RemoveItemsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-		Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
+		Me.ToolStripTextBox_MFCSetPoint = New System.Windows.Forms.ToolStripTextBox()
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBoxValves.SuspendLayout()
 		Me.ContextMenuStrip_ValveList.SuspendLayout()
@@ -444,7 +444,7 @@ Partial Class FormMain
 		Me.GroupBoxValves.Controls.Add(Me.NumericUpDown_ValveIndex)
 		Me.GroupBoxValves.Location = New System.Drawing.Point(835, 27)
 		Me.GroupBoxValves.Name = "GroupBoxValves"
-		Me.GroupBoxValves.Size = New System.Drawing.Size(141, 202)
+		Me.GroupBoxValves.Size = New System.Drawing.Size(141, 247)
 		Me.GroupBoxValves.TabIndex = 13
 		Me.GroupBoxValves.TabStop = False
 		Me.GroupBoxValves.Text = "Valves"
@@ -456,7 +456,7 @@ Partial Class FormMain
 		Me.ListView_ValveList.FullRowSelect = True
 		Me.ListView_ValveList.Location = New System.Drawing.Point(6, 96)
 		Me.ListView_ValveList.Name = "ListView_ValveList"
-		Me.ListView_ValveList.Size = New System.Drawing.Size(127, 100)
+		Me.ListView_ValveList.Size = New System.Drawing.Size(127, 145)
 		Me.ListView_ValveList.TabIndex = 15
 		Me.ListView_ValveList.UseCompatibleStateImageBehavior = False
 		Me.ListView_ValveList.View = System.Windows.Forms.View.Details
@@ -632,7 +632,7 @@ Partial Class FormMain
 		Me.GroupBox_MFCs.Controls.Add(Me.NumericUpDown_MFCIndex)
 		Me.GroupBox_MFCs.Location = New System.Drawing.Point(982, 27)
 		Me.GroupBox_MFCs.Name = "GroupBox_MFCs"
-		Me.GroupBox_MFCs.Size = New System.Drawing.Size(141, 202)
+		Me.GroupBox_MFCs.Size = New System.Drawing.Size(141, 247)
 		Me.GroupBox_MFCs.TabIndex = 16
 		Me.GroupBox_MFCs.TabStop = False
 		Me.GroupBox_MFCs.Text = "MFCs"
@@ -644,7 +644,7 @@ Partial Class FormMain
 		Me.ListView_MFCList.FullRowSelect = True
 		Me.ListView_MFCList.Location = New System.Drawing.Point(6, 96)
 		Me.ListView_MFCList.Name = "ListView_MFCList"
-		Me.ListView_MFCList.Size = New System.Drawing.Size(127, 100)
+		Me.ListView_MFCList.Size = New System.Drawing.Size(127, 145)
 		Me.ListView_MFCList.TabIndex = 17
 		Me.ListView_MFCList.UseCompatibleStateImageBehavior = False
 		Me.ListView_MFCList.View = System.Windows.Forms.View.Details
@@ -1310,7 +1310,7 @@ Partial Class FormMain
 		'
 		'ContextMenuStrip_MFCList
 		'
-		Me.ContextMenuStrip_MFCList.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTextBox1, Me.RemoveItemsToolStripMenuItem1})
+		Me.ContextMenuStrip_MFCList.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTextBox_MFCSetPoint, Me.RemoveItemsToolStripMenuItem1})
 		Me.ContextMenuStrip_MFCList.Name = "ContextMenuStrip_MFCList"
 		Me.ContextMenuStrip_MFCList.Size = New System.Drawing.Size(218, 73)
 		'
@@ -1320,10 +1320,10 @@ Partial Class FormMain
 		Me.RemoveItemsToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
 		Me.RemoveItemsToolStripMenuItem1.Text = "Remove Item(s)"
 		'
-		'ToolStripTextBox1
+		'ToolStripTextBox_MFCSetPoint
 		'
-		Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
-		Me.ToolStripTextBox1.Size = New System.Drawing.Size(157, 23)
+		Me.ToolStripTextBox_MFCSetPoint.Name = "ToolStripTextBox_MFCSetPoint"
+		Me.ToolStripTextBox_MFCSetPoint.Size = New System.Drawing.Size(157, 23)
 		'
 		'FormMain
 		'
@@ -1521,7 +1521,7 @@ Partial Class FormMain
 	Friend WithEvents Button_RoutineIndexUp As System.Windows.Forms.Button
 	Friend WithEvents TextBox_RoutineSelectedIndex As System.Windows.Forms.TextBox
 	Friend WithEvents ContextMenuStrip_MFCList As System.Windows.Forms.ContextMenuStrip
-	Friend WithEvents ToolStripTextBox1 As System.Windows.Forms.ToolStripTextBox
+	Friend WithEvents ToolStripTextBox_MFCSetPoint As System.Windows.Forms.ToolStripTextBox
 	Friend WithEvents RemoveItemsToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
 End Class
