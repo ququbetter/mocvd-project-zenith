@@ -51,4 +51,8 @@
 		listViewRoutine.SubItems(3).Text = getStepCount()
 	End Sub
 
+	Public Function getStep(index As Integer) As RecipeStep
+		Return steps.getStep(index)
+	End Function
+
 End Class

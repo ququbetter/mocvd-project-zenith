@@ -1,6 +1,8 @@
 ﻿Public Class RecipeStep
 	Public xmlStep As XElement
 	Public listViewStep As ListViewItem
+	Public valves As StepValves
+	Public MFCs As StepMFCs
 
 	Public Sub New()
 		xmlStep =
@@ -14,6 +16,9 @@
 		 </step>
 
 		listViewStep = New ListViewItem({0, "(name)", "(description)", 0, "sec", "none", 0, 0})
+
+		valves = New StepValves(xmlStep.<valves>(0), listViewStep)
+		MFCs = New StepMFCs(xmlStep.<MFCs>(0), listViewStep)
 	End Sub
 
 	Public Sub setIndex(index As Integer)
@@ -68,20 +73,11 @@
 	End Function
 
 	Public Function getValveCount() As Integer
-		Return xmlStep.<valves>.<valve>.Count
+		Return valves.getCount()
 	End Function
 
 	Public Function getMFCCount() As Integer
 		Return xmlStep.<MFCs>.<MFC>.Count
 	End Function
-
-	Public Sub addValve(index As String, action As String)
-		Dim valve As XElement =
-		  <valve index=<%= index %>>
-			  <action><%= action %></action>
-		  </valve>
-		xmlStep.<valves>(0).Add(valve)
-		listViewStep.SubItems(6).Text = getValveCount()
-	End Sub
 
 End Class

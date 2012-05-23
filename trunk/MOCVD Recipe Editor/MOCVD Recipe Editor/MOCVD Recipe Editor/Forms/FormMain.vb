@@ -96,8 +96,8 @@ Public Class FormMain
 		sortListViewColumn(e, ListView_ValveList, sortColumn_ValveList)
 	End Sub
 
-	Private Sub ListView_MFCsList_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView_MFCsList.ColumnClick
-		sortListViewColumn(e, ListView_MFCsList, sortColumn_MFCsList)
+	Private Sub ListView_MFCsList_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView_MFCList.ColumnClick
+		sortListViewColumn(e, ListView_MFCList, sortColumn_MFCsList)
 	End Sub
 #End Region
 
@@ -238,17 +238,10 @@ Public Class FormMain
 		Dim tempDisableEvent = disableEvent
 		disableEvent = True
 
-		For Each valve As XElement In recipeStep.xmlStep.<valves>.<valve>
-			addValve(valve.@index, valve.<action>.Value)
-		Next
-
-		TextBox_StepName.Text = recipeStep.getName()
-		TextBox_StepDescription.Text = recipeStep.getDescription()
-		TextBox_StepSelectedIndex.Text = recipeStep.getIndex()
-
-		NumericUpDown_Time.Value = Integer.Parse(recipeStep.getTime())
-		ComboBox_TimeUnits.SelectedItem = recipeStep.getTimeUnit()
-		ComboBox_Ramp.SelectedItem = recipeStep.getRamp()
+		displayValves(recipeStep)
+		displayStepDetails(recipeStep)
+		displayTiming(recipeStep)
+		displayMFCs(recipeStep)
 
 		disableEvent = tempDisableEvent
 	End Sub
@@ -257,17 +250,10 @@ Public Class FormMain
 		Dim tempDisableEvent = disableEvent
 		disableEvent = True
 
-		ListView_ValveList.Items.Clear()
-		RadioButton_ValveClose.Checked = True
-		NumericUpDownValveIndex.Value = 1
-
-		TextBox_StepName.Text = ""
-		TextBox_StepDescription.Text = ""
-		TextBox_StepSelectedIndex.Text = ""
-
-		NumericUpDown_Time.Value = 0
-		ComboBox_TimeUnits.SelectedItem = "sec"
-		ComboBox_Ramp.SelectedItem = "none"
+		clearValves()
+		clearStepDetails()
+		clearTiming()
+		clearMFCs()
 
 		disableEvent = tempDisableEvent
 	End Sub
@@ -285,10 +271,22 @@ Public Class FormMain
 		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
 #End If
 	End Sub
+
+	Private Sub displayStepDetails(ByRef recipeStep As RecipeStep)
+		TextBox_StepName.Text = recipeStep.getName()
+		TextBox_StepDescription.Text = recipeStep.getDescription()
+		TextBox_StepSelectedIndex.Text = recipeStep.getIndex()
+	End Sub
+
+
+	Private Sub clearStepDetails()
+		TextBox_StepName.Text = ""
+		TextBox_StepDescription.Text = ""
+		TextBox_StepSelectedIndex.Text = ""
+	End Sub
 #End Region
 
 #Region "Timing"
-
 	Private Sub NumericUpDown_Timing_ValueChanged(sender As System.Object, e As System.EventArgs) Handles NumericUpDown_Time.ValueChanged, ComboBox_TimeUnits.SelectedIndexChanged
 		If IsNothing(currentStep) Or disableEvent Then
 			Return
@@ -299,6 +297,18 @@ Public Class FormMain
 #If DEBUG Then
 		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
 #End If
+	End Sub
+
+	Private Sub displayTiming(ByRef recipeStep As RecipeStep)
+		NumericUpDown_Time.Value = Integer.Parse(recipeStep.getTime())
+		ComboBox_TimeUnits.SelectedItem = recipeStep.getTimeUnit()
+		ComboBox_Ramp.SelectedItem = recipeStep.getRamp()
+	End Sub
+
+	Private Sub clearTiming()
+		NumericUpDown_Time.Value = 0
+		ComboBox_TimeUnits.SelectedItem = "sec"
+		ComboBox_Ramp.SelectedItem = "none"
 	End Sub
 
 	Private Sub ComboBox_Ramp_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox_Ramp.SelectedIndexChanged
@@ -316,8 +326,12 @@ Public Class FormMain
 
 #Region "Valves"
 	Private Sub Button_AddValve_Click(sender As System.Object, e As System.EventArgs) Handles Button_AddValve.Click
+		If IsNothing(currentStep) Then
+			Return
+		End If
 		If Not ListView_ValveList.Items.ContainsKey(NumericUpDownValveIndex.Value.ToString) Then
-			addValve(NumericUpDownValveIndex.Value, RadioButton_ValveClose.Checked)
+			Dim valve As StepValve = currentStep.valves.addValve(NumericUpDownValveIndex.Value, RadioButton_ValveOpen.Checked)
+			ListView_ValveList.Items.Add(valve.listViewValve)
 		Else
 
 		End If
@@ -327,37 +341,19 @@ Public Class FormMain
 #End If
 	End Sub
 
-	Private Sub addValve(index As Decimal, value As Boolean)
-		If IsNothing(currentStep) Then
-			Return
-		End If
-		ListView_ValveList.Items.Add(index.ToString, index.ToString, 0)
-
-		Dim valve = ListView_ValveList.Items(ListView_ValveList.Items.Count - 1)
-
-		If value = True Then
-			valve.SubItems.Add("Close")
-			valve.SubItems(0).ForeColor = Color.Red
-			currentStep.addValve(index.ToString, "Close")
-		Else
-			valve.SubItems.Add("Open")
-			valve.SubItems(0).ForeColor = Color.Green
-			currentStep.addValve(index.ToString, "Open")
-		End If
+	Private Sub displayValves(ByRef recipeStep As RecipeStep)
+		For Each valve As StepValve In currentStep.valves.valves
+			If IsNothing(valve) Then
+				Exit For
+			End If
+			ListView_ValveList.Items.Add(valve.listViewValve)
+		Next
 	End Sub
 
-	Private Sub addValve(index As String, action As String)
-		ListView_ValveList.Items.Add(index, index, 0)
-
-		Dim valve = ListView_ValveList.Items(ListView_ValveList.Items.Count - 1)
-
-		If action = "Close" Then
-			valve.SubItems.Add("Close")
-			valve.SubItems(0).ForeColor = Color.Red
-		Else
-			valve.SubItems.Add("Open")
-			valve.SubItems(0).ForeColor = Color.Green
-		End If
+	Private Sub clearValves()
+		ListView_ValveList.Items.Clear()
+		RadioButton_ValveClose.Checked = True
+		NumericUpDownValveIndex.Value = 1
 	End Sub
 
 	Private Sub SetToOpenToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SetToOpenToolStripMenuItem.Click
@@ -368,7 +364,8 @@ Public Class FormMain
 		For Each item As ListViewItem In ListView_ValveList.SelectedItems
 			item.SubItems(1).Text = "Open"
 			item.SubItems(0).ForeColor = Color.Green
-			Dim valve As IEnumerable(Of XElement) = From elem In currentStep.xmlStep.<valves>.Elements() Where elem.@index = item.Text Select elem
+			Dim tempItem = item
+			Dim valve As IEnumerable(Of XElement) = From elem In currentStep.xmlStep.<valves>.Elements() Where elem.@index = tempItem.Text Select elem
 			valve.<action>.Value = "Open"
 		Next
 
@@ -415,7 +412,34 @@ Public Class FormMain
 
 #Region "MFCs"
 	Private Sub Button_MFCs_Click(sender As System.Object, e As System.EventArgs) Handles Button_MFCs.Click
+		If IsNothing(currentStep) Then
+			Return
+		End If
+		If Not ListView_MFCList.Items.ContainsKey(NumericUpDown_MFCIndex.Value.ToString) Then
+			Dim MFC As StepMFC = currentStep.MFCs.addMFC(NumericUpDown_MFCIndex.Value, NumericUpDown_MFCSetPoint.Value)
+			ListView_MFCList.Items.Add(MFC.listViewMFC)
+		Else
 
+		End If
+
+#If DEBUG Then
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
+	End Sub
+
+	Private Sub displayMFCs(ByRef recipeStep As RecipeStep)
+		For Each MFC As StepMFC In currentStep.MFCs.MFCs
+			If IsNothing(MFC) Then
+				Exit For
+			End If
+			ListView_MFCList.Items.Add(MFC.listViewMFC)
+		Next
+	End Sub
+
+	Private Sub clearMFCs()
+		ListView_MFCList.Items.Clear()
+		NumericUpDown_MFCIndex.Value = 1
+		NumericUpDown_MFCSetPoint.Value = 0
 	End Sub
 #End Region
 

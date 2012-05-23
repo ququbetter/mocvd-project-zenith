@@ -27,5 +27,9 @@
 		FormMain.currentStep = recipeStep
 	End Sub
 
+	Public Function getStep(index As Integer) As RecipeStep
+		Return steps(index)
+	End Function
+
 
 End Class

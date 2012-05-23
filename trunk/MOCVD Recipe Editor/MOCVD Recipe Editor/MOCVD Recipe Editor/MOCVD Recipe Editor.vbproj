@@ -128,8 +128,12 @@
     <Compile Include="Recipe\Recipe.vb" />
     <Compile Include="Recipe\Routine\RecipeRoutine.vb" />
     <Compile Include="Recipe\Routine\RecipeRoutines.vb" />
+    <Compile Include="Recipe\Step\MFC\StepMFCs.vb" />
     <Compile Include="Recipe\Step\RecipeStep.vb" />
     <Compile Include="Recipe\Step\RecipeSteps.vb" />
+    <Compile Include="Recipe\Step\MFC\StepMFC.vb" />
+    <Compile Include="Recipe\Step\Valve\StepValve.vb" />
+    <Compile Include="Recipe\Step\Valve\StepValves.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\FormDebug.resx">
