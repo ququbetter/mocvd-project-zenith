@@ -137,21 +137,19 @@ Public Class FormMain
 		Dim tempDisableEvent = disableEvent
 		disableEvent = True
 		ListView_Steps.Items.Clear()
-		If recipeRoutine.steps.steps.Count > 0 Then
-			currentStep = recipeRoutine.steps.steps(0)
-			displayStep(currentStep)
-			For Each item As RecipeStep In recipeRoutine.steps.steps
-				If IsNothing(item) Then
-					Exit For
-				End If
-				addListViewStep(item)
-			Next
-			TextBox_RoutineName.Text = recipeRoutine.getName()
-			TextBox_RoutineDescription.Text = recipeRoutine.getDescription()
-		Else
-			clearStep()
-			currentStep = Nothing
-		End If
+
+
+		currentStep = recipeRoutine.steps.steps(0)
+		displayStep(currentStep)
+		For Each item As RecipeStep In recipeRoutine.steps.steps
+			If IsNothing(item) Then
+				Exit For
+			End If
+			addListViewStep(item)
+		Next
+		TextBox_RoutineName.Text = recipeRoutine.getName()
+		TextBox_RoutineDescription.Text = recipeRoutine.getDescription()
+		TextBox_RoutineSelectedIndex.Text = recipeRoutine.getIndex()
 
 		disableEvent = tempDisableEvent
 	End Sub
@@ -161,6 +159,7 @@ Public Class FormMain
 		disableEvent = True
 		TextBox_RoutineName.Text = ""
 		TextBox_RoutineDescription.Text = ""
+		TextBox_RoutineSelectedIndex.Text = ""
 		disableEvent = tempDisableEvent
 	End Sub
 
@@ -209,7 +208,6 @@ Public Class FormMain
 
 		currentRoutine.addStep(recipeStep)
 		addListViewStep(recipeStep)
-		clearStep()
 
 #If DEBUG Then
 		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
@@ -217,10 +215,11 @@ Public Class FormMain
 	End Sub
 
 	Private Sub addListViewStep(ByRef recipeStep As RecipeStep)
-		If IsNothing(currentStep) Then
+		If IsNothing(recipeStep) Then
 			Return
 		End If
 		ListView_Steps.Items.Add(recipeStep.listViewStep)
+		displayStep(recipeStep)
 	End Sub
 
 	Private Sub ListView_Steps_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView_Steps.SelectedIndexChanged
@@ -245,6 +244,7 @@ Public Class FormMain
 
 		TextBox_StepName.Text = recipeStep.getName()
 		TextBox_StepDescription.Text = recipeStep.getDescription()
+		TextBox_StepSelectedIndex.Text = recipeStep.getIndex()
 
 		NumericUpDown_Time.Value = Integer.Parse(recipeStep.getTime())
 		ComboBox_TimeUnits.SelectedItem = recipeStep.getTimeUnit()
@@ -263,6 +263,7 @@ Public Class FormMain
 
 		TextBox_StepName.Text = ""
 		TextBox_StepDescription.Text = ""
+		TextBox_StepSelectedIndex.Text = ""
 
 		NumericUpDown_Time.Value = 0
 		ComboBox_TimeUnits.SelectedItem = "sec"
@@ -367,7 +368,13 @@ Public Class FormMain
 		For Each item As ListViewItem In ListView_ValveList.SelectedItems
 			item.SubItems(1).Text = "Open"
 			item.SubItems(0).ForeColor = Color.Green
+			Dim valve As IEnumerable(Of XElement) = From elem In currentStep.xmlStep.<valves>.Elements() Where elem.@index = item.Text Select elem
+			valve.<action>.Value = "Open"
 		Next
+
+#If DEBUG Then
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
 	End Sub
 
 	Private Sub SetToCloseToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SetToCloseToolStripMenuItem.Click
@@ -378,7 +385,14 @@ Public Class FormMain
 		For Each item As ListViewItem In ListView_ValveList.SelectedItems
 			item.SubItems(1).Text = "Close"
 			item.SubItems(0).ForeColor = Color.Red
+
+			Dim valve As IEnumerable(Of XElement) = From elem In currentStep.xmlStep.<valves>.Elements() Where elem.@index = item.Text Select elem
+			valve.<action>.Value = "Close"
 		Next
+
+#If DEBUG Then
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
 	End Sub
 
 	Private Sub RemoveItemsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RemoveItemsToolStripMenuItem.Click
@@ -388,7 +402,13 @@ Public Class FormMain
 
 		For Each item As ListViewItem In ListView_ValveList.SelectedItems
 			ListView_ValveList.Items.Remove(item)
+			Dim valve As IEnumerable(Of XElement) = From elem In currentStep.xmlStep.<valves>.Elements() Where elem.@index = item.Text Select elem
+			valve.Remove()
 		Next
+
+#If DEBUG Then
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
 	End Sub
 
 #End Region
