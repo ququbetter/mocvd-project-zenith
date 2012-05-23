@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormDebug
+Partial Class FormXMLViewer
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -31,17 +31,17 @@ Partial Class FormDebug
 		Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
 		Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
 		Me.WebBrowser1.Name = "WebBrowser1"
-		Me.WebBrowser1.Size = New System.Drawing.Size(449, 502)
+		Me.WebBrowser1.Size = New System.Drawing.Size(600, 551)
 		Me.WebBrowser1.TabIndex = 0
 		'
-		'FormDebug
+		'FormXMLViewer
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(449, 502)
+		Me.ClientSize = New System.Drawing.Size(600, 551)
 		Me.Controls.Add(Me.WebBrowser1)
-		Me.Name = "FormDebug"
-		Me.Text = "FormDebug"
+		Me.Name = "FormXMLViewer"
+		Me.Text = "FormXMLViewer"
 		Me.ResumeLayout(False)
 
 	End Sub

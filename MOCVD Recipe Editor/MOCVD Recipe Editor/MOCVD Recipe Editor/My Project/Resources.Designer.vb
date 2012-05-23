@@ -60,6 +60,32 @@ Namespace My.Resources
             End Set
         End Property
         
+        '''<summary>
+        '''  Looks up a localized string similar to &lt;!--
+        ''' |
+        ''' | XSLT REC Compliant Version of IE5 Default Stylesheet
+        ''' |
+        ''' | Original version by Jonathan Marsh (jmarsh@xxxxxxxxxxxxx)
+        ''' | http://msdn.microsoft.com/xml/samples/defaultss/defaultss.xsl
+        ''' |
+        ''' | Conversion to XSLT 1.0 REC Syntax by Steve Muench (smuench@xxxxxxxxxx)
+        ''' |
+        ''' +--&gt;
+        '''&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+        '''	&lt;xsl:output indent=&quot;no&quot; method=&quot;html&quot;/&gt;
+        '''	&lt;xsl:template match=&quot;/&quot;&gt;
+        '''		&lt;HTML&gt;
+        '''			&lt;HEAD&gt;
+        '''				&lt;SCRIPT&gt;
+        '''					&lt;xsl:comment&gt;&lt;![CDATA[
+        '''          [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property defaultss() As String
+            Get
+                Return ResourceManager.GetString("defaultss", resourceCulture)
+            End Get
+        End Property
+        
         Friend ReadOnly Property down_arrow() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("down_arrow", resourceCulture)
