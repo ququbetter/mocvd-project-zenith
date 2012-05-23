@@ -66,6 +66,40 @@ Public Class FormMain
 #End Region
 
 
+#Region "Misc"
+	Public Sub updateXMLViewer()
+		Dim value As New Xml.XmlDocument
+		value.LoadXml(recipe.xmlRecipe.ToString)
+
+		Dim s As New System.IO.StringReader(My.Resources.defaultss)
+
+		Dim xr As Xml.XmlReader = Xml.XmlReader.Create(s)
+		Dim xct As Xml.Xsl.XslCompiledTransform = New Xml.Xsl.XslCompiledTransform
+		xct.Load(xr)
+
+		Dim sb As New System.Text.StringBuilder()
+		Dim xw As Xml.XmlWriter = Xml.XmlWriter.Create(sb)
+		xct.Transform(value, xw)
+		FormXMLViewer.WebBrowser1.DocumentText = sb.ToString()
+	End Sub
+
+	Public Sub updateDebug()
+		Dim value As New Xml.XmlDocument
+		value.LoadXml(recipe.xmlRecipe.ToString)
+
+		Dim s As New System.IO.StringReader(My.Resources.defaultss)
+
+		Dim xr As Xml.XmlReader = Xml.XmlReader.Create(s)
+		Dim xct As Xml.Xsl.XslCompiledTransform = New Xml.Xsl.XslCompiledTransform
+		xct.Load(xr)
+
+		Dim sb As New System.Text.StringBuilder()
+		Dim xw As Xml.XmlWriter = Xml.XmlWriter.Create(sb)
+		xct.Transform(value, xw)
+		FormDebug.WebBrowser1.DocumentText = sb.ToString()
+	End Sub
+#End Region
+
 #Region "Forms"
 	Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 		ComboBox_TimeUnits.SelectedItem = "sec"
@@ -84,8 +118,15 @@ Public Class FormMain
 #End Region
 
 
+
 #Region "Menu"
 	Private Sub SaveToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SaveToolStripMenuItem.Click
+
+	End Sub
+
+	Private Sub ViewXMLToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ViewXMLToolStripMenuItem.Click
+		FormXMLViewer.Show()
+		updateXMLViewer()
 
 	End Sub
 #End Region
@@ -111,7 +152,7 @@ Public Class FormMain
 		addListViewRoutine(routine)
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 
@@ -173,7 +214,7 @@ Public Class FormMain
 		currentRoutine.setDescription(TextBox_RoutineDescription.Text)
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 #End Region
@@ -210,7 +251,7 @@ Public Class FormMain
 		addListViewStep(recipeStep)
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 
@@ -268,7 +309,7 @@ Public Class FormMain
 		currentStep.setDescription(TextBox_StepDescription.Text)
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 
@@ -295,7 +336,7 @@ Public Class FormMain
 		currentStep.setTime(NumericUpDown_Time.Value, ComboBox_TimeUnits.SelectedItem)
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 
@@ -319,7 +360,7 @@ Public Class FormMain
 		currentStep.setRamp(ComboBox_Ramp.SelectedItem)
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 #End Region
@@ -338,7 +379,7 @@ Public Class FormMain
 		End If
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 
@@ -371,7 +412,7 @@ Public Class FormMain
 		Next
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 
@@ -389,7 +430,7 @@ Public Class FormMain
 		Next
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 
@@ -405,7 +446,7 @@ Public Class FormMain
 		Next
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 
@@ -425,7 +466,7 @@ Public Class FormMain
 		End If
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 
@@ -453,7 +494,7 @@ Public Class FormMain
 		End If
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 
@@ -485,11 +526,10 @@ Public Class FormMain
 		Next
 
 #If DEBUG Then
-		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+		updateDebug()
 #End If
 	End Sub
 #End Region
 
 #End Region
-
 End Class
