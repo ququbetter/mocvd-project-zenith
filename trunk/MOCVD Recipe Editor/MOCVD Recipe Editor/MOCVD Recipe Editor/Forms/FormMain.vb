@@ -329,8 +329,9 @@ Public Class FormMain
 		If IsNothing(currentStep) Then
 			Return
 		End If
-		If Not ListView_ValveList.Items.ContainsKey(NumericUpDownValveIndex.Value.ToString) Then
-			Dim valve As StepValve = currentStep.valves.addValve(NumericUpDownValveIndex.Value, RadioButton_ValveOpen.Checked)
+
+		If ListView_ValveList.Items.Find(NumericUpDown_ValveIndex.Value.ToString, False).Count() = 0 Then
+			Dim valve As StepValve = currentStep.valves.addValve(NumericUpDown_ValveIndex.Value, RadioButton_ValveOpen.Checked)
 			ListView_ValveList.Items.Add(valve.listViewValve)
 		Else
 
@@ -353,7 +354,7 @@ Public Class FormMain
 	Private Sub clearValves()
 		ListView_ValveList.Items.Clear()
 		RadioButton_ValveClose.Checked = True
-		NumericUpDownValveIndex.Value = 1
+		NumericUpDown_ValveIndex.Value = 1
 	End Sub
 
 	Private Sub SetToOpenToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SetToOpenToolStripMenuItem.Click
@@ -399,8 +400,8 @@ Public Class FormMain
 
 		For Each item As ListViewItem In ListView_ValveList.SelectedItems
 			ListView_ValveList.Items.Remove(item)
-			Dim valve As IEnumerable(Of XElement) = From elem In currentStep.xmlStep.<valves>.Elements() Where elem.@index = item.Text Select elem
-			valve.Remove()
+			Dim tempItem = item
+			currentStep.valves.removeValve(item.Text)
 		Next
 
 #If DEBUG Then
@@ -415,7 +416,8 @@ Public Class FormMain
 		If IsNothing(currentStep) Then
 			Return
 		End If
-		If Not ListView_MFCList.Items.ContainsKey(NumericUpDown_MFCIndex.Value.ToString) Then
+
+		If ListView_MFCList.Items.Find(NumericUpDown_MFCIndex.Value.ToString, False).Count() = 0 Then
 			Dim MFC As StepMFC = currentStep.MFCs.addMFC(NumericUpDown_MFCIndex.Value, NumericUpDown_MFCSetPoint.Value)
 			ListView_MFCList.Items.Add(MFC.listViewMFC)
 		Else
@@ -441,7 +443,28 @@ Public Class FormMain
 		NumericUpDown_MFCIndex.Value = 1
 		NumericUpDown_MFCSetPoint.Value = 0
 	End Sub
+
+	Private Sub ToolStripTextBox1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripTextBox1.Click
+
+	End Sub
+
+	Private Sub RemoveItemsToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles RemoveItemsToolStripMenuItem1.Click
+		If IsNothing(currentStep) Or disableEvent Then
+			Return
+		End If
+
+		For Each item As ListViewItem In ListView_MFCList.SelectedItems
+			ListView_MFCList.Items.Remove(item)
+			currentStep.MFCs.removeMFC(item.Text)
+		Next
+
+#If DEBUG Then
+		FormDebug.RichTextBox1.Text = recipe.xmlRecipe.ToString
+#End If
+	End Sub
 #End Region
 
 #End Region
+
+
 End Class

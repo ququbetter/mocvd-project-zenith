@@ -24,11 +24,32 @@
 		listViewStep.SubItems(7).Text = count
 	End Sub
 
-	Public Function addMFC(index As String, setPoint As Double) As StepMFC
+	Public Function addMFC(index As Integer, setPoint As Double) As StepMFC
 		Dim MFC = New StepMFC(index, setPoint)
 		addMFC(MFC)
 		Return MFC
 	End Function
+
+	Public Sub removeMFC(index As Integer)
+		Dim found = False
+
+		For i As Integer = 0 To count - 1
+			If found Then
+				MFCs(i) = MFCs(i + 1)
+			Else
+				If MFCs(i).getIndex = index Then
+					found = True
+					MFCs(i).xmlMFC.Remove()
+					MFCs(i) = MFCs(i + 1)
+				End If
+			End If
+		Next
+
+		If found Then
+			count -= 1
+			listViewStep.SubItems(7).Text = count
+		End If
+	End Sub
 
 	Public Function getMFC(index As Integer) As StepMFC
 		Return MFCs(index)

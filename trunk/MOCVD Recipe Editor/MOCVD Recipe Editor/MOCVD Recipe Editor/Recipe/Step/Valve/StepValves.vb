@@ -24,14 +24,41 @@
 		listViewStep.SubItems(6).Text = count
 	End Sub
 
-	Public Function addValve(index As String, value As Boolean) As StepValve
+	Public Function addValve(index As Integer, value As Boolean) As StepValve
 		Dim valve = New StepValve(index, value)
 		addValve(valve)
 		Return valve
 	End Function
 
+	Public Sub removeValve(index As Integer)
+		Dim found = False
+
+		For i As Integer = 0 To count
+			If found Then
+				valves(i) = valves(i + 1)
+			Else
+				If valves(i).getIndex = index Then
+					found = True
+					valves(i).xmlValve.Remove()
+					valves(i) = valves(i + 1)
+				End If
+			End If
+		Next
+
+		If found Then
+			count -= 1
+			listViewStep.SubItems(6).Text = count
+		End If
+
+	End Sub
+
 	Public Function getValve(index As Integer) As StepValve
-		Return valves(index)
+		For i As Integer = 0 To count - 1
+			If valves(i).getIndex = index Then
+				Return valves(i)
+			End If
+		Next
+		Return Nothing
 	End Function
 
 	Public Function getCount() As Integer

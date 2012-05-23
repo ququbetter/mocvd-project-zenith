@@ -70,7 +70,7 @@ Partial Class FormMain
 		Me.RadioButton_ValveClose = New System.Windows.Forms.RadioButton()
 		Me.RadioButton_ValveOpen = New System.Windows.Forms.RadioButton()
 		Me.LabelValveIndex = New System.Windows.Forms.Label()
-		Me.NumericUpDownValveIndex = New System.Windows.Forms.NumericUpDown()
+		Me.NumericUpDown_ValveIndex = New System.Windows.Forms.NumericUpDown()
 		Me.GroupBoxTiming = New System.Windows.Forms.GroupBox()
 		Me.ComboBox_Ramp = New System.Windows.Forms.ComboBox()
 		Me.ListView_Steps = New System.Windows.Forms.ListView()
@@ -180,7 +180,7 @@ Partial Class FormMain
 		CType(Me.NumericUpDown_Time, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBoxValves.SuspendLayout()
 		Me.ContextMenuStrip_ValveList.SuspendLayout()
-		CType(Me.NumericUpDownValveIndex, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.NumericUpDown_ValveIndex, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBoxTiming.SuspendLayout()
 		Me.GroupBox_MFCs.SuspendLayout()
 		CType(Me.NumericUpDown_MFCSetPoint, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -441,7 +441,7 @@ Partial Class FormMain
 		Me.GroupBoxValves.Controls.Add(Me.RadioButton_ValveClose)
 		Me.GroupBoxValves.Controls.Add(Me.RadioButton_ValveOpen)
 		Me.GroupBoxValves.Controls.Add(Me.LabelValveIndex)
-		Me.GroupBoxValves.Controls.Add(Me.NumericUpDownValveIndex)
+		Me.GroupBoxValves.Controls.Add(Me.NumericUpDown_ValveIndex)
 		Me.GroupBoxValves.Location = New System.Drawing.Point(835, 27)
 		Me.GroupBoxValves.Name = "GroupBoxValves"
 		Me.GroupBoxValves.Size = New System.Drawing.Size(141, 202)
@@ -535,15 +535,15 @@ Partial Class FormMain
 		Me.LabelValveIndex.TabIndex = 17
 		Me.LabelValveIndex.Text = "Index:"
 		'
-		'NumericUpDownValveIndex
+		'NumericUpDown_ValveIndex
 		'
-		Me.NumericUpDownValveIndex.Location = New System.Drawing.Point(19, 39)
-		Me.NumericUpDownValveIndex.Maximum = New Decimal(New Integer() {128, 0, 0, 0})
-		Me.NumericUpDownValveIndex.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-		Me.NumericUpDownValveIndex.Name = "NumericUpDownValveIndex"
-		Me.NumericUpDownValveIndex.Size = New System.Drawing.Size(48, 20)
-		Me.NumericUpDownValveIndex.TabIndex = 16
-		Me.NumericUpDownValveIndex.Value = New Decimal(New Integer() {1, 0, 0, 0})
+		Me.NumericUpDown_ValveIndex.Location = New System.Drawing.Point(19, 39)
+		Me.NumericUpDown_ValveIndex.Maximum = New Decimal(New Integer() {128, 0, 0, 0})
+		Me.NumericUpDown_ValveIndex.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+		Me.NumericUpDown_ValveIndex.Name = "NumericUpDown_ValveIndex"
+		Me.NumericUpDown_ValveIndex.Size = New System.Drawing.Size(48, 20)
+		Me.NumericUpDown_ValveIndex.TabIndex = 16
+		Me.NumericUpDown_ValveIndex.Value = New Decimal(New Integer() {1, 0, 0, 0})
 		'
 		'GroupBoxTiming
 		'
@@ -1312,7 +1312,7 @@ Partial Class FormMain
 		'
 		Me.ContextMenuStrip_MFCList.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTextBox1, Me.RemoveItemsToolStripMenuItem1})
 		Me.ContextMenuStrip_MFCList.Name = "ContextMenuStrip_MFCList"
-		Me.ContextMenuStrip_MFCList.Size = New System.Drawing.Size(218, 51)
+		Me.ContextMenuStrip_MFCList.Size = New System.Drawing.Size(218, 73)
 		'
 		'RemoveItemsToolStripMenuItem1
 		'
@@ -1351,7 +1351,7 @@ Partial Class FormMain
 		Me.GroupBoxValves.ResumeLayout(False)
 		Me.GroupBoxValves.PerformLayout()
 		Me.ContextMenuStrip_ValveList.ResumeLayout(False)
-		CType(Me.NumericUpDownValveIndex, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.NumericUpDown_ValveIndex, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBoxTiming.ResumeLayout(False)
 		Me.GroupBoxTiming.PerformLayout()
 		Me.GroupBox_MFCs.ResumeLayout(False)
@@ -1406,7 +1406,7 @@ Partial Class FormMain
 	Friend WithEvents Button_AddStep As System.Windows.Forms.Button
 	Friend WithEvents GroupBoxValves As System.Windows.Forms.GroupBox
 	Friend WithEvents GroupBoxTiming As System.Windows.Forms.GroupBox
-	Friend WithEvents NumericUpDownValveIndex As System.Windows.Forms.NumericUpDown
+	Friend WithEvents NumericUpDown_ValveIndex As System.Windows.Forms.NumericUpDown
 	Friend WithEvents RadioButton_ValveClose As System.Windows.Forms.RadioButton
 	Friend WithEvents RadioButton_ValveOpen As System.Windows.Forms.RadioButton
 	Friend WithEvents LabelValveIndex As System.Windows.Forms.Label
