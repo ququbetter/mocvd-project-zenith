@@ -21,7 +21,7 @@
 		recipeRoutine.setIndex(count)
 		routines(count) = recipeRoutine
 		xmlRoutines.Add(recipeRoutine.xmlRoutine)
-		FormMain.currentRoutine = recipeRoutine
+		FormRecipeEditor.currentRoutine = recipeRoutine
 		count += 1
 
 	End Sub
