@@ -97,17 +97,29 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\DialogOptions.Designer.vb">
+      <DependentUpon>DialogOptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DialogOptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FormDebug.Designer.vb">
       <DependentUpon>FormDebug.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormDebug.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormMain.vb">
+    <Compile Include="Forms\FormRecipeEditor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRecipeEditor.Designer.vb">
+      <DependentUpon>FormRecipeEditor.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormMain.Designer.vb">
       <DependentUpon>FormMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormXMLViewer.Designer.vb">
@@ -142,12 +154,18 @@
     <Compile Include="Recipe\Step\Valve\StepValves.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\DialogOptions.resx">
+      <DependentUpon>DialogOptions.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormDebug.resx">
       <DependentUpon>FormDebug.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRecipeEditor.resx">
+      <DependentUpon>FormRecipeEditor.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormXMLViewer.resx">
       <DependentUpon>FormXMLViewer.vb</DependentUpon>

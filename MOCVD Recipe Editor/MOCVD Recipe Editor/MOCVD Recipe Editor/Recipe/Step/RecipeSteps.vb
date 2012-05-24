@@ -24,7 +24,7 @@
 		xmlSteps.Add(recipeStep.xmlStep)
 		count += 1
 
-		FormMain.currentStep = recipeStep
+		FormRecipeEditor.currentStep = recipeStep
 	End Sub
 
 	Public Function getStep(index As Integer) As RecipeStep
