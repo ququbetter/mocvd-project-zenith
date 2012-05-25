@@ -90,7 +90,7 @@
 								.c  {cursor:hand}
 								.b  {color:red; font-family:'Courier New'; font-weight:bold;
 										 text-decoration:none}
-								.e  {margin-left:2em; text-indent:-1em; margin-right:1em}
+								.e  {margin-left:2em; text-indent:-1em; margin-right:0em}
 								.k  {margin-left:1em; text-indent:-1em; margin-right:1em}
 								.t  {color:#990000}
 								.xt {color:#990099}

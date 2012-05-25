@@ -119,7 +119,13 @@ Public Class FormRecipeEditor
 #End Region
 
 #Region "File"
+	Public Sub saveRecipe(fileName As String)
 
+	End Sub
+
+	Public Sub loadRecipe(fileName As String)
+
+	End Sub
 #End Region
 
 #Region "Menu"
